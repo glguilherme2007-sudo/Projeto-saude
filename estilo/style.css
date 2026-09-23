@@ -31,7 +31,7 @@ header nav{
 header nav a{
     text-decoration: none;
     color: #008EA4;
-    background-color: #F6F6F6;
+    background-color: #e2e2e2;
     backdrop-filter: blur(8px);
     padding: 0.6rem 1.4rem;
     border-radius: 30px;
