@@ -1,0 +1,23 @@
+@media screen and (min-width: 992px){
+
+    body{
+        background: url(../img/fundo01.jpg);
+    }
+
+    section#prin{
+        width: 940px;
+    }
+
+    section#prin > div#imagem{
+        float: right;
+        width: 50%;
+        height: 100%;
+    }
+
+    section#prin > div#hero{
+        float: left;
+        width: 50%;
+    }
+
+    div#
+} 

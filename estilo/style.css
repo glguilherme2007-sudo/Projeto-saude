@@ -7,8 +7,24 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#burguer{
+    display: none;
+}
+
+nav#itens{
+    display: block;
+    position: static;
+    box-shadow: none;
+}
+
+
+nav#itens a{
+    display: inline-block;
+    
+}
+
 header{ 
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -72,7 +88,7 @@ main{
     box-sizing: border-box;
 }
 
-.hero{
+#hero{
     background: rgba(255, 255, 255, 0.699);
     backdrop-filter: blur(12px);
     max-width: 480px;
@@ -87,7 +103,7 @@ main{
 
 }
 
-.hero h2{
+#hero h2{
     font-size: 2.2rem;
     color: #14394F;
     line-height: 1.2;
@@ -95,7 +111,7 @@ main{
 
 }
 
-.hero p{
+#hero p{
     color: #465D6F;
     font-size: 0.95rem;
     line-height: 1.5;
