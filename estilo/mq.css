@@ -9,12 +9,14 @@
 
     section#prin{
     width: 100%;
-    height: auto;
-    padding: 20px 0;
+    position: relative;
+    min-height:100vh ;
     }
 
     section#prin > div#hero{
     width: 90%;
+    position: relative;
+    top: 170px;
     margin: 0 auto;
     }
 
