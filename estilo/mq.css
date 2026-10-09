@@ -2,8 +2,19 @@
 
 @media screen and (max-width: 600px){
 
+    header{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: #007d8a;
+        position: relative;
+        z-index: 1000;
+    }
+
     body{
-    background: url(../img/fundo-cell.jpg);
+   
 
     }
 
@@ -11,6 +22,7 @@
     width: 100%;
     position: relative;
     min-height:100vh ;
+     background: url(../img/fundocell.jpg);
     }
 
     section#prin > div#hero{
@@ -40,15 +52,19 @@
         left: 0;
         width: 100%;
         background-color: #ffffff;
+        border-radius: 0;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
         z-index: 999;
     }
 
     nav#itens a{
         display: block;
-        padding: 12px;
+        padding: 12px 20px;
         text-align: center;
         border-bottom: 1px solid #eee;
+        border-radius: 0;
+        background-color: transparent;
+        text-decoration: none;
     }
 }
 
