@@ -20,16 +20,21 @@
 
     section#prin{
     width: 100%;
-    position: relative;
-    min-height:100vh ;
-     background: url(../img/fundocell.jpg);
+    min-height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background: url(../img/fundocell.jpg);
     }
 
     section#prin > div#hero{
     width: 90%;
+    max-width: 400px;
+    margin: 0 auto ;
+    top: 0 ;
     position: relative;
-    top: 170px;
-    margin: 0 auto;
+    padding: 2rem 1.5rem;
     }
 
     #hero a.btnp, #hero a.btns{
