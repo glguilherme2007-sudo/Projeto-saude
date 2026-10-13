@@ -1,0 +1,88 @@
+<!--aqui eu informo o tipo de documento que estou usando-->
+<!DOCTYPE html>
+
+<!--aqui seleciono o idioma-->
+<html lang="pt-BR">
+
+
+<!--aqui é aonde todo conteudo que não é pra aparecer na pagina fica-->
+<head>
+
+    <!--aqui é para fazer a interpretação correta dos caractéres-->
+    <meta charset="UTF-8">
+
+    <!--aqui é o que ajusta a pagina conforme a tela que estara se utilizando para vizualizar a pagina-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- aqui damos um titulo para pagina-->
+    <title>Tela de Login</title>
+
+    <!--aqui esta o meu link que vai ligar o html com o  css-->
+    <link rel="stylesheet" href="estilo/style.css">
+</head>
+
+    <!--aqui é a abertura de onde vou colocar o conteudo principal da pagina-->
+<body>
+
+    <!--conteudo principal da pagina e dei uma class para utilizar no css-->
+    <main class="login-container">
+
+        <!--representa a caixa de login tb dei uma class-->
+        <section class="login-box">
+
+            <!--meu titulo-->
+            <h1>Login</h1>
+
+            <!--paragrafo com uma mensagem que vai aparecer em baixo do login-->
+            <p class="subtitulo">
+                Acesse sua conta
+            </p>
+
+            <!--aqui é a representação de que é um formulario que sera preenchido e enviado par algum lugar-->
+            <form>
+
+                <!--criei a div com class criando a caixa para colocar elementos dentro dela-->
+                <div class="campo">
+                    <!--aqui fica o nome login-->
+                    <label for="login">Login</label>
+
+                    <!--aqui fica a caixa com o dizer digite seu login-->
+                    <input
+                        type="text"
+                        id="login"
+                        name="login"
+                        placeholder="Digite seu login"
+                    >
+                </div>
+
+                <!-- aqui é parecido com o de cima so que com senha-->
+                <div class="campo">
+                    <label for="senha">Senha</label>
+
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Digite sua senha"
+                    >
+                </div>
+
+                <!--aqui criei o botão para enviar o formulario depois de preenchido-->
+                <button type="submit" class="btn-enviar">
+                    Enviar
+                </button>
+
+                <!--aqui um link que quando selecionado a pagina vai encaminhar para a tela 1 do projeto que é a tela de cadastro-->
+                <a href="cadastro.html" class="btn-cadastro">
+                    Cadastrar Novo Usuário
+                </a>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
