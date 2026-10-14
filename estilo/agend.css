@@ -58,7 +58,8 @@ h2{
 
 .optiong{
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .optnc{
@@ -78,11 +79,13 @@ h2{
 }
 
 .optnc.selected{
+    flex: 1.5;
     border-color: #1a365d;
     background-color: #f8fafc;
+    box-shadow:0 4px 12px rgba(0, 0, 0, 0.1) ;
 }
 
-.optnc .icon{
+.optnc.icon{
     font-size: 32px;
     margin-bottom: 10px;
 }
@@ -96,4 +99,8 @@ h2{
 .optnc small{
     color: #64748b;
     font-size: 12px;
+}
+
+#step-2{
+    display: none;
 }
