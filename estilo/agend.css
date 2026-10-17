@@ -104,3 +104,28 @@ h2{
 #step-2{
     display: none;
 }
+
+#step-3{
+    display: none;
+}
+
+#step-4{
+    display: none;
+}
+
+button{
+    display: block;
+    margin:25px auto 0 auto;
+
+ 
+    background-color: #14394F;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.85rem 1.6rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+
+    
+}

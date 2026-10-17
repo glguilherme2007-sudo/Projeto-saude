@@ -13,10 +13,10 @@
                <h2>Agendamento de consulta - Idade+</h2>
 
                <nav class="snav" aria-label="Progresso do agendamento">
-                    <div class="indic">Passo 1: Quem vai?</div>
-                    <div class="indic">Passo 2: Especialidades </div>
-                    <div class="indic">Passo 3: Modo </div>
-                    <div class="indic">Passo 4: Data e Horario </div>
+                <div class="indicator1">Passo 1: Quem vai?</div>
+                <div class="indicator2">Passo 2: Especialidades </div>
+                <div class="indicator3">Passo 3: Modo </div>
+                <div class="indicator4">Passo 4: Data e Horario </div>
                </nav>
             </div>
         </header>
@@ -27,13 +27,13 @@
                 <h3 class="stittle">Passo 1: Quem vai?</h3>
     
                 <div class="optiong">
-                    <div class="optnc" onclick="selectOpyion(mim)">
+                    <div class="optnc" onclick="selectPerson(event,'me')">
                         <div class="icon">👤</div>
                         <span>para mim</span>
                     </div>
     
                     <div>
-                        <div class="optnc" onclick="selectOpyion(outro)">
+                        <div class="optnc" onclick="selectPerson(event,'other')">
                         <div class="icon">👥</div>
                         <span>para outra pessoa</span>
                         <small>(filho,neto....)</small>
@@ -45,24 +45,50 @@
                 <h3 class="steptitle">Passo 2: Especialidades</h3>
 
                 <div class="optiong">
-                    <div class="optnc" onclick="selectSpeciality('Cardiologia')">
+                    <div class="optnc" onclick="selectedSpecialty(event,'Cardiologia')">
                         <div class="icon">❤️</div>
                         <span>Cardiologia</span>
                     </div>
 
-                    <div class="optnc" onclick="selectSpeciality('Geriatria')">
+                    <div class="optnc" onclick="selectedSpecialty(event,'Geriatria')">
                         <div class="icon">🩺</div>
                         <span>Geriatria</span>
                     </div>
 
-                    <div class="optnc" onclick="selectSpeciality('Clinico Geral')">
+                    <div class="optnc" onclick="selectedSpecialty(event,'Clinico Geral')">
                         <div class="icon">👨‍⚕️</div>
                         <span>Clinico Geral</span>
                     </div>
                 </div>
             </section>
 
+            <section id="step-3" >
+                 <h3 class="steptitle">Passo 3: Especialidades</h3>
 
+                 <div class="optnc" onclick="selectMode(event, 'Presencial')">
+                    <span>Presencial</span>
+                 </div>
+
+                 <div class="optnc" onclick="selectMode(event, 'Online')">
+                    <span>Online</span>
+                 </div>
+            </section>
+
+            <section id="step-4">
+                <h3>Passo 4: Data e Horario</h3>
+
+                <div class="optnc">
+                    <label for="data-consulta">Selecione a data:</label>
+                    <input type="date" id="data-consulta">
+                </div>
+
+                <div class="optnc">
+                    <label for="data-consulta">Selecione o Horario</label>
+                    <input type="time" id="hora-consulta">
+                </div>
+
+                <button type="button" class="btn-confirm" onclick="finalizarAgendamento()">Confirmar Agendamento</button>
+            </section>
 
         </main>
 
