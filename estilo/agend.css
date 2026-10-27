@@ -1,13 +1,32 @@
 @charset "UTF-8";
 
 
+html, body{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 body{
     font-family: Arial, Helvetica, sans-serif;
     background: url(../img/fundo.jpg);
     margin: 0;
     padding: 20px;
     color: #333;
+
+   
 }
+
+main{
+    width: 90%;
+    max-width: 750px;
+    padding: 30px 25px;
+    gap: 30px;
+    margin: 0 auto;
+}
+
 
 .ctn{
     max-width: 800px;
@@ -129,3 +148,6 @@ button{
 
     
 }
+
+main{
+    

@@ -13,7 +13,7 @@
 </head>
 
 <body onresize="mudoutamanho()">
-    <header>
+    <header class="reveal delay-1">
         <h1><img src="img/1790173992652.png " alt=""></h1>
        <i id="burguer" class="material-symbols-outlined" onclick="clickmenu()">menu</i> 
         <nav id="itens">
@@ -29,7 +29,7 @@
     <section id="prin" id="topo">
     <div id="imagem"></div>    
 
-      <div id="hero">
+      <div id="hero" class="reveal delay-2">
         <span class="bdg"><i class="material-symbols-outlined">stethoscope</i>Cuidado e Maturidade </span>
         <h2>Sua saude em primeiro lugar</h2>
         <p>Agende sua consulta de forma rapida e pratica.</p>
@@ -78,36 +78,13 @@
         <div class="voltar-topo">
             <a href="#prin" class="btn-topo">↑ Voltar ao topo</a>
         </div>
-
-       
       </div>
     </section>
-
-
-
-
     </main> 
-
-<script>
+<script src="inicio.js"></script>
     
-    let items = document.getElementById('itens');
+   
 
-    function mudoutamanho(){
-        if(window.innerWidth >= 768){
-            itens.style.display = 'block';
-        } else{
-            itens.style.display = 'none';
-        }    
-    }
-
-    function clickmenu(){
-        if(itens.style.display == 'block'){
-            itens.style.display = 'none';
-        } else{
-            itens.style.display = 'block';
-        }
-    }
-</script>
 
 
 
