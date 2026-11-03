@@ -1,0 +1,7 @@
+<svg width="150" height="40" viewBox="0 0 150 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Símbolo: Coração com Batimento -->
+  <path d="M11 5C6.02944 5 2 9.02944 2 14C2 21.0117 8.56846 27.5132 16.5161 34.6146L20 37.6627L23.4839 34.6146C31.4315 27.5132 38 21.0117 38 14C38 9.02944 33.9706 5 29 5C26.1735 5 23.6307 6.30564 22 8.35639C20.3693 6.30564 17.8265 5 15 5H11ZM20 20L15.5 15.5H11L14 11H18.5L20 12.5L21.5 11H26L29 15.5H24.5L20 20Z" fill="#14394F" />
+  
+  <!-- Texto: idade+ -->
+  <text x="48" y="28" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="22" fill="#14394F">idade<tspan fill="#008EA4">+</tspan></text>
+</svg>
