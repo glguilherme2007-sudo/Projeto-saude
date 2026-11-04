@@ -1,101 +1,161 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Agendamento de consulta - Idade+</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="estilo/agend.css">
 </head>
 <body>
-    <div class="ctn">
-        <header>
-            <div class="bt">
-               <h2>Agendamento de consulta - Idade+</h2>
 
-               <nav class="snav" aria-label="Progresso do agendamento">
-                <div class="indicator1">Passo 1: Quem vai?</div>
-                <div class="indicator2">Passo 2: Especialidades </div>
-                <div class="indicator3">Passo 3: Modo </div>
-                <div class="indicator4">Passo 4: Data e Horario </div>
-               </nav>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a href="index.html" class="brand">
+                <span class="brand-logo">I+</span>
+                <span class="brand-text">
+                    <strong>Idade+</strong>
+                    <small>Saúde &amp; Bem-estar</small>
+                </span>
+            </a>
+
+            <a href="contato.html" class="support">
+                <i class="fa-solid fa-headset"></i> Suporte
+            </a>
+        </div>
+    </header>
+
+    <main class="page">
+        <section class="card">
+
+            <div class="card-head">
+                <h1>Agendamento de consulta</h1>
+                <p>Siga os passos abaixo para agendar sua consulta rapidamente.</p>
             </div>
-        </header>
 
-        <main>
-            <section id="step-1" class="stepctt">
-    
-                <h3 class="stittle">Passo 1: Quem vai?</h3>
-    
-                <div class="optiong">
-                    <div class="optnc" onclick="selectPerson(event,'me')">
-                        <div class="icon">👤</div>
-                        <span>para mim</span>
+            <!-- Barra de progresso -->
+            <ol class="stepper" id="stepper" aria-label="Progresso do agendamento">
+                <li class="step" data-step="1"><span class="step-circle">1</span><span class="step-label">Quem vai?</span></li>
+                <li class="step" data-step="2"><span class="step-circle">2</span><span class="step-label">Especialidades</span></li>
+                <li class="step" data-step="3"><span class="step-circle">3</span><span class="step-label">Modo</span></li>
+                <li class="step" data-step="4"><span class="step-circle">4</span><span class="step-label">Data e Horário</span></li>
+            </ol>
+
+            <!-- PASSO 1 -->
+            <section class="panel" id="step-1" data-step="1">
+                <span class="badge">Passo 1 de 4</span>
+                <h2>Para quem é este agendamento?</h2>
+                <p class="panel-sub">Selecione o paciente que passará por atendimento médico.</p>
+
+                <div class="options">
+                    <button type="button" class="option" data-value="me">
+                        <span class="check"><i class="fa-solid fa-check"></i></span>
+                        <span class="option-icon"><i class="fa-solid fa-user"></i></span>
+                        <span class="option-title">Para mim</span>
+                        <span class="option-desc">A consulta médica é destinada para mim mesmo(a).</span>
+                    </button>
+
+                    <button type="button" class="option" data-value="other">
+                        <span class="check"><i class="fa-solid fa-check"></i></span>
+                        <span class="option-icon"><i class="fa-solid fa-users"></i></span>
+                        <span class="option-title">Para outra pessoa</span>
+                        <span class="option-desc">Filhos, pais, dependentes ou outros parentes.</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- PASSO 2 -->
+            <section class="panel" id="step-2" data-step="2" hidden>
+                <span class="badge">Passo 2 de 4</span>
+                <h2>Qual especialidade você precisa?</h2>
+                <p class="panel-sub">Escolha a área médica da consulta.</p>
+
+                <div class="options">
+                    <button type="button" class="option" data-value="Cardiologia">
+                        <span class="check"><i class="fa-solid fa-check"></i></span>
+                        <span class="option-icon"><i class="fa-solid fa-heart-pulse"></i></span>
+                        <span class="option-title">Cardiologia</span>
+                        <span class="option-desc">Cuidados com o coração e a circulação.</span>
+                    </button>
+
+                    <button type="button" class="option" data-value="Geriatria">
+                        <span class="check"><i class="fa-solid fa-check"></i></span>
+                        <span class="option-icon"><i class="fa-solid fa-stethoscope"></i></span>
+                        <span class="option-title">Geriatria</span>
+                        <span class="option-desc">Saúde e qualidade de vida na terceira idade.</span>
+                    </button>
+
+                    <button type="button" class="option" data-value="Clínico Geral">
+                        <span class="check"><i class="fa-solid fa-check"></i></span>
+                        <span class="option-icon"><i class="fa-solid fa-user-doctor"></i></span>
+                        <span class="option-title">Clínico Geral</span>
+                        <span class="option-desc">Avaliação geral e acompanhamento de rotina.</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- PASSO 3 -->
+            <section class="panel" id="step-3" data-step="3" hidden>
+                <span class="badge">Passo 3 de 4</span>
+                <h2>Como será o atendimento?</h2>
+                <p class="panel-sub">Escolha entre consulta presencial ou online.</p>
+
+                <div class="options">
+                    <button type="button" class="option" data-value="Presencial">
+                        <span class="check"><i class="fa-solid fa-check"></i></span>
+                        <span class="option-icon"><i class="fa-solid fa-hospital"></i></span>
+                        <span class="option-title">Presencial</span>
+                        <span class="option-desc">Atendimento na clínica.</span>
+                    </button>
+
+                    <button type="button" class="option" data-value="Online">
+                        <span class="check"><i class="fa-solid fa-check"></i></span>
+                        <span class="option-icon"><i class="fa-solid fa-video"></i></span>
+                        <span class="option-title">Online</span>
+                        <span class="option-desc">Videochamada, direto de casa.</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- PASSO 4 -->
+            <section class="panel" id="step-4" data-step="4" hidden>
+                <span class="badge">Passo 4 de 4</span>
+                <h2>Quando você prefere?</h2>
+                <p class="panel-sub">Selecione a data e o horário da consulta.</p>
+
+                <div class="fields">
+                    <div class="field">
+                        <label for="data-consulta">Data</label>
+                        <input type="date" id="data-consulta">
                     </div>
-    
-                    <div>
-                        <div class="optnc" onclick="selectPerson(event,'other')">
-                        <div class="icon">👥</div>
-                        <span>para outra pessoa</span>
-                        <small>(filho,neto....)</small>
+
+                    <div class="field">
+                        <label for="hora-consulta">Horário</label>
+                        <input type="time" id="hora-consulta">
                     </div>
                 </div>
             </section>
 
-            <section id="step-2" class="stepctt">
-                <h3 class="steptitle">Passo 2: Especialidades</h3>
+            <p class="error" id="erro" role="alert" hidden></p>
 
-                <div class="optiong">
-                    <div class="optnc" onclick="selectedSpecialty(event,'Cardiologia')">
-                        <div class="icon">❤️</div>
-                        <span>Cardiologia</span>
-                    </div>
+            <!-- Rodapé do cartão -->
+            <div class="card-foot">
+                <button type="button" class="btn-back" id="btn-voltar">
+                    <i class="fa-solid fa-arrow-left"></i> Voltar
+                </button>
 
-                    <div class="optnc" onclick="selectedSpecialty(event,'Geriatria')">
-                        <div class="icon">🩺</div>
-                        <span>Geriatria</span>
-                    </div>
+                <button type="button" class="btn-next" id="btn-avancar">
+                    Avançar <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
 
-                    <div class="optnc" onclick="selectedSpecialty(event,'Clinico Geral')">
-                        <div class="icon">👨‍⚕️</div>
-                        <span>Clinico Geral</span>
-                    </div>
-                </div>
-            </section>
-
-            <section id="step-3" >
-                 <h3 class="steptitle">Passo 3: Especialidades</h3>
-
-                 <div class="optnc" onclick="selectMode(event, 'Presencial')">
-                    <span>Presencial</span>
-                 </div>
-
-                 <div class="optnc" onclick="selectMode(event, 'Online')">
-                    <span>Online</span>
-                 </div>
-            </section>
-
-            <section id="step-4">
-                <h3>Passo 4: Data e Horario</h3>
-
-                <div class="optnc">
-                    <label for="data-consulta">Selecione a data:</label>
-                    <input type="date" id="data-consulta">
-                </div>
-
-                <div class="optnc">
-                    <label for="data-consulta">Selecione o Horario</label>
-                    <input type="time" id="hora-consulta">
-                </div>
-
-                <button type="button" class="btn-confirm" onclick="finalizarAgendamento()">Confirmar Agendamento</button>
-            </section>
-
-        </main>
-
-        <footer>
-
-        </footer>
-    </div>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
