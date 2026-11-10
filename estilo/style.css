@@ -4,6 +4,9 @@ html {
     scroll-behavior: smooth;
 }
 
+:root{
+    --stats-h: 120px;
+}
  
 * {
     box-sizing: border-box;
@@ -138,13 +141,13 @@ main {
 
 #prin {
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - var(--stats-h));
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding-left: 3rem;
+    padding-top: 70px;
 
-    
     background: linear-gradient(rgba(15, 30, 60, 0.45), rgba(15, 30, 60, 0.45)), url('../img/fundo01.jpg');
     background-size: cover;
     background-position: center;
@@ -220,6 +223,44 @@ main {
     padding: 0.6rem 1.2rem;
     border-radius: 30px;
     transition: all 0.2s ease;
+}
+
+#stats{
+    width: 100%;
+    height: var(--stats-h);
+    background-color: #0b84d8;
+    color: #ffffff;
+    padding: 0px 4%;
+    display: flex;
+    align-items: center;
+}
+
+.stats-container{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    text-align: center;
+}
+
+.stat-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-item strong{
+    font-size: 2.2em;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.stat-item span{
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0,95;
 }
 
 
@@ -328,6 +369,126 @@ main {
 .card-link:hover {
     color: #14394F;
 }
+
+#planos{
+    width: 100%;
+    background-color: #ffffff;
+    padding: 80px 4%;
+    text-align: center;
+    scroll-margin-top: 70px;
+}
+
+.plan-eyebrow{
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #0b84d8;
+    margin-bottom: 12px;
+}
+
+#planos h3{
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #151f38;
+    margin-bottom: 16px;
+}
+
+.plan-sub{
+    max-width: 640px;
+    margin: 0 auto 70px;
+    color: #64748b;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+#plan-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1150px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.plan{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 32px;
+    border-radius: 20px;
+    background: #ffffff;
+}
+
+.plan h4{
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #151f38;
+    margin-bottom: 8px;
+}
+
+.plan-desc{
+    font-size: 0.85rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    min-height: 40px;
+}
+
+.plan-price{
+    font-size: 2.4em;
+    font-weight: 800;
+    color: #151f38;
+    margin: 28px 0 24px;
+}
+
+.plan-price small{
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #94a3b8;
+}
+
+.plan-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 32px;
+    min-height: 170px;
+}
+
+.plan-list li{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.4;
+}
+
+.plan-list .material-symbols-outlined{
+    font-size: 18px;
+    color: #0b84d8;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.plan-list li.off{
+    color: #cbd5e1;
+}
+
+.plan-list li.off .material-symbols-outlined{
+    font-size: 18px;
+    color: #0b84d8;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.plan-list li.off{
+    color: #cbd5e1;
+}
+
 
 .voltar-topo {
     text-align: center;

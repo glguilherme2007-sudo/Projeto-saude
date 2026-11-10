@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="estilo/agend.css">
+    <link rel="stylesheet" href="estilo/mq.css">
 </head>
 <body>
 
@@ -38,7 +39,7 @@
                 <p>Siga os passos abaixo para agendar sua consulta rapidamente.</p>
             </div>
 
-            <!-- Barra de progresso -->
+            
             <ol class="stepper" id="stepper" aria-label="Progresso do agendamento">
                 <li class="step" data-step="1"><span class="step-circle">1</span><span class="step-label">Quem vai?</span></li>
                 <li class="step" data-step="2"><span class="step-circle">2</span><span class="step-label">Especialidades</span></li>
@@ -46,7 +47,6 @@
                 <li class="step" data-step="4"><span class="step-circle">4</span><span class="step-label">Data e Horário</span></li>
             </ol>
 
-            <!-- PASSO 1 -->
             <section class="panel" id="step-1" data-step="1">
                 <span class="badge">Passo 1 de 4</span>
                 <h2>Para quem é este agendamento?</h2>
@@ -70,7 +70,7 @@
                 </div>
             </section>
 
-            <!-- PASSO 2 -->
+       
             <section class="panel" id="step-2" data-step="2" hidden>
                 <span class="badge">Passo 2 de 4</span>
                 <h2>Qual especialidade você precisa?</h2>
@@ -100,7 +100,7 @@
                 </div>
             </section>
 
-            <!-- PASSO 3 -->
+            
             <section class="panel" id="step-3" data-step="3" hidden>
                 <span class="badge">Passo 3 de 4</span>
                 <h2>Como será o atendimento?</h2>
@@ -123,7 +123,7 @@
                 </div>
             </section>
 
-            <!-- PASSO 4 -->
+            
             <section class="panel" id="step-4" data-step="4" hidden>
                 <span class="badge">Passo 4 de 4</span>
                 <h2>Quando você prefere?</h2>
@@ -144,7 +144,7 @@
 
             <p class="error" id="erro" role="alert" hidden></p>
 
-            <!-- Rodapé do cartão -->
+            
             <div class="card-foot">
                 <button type="button" class="btn-back" id="btn-voltar">
                     <i class="fa-solid fa-arrow-left"></i> Voltar
