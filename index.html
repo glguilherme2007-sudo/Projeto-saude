@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Yesteryear&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="estilo/style.css">
     <link rel="stylesheet" href="estilo/mq.css">
 </head>
@@ -21,8 +22,8 @@
         <nav id="itens">
             <a href="index.html"class="link-nav" >Inicio</a>
             <a href="#" target="_blank"class="link-nav" >Serviços</a>
-            <a href="#" target="_blank" class="link-nav">Planos</a>
-            <a href="#" class="link-nav">Contato</a>
+            <a href="#planos" class="link-nav">Planos</a>
+            <a href="#contato" class="link-nav">Contato</a>
         </nav>
 
         <div class="header-action">
@@ -77,71 +78,82 @@
     </section>
 
     <section id="sbm">
-        <span>Especialidades & Atendimento</span>
+    <span class="sbm-eyebrow">Especialidades & Atendimento</span>
     <h3>Cuidados Especializados para Cada Necessidade</h3>
-    <p>Nossa estrutura é preparada para oferecer acompanhamento humanizado, seguro e focado na longevidade com qualidade de vida.</p>
+    <p class="sbm-sub">Nossa estrutura é preparada para oferecer acompanhamento humanizado, seguro e focado na longevidade com qualidade de vida.</p>
 
     <div id="cardc">
-        
-        <div class="card">
+
+        <div class="card" tabindex="0" role="button"
+             data-icone="accessibility_new"
+             data-titulo="Prevenção de Quedas & Mobilidade"
+             data-texto="Programa completo focado no fortalecimento muscular, equilíbrio dinâmico e revisão dos ambientes da residência para eliminar riscos de tropeço. Inclui plano de exercícios individualizado.">
             <div class="card-img-top">
-               <img src="img/quedas-em-idosos-como-prevenir-scaled.webp" alt="">
-                <div class="card-badge card-badge1" style="background-color: #0088ff;" >
+                <img src="img/quedas-em-idosos-como-prevenir-scaled.webp" alt="">
+                <div class="card-badge">
                     <span class="material-symbols-outlined">accessibility_new</span>
                 </div>
             </div>
             <div class="cardif">
-                
-                <h4>PREVENÇÃO DE QUEDAS &amp; MOBILIDADE:</h4>
-                <p>Avaliação postural, fortalecimento muscular e orientação para adaptação da casa para evitar acidentes domésticos.</p>
-                <a href="#" class="card-link">Saiba mais &rsaquo;</a>
+                <h4>Prevenção de Quedas & Mobilidade</h4>
+                <p>Avaliação postural, fortalecimento muscular e orientação para adaptação da casa a fim de evitar acidentes domésticos e preservar autonomia.</p>
+                <span class="card-link">Saiba mais ›</span>
             </div>
         </div>
-       
-        <div class="card">
+
+        <div class="card" tabindex="0" role="button"
+             data-icone="orthopedics"
+             data-titulo="Osteoporose & Osteopenia"
+             data-texto="Tratamento integrativo com endocrinologistas e ortopedistas. Acompanhamento com densitometria óssea periódica, suplementação orientada e fisioterapia preventiva.">
             <div class="card-img-top">
                 <img src="img/images.jpg" alt="">
-                <div class="card-badge card-badge2"  style="background-color: #00d2ff;">
-                    <span class="material-symbols-outlined">pets</span>
+                <div class="card-badge">
+                    <span class="material-symbols-outlined">orthopedics</span>
                 </div>
             </div>
-            <div class="cardif ">
-                <h4>OSTEOPOROSE / OSTEOPENIA:</h4>
-                <p>Condições que levam à redução da densidade óssea, aumentando o risco de fraturas, especialmente em idosos.</p>
-                <a href="#" class="card-link">Saiba mais &rsaquo;</a>
+            <div class="cardif">
+                <h4>Osteoporose & Osteopenia</h4>
+                <p>Diagnóstico precoce, acompanhamento de densidade óssea e tratamentos específicos para redução do risco de fraturas em idosos.</p>
+                <span class="card-link">Saiba mais ›</span>
             </div>
         </div>
-   
-        <div class="card">
+
+        <div class="card" tabindex="0" role="button"
+             data-icone="medical_services"
+             data-titulo="Check-up Geriátrico Preventivo"
+             data-texto="Avaliação global do idoso realizada por equipe multidisciplinar. Inclui exames laboratoriais, avaliação cardiológica, ajuste de medicação e diretrizes de hábitos saudáveis.">
             <div class="card-img-top">
                 <img src="img/fVmmvelZp20oLOmFK2XVLVkYp6KlCbiUjg9aUPn1.jpeg" alt="">
-                <div class="card-badge  card-badge3"  style="background-color: #00b0ff;" >
+                <div class="card-badge">
                     <span class="material-symbols-outlined">medical_services</span>
                 </div>
             </div>
             <div class="cardif">
-                <h4>CHECK-UP GERIÁTRICO:</h4>
-                <p>Exames e acompanhamento periódico focado no controle de hipertensão, diabetes e saúde geral.</p>
-                <a href="#" class="card-link">Saiba mais &rsaquo;</a>
+                <h4>Check-up Geriátrico</h4>
+                <p>Exames periódicos e acompanhamento global focado no controle de hipertensão, diabetes, coração e saúde metabólica geral.</p>
+                <span class="card-link">Saiba mais ›</span>
             </div>
         </div>
 
-        
-        <div class="card">
+        <div class="card" tabindex="0" role="button"
+             data-icone="psychology"
+             data-titulo="Estímulo Cognitivo & Memória"
+             data-texto="Sessões individuais ou em pequenos grupos com neuropsicólogos. Utiliza dinâmicas de estimulação cerebral, jogos cognitivos e estratégias para fortalecer a memória do dia a dia.">
             <div class="card-img-top">
                 <img src="img/estimulacaocognitiva-alzheimer-1024x683-1024x683.webp" alt="">
-                <div class="card-badge  card-badge4" style="background-color: #00f2fe;" >
+                <div class="card-badge">
                     <span class="material-symbols-outlined">psychology</span>
                 </div>
             </div>
             <div class="cardif">
-                <h4>ESTÍMULO COGNITIVO &amp; MEMÓRIA:</h4>
-                <p>Exercícios e acompanhamento médico preventivo para perda de memória e saúde mental.</p>
-                <a href="#" class="card-link">Saiba mais &rsaquo;</a>
+                <h4>Estímulo Cognitivo & Memória</h4>
+                <p>Exercícios lúdicos e acompanhamento neurológico preventivo para preservação de memória, raciocínio e prevenção do declínio cognitivo.</p>
+                <span class="card-link">Saiba mais ›</span>
             </div>
         </div>
+
     </div>
-    </section>   
+</section>   
 
     <section id="planos">
         <span class="plan-eyebrow">Assinaturas & Coberturas</span>
@@ -164,21 +176,117 @@
                 <a href="#" class="plan-btn">Selecionar Plano</a>
             </div>
 
-            <div class="plan">
-                <h4>Plano Familia Total</h4>
-                <p class="plan-desc">Atendimento domiciliar vip e equipe multidisciplinar.</p>
-                <div class="plan-price">R$ 499 <small>mês</small></div>
+            <div class="plan plan-destaque">
+            <span class="plan-tag">Mais recomendado</span>
+            <h4>Plano Cuidados+</h4>
+            <p class="plan-desc">Proteção completa e suporte de saúde contínuo.</p>
+            <div class="plan-price">R$ 289 <small>/mês</small></div>
 
-                <ul>
-                     <li><span class="material-symbols-outlined">check</span>Consultas ilimitadas presenciais/online</li>
-                    <li><span class="material-symbols-outlined">check</span>Visita médica domiciliar mensal inclusa</li>
-                    <li><span class="material-symbols-outlined">check</span>Fisioterapia e Nutrição geriátrica</li>
-                    <li><span class="material-symbols-outlined">check</span>Gerente de saúde dedicado para a família</li>
-                </ul>
-                <a href="#" class="plan-btn">Selecionar Plano</a>
+            <ul class="plan-list">
+                <li><span class="material-symbols-outlined">check</span>2 Consultas presenciais ou online/mês</li>
+                <li><span class="material-symbols-outlined">check</span>Telemedicina 24 horas por dia (Médico na tela)</li>
+                <li><span class="material-symbols-outlined">check</span>Check-up laboratorial completo anual</li>
+                <li><span class="material-symbols-outlined">check</span>Monitoramento de medicamentos via App</li>
+            </ul>
+
+            <a href="#" class="plan-btn plan-btn-azul">Quero este Plano</a>
+        </div>
+            <div class="plan">
+                <h4>Plano Família Total</h4>
+                <p class="plan-desc">Atendimento domiciliar vip e equipe multidisciplinar.</p>
+            <div class="plan-price">R$ 499 <small>/mês</small></div>
+
+            <ul class="plan-list">
+                <li><span class="material-symbols-outlined">check</span>Consultas ilimitadas presenciais/online</li>
+                <li><span class="material-symbols-outlined">check</span>Visita médica domiciliar mensal inclusa</li>
+                <li><span class="material-symbols-outlined">check</span>Fisioterapia e Nutrição geriátrica</li>
+                <li><span class="material-symbols-outlined">check</span>Gerente de saúde dedicado para a família</li>
+            </ul>
+
+            <a href="#" class="plan-btn">Selecionar Plano</a>
+        </div>
             </div>
         </div>
     </section>
+
+    <section id="contato">
+    <div class="contato-container">
+
+        <div class="faq">
+            <span class="contato-eyebrow">Central de Suporte</span>
+            <h3>Perguntas Frequentes</h3>
+            <p class="contato-sub">Tire suas dúvidas mais comuns sobre o atendimento geriátrico e funcionamento dos nossos serviços.</p>
+
+            <details class="faq-item" closed>
+                <summary>Como funciona a consulta agendada para idosos?
+                    <span class="material-symbols-outlined">expand_less</span>
+                </summary>
+                <p>Nossas consultas têm duração estendida (mínimo de 50 minutos) para permitir escuta atenta, avaliação minuciosa dos remédios em uso e acolhimento dos familiares.</p>
+            </details>
+
+            <details class="faq-item" closed>
+                <summary>Vocês atendem em domicílio?
+                    <span class="material-symbols-outlined">expand_less</span>
+                </summary>
+                <p>Sim! Para pacientes com dificuldade de locomoção, disponibilizamos visitas médicas e fisioterapêuticas no conforto do lar através do Plano Família ou agendamento avulso.</p>
+            </details>
+
+            <details class="faq-item" closed>
+                <summary>Aceitam convênios ou planos de saúde?
+                    <span class="material-symbols-outlined">expand_less</span>
+                </summary>
+                <p>Trabalhamos no modelo particular com emissão de nota fiscal para reembolso integral ou parcial junto ao seu convênio médico.</p>
+            </details>
+
+            <details class="faq-item" closed>
+                <summary>Como solicitar auxílio de suporte imediato?
+                    <span class="material-symbols-outlined">expand_less</span>
+                </summary>
+                <p>Assinantes têm acesso ao suporte 24h pelo telefone ou pelo WhatsApp, com orientação médica imediata e encaminhamento quando necessário.</p>
+            </details>
+        </div>
+
+        
+        <div class="contato-form">
+            <h3>Fale Conosco</h3>
+            <p class="contato-sub">Preencha os campos abaixo e entraremos em contato rapidamente.</p>
+
+            <form action="#" method="post">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Ex: Maria Silva" required>
+
+                <div class="form-row">
+                    <div>
+                        <label for="tel">Telefone / WhatsApp</label>
+                        <input type="tel" id="tel" name="tel" placeholder="(21) 99999-8888" required>
+                    </div>
+                    <div>
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="nome@exemplo.com">
+                    </div>
+                </div>
+
+                <label for="msg">Como podemos ajudar?</label>
+                <textarea id="msg" name="msg" rows="4" placeholder="Descreva brevemente o que precisa..."></textarea>
+
+                <button type="submit" class="btn-enviar">
+                    <span class="material-symbols-outlined">send</span> Enviar Mensagem
+                </button>
+            </form>
+
+            <div class="contato-links">
+                <a href="https://wa.me/5511999998888" target="_blank" class="link-whats">
+                    <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+                </a>
+                <a href="tel:08001234567" class="link-tel">
+                    <span class="material-symbols-outlined">call</span> Ligar: 0800 123 4567
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
   </main>
 
 
@@ -221,6 +329,28 @@
         <p>&copy; 2026 idade+ Saúde e Geriatria. Todos os direitos reservados.</p>
     </div>
 </footer>   
+
+
+    <div class="modal-overlay" id="modal-servico">
+        <div class="modal-box">
+            <button class="modal-x" id="modal-x" aria-label="Fechar">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+
+            <span class="material-symbols-outlined modal-icone" id="modal-icone">medical_services</span>
+            <h4 id="modal-titulo"></h4>
+            <p id="modal-texto"></p>
+
+            <div class="modal-acoes">
+                <button class="modal-fechar" id="modal-fechar">Fechar</button>
+                <a href="agendar.html" class="modal-agendar">Agendar Este Serviço</a>
+            </div>
+        </div>
+    </div>
+
 <script src="script/inicio.js"></script>
+
+</body>
+</html>
     
    
