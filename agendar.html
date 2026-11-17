@@ -21,7 +21,7 @@
                 <span class="brand-logo">I+</span>
                 <span class="brand-text">
                     <strong>Idade+</strong>
-                    <small>Saúde &amp; Bem-estar</small>
+                    <small id="sb-nome">Saúde &amp; Bem-estar</small>
                 </span>
             </a>
 
@@ -97,6 +97,14 @@
                         <span class="option-title">Clínico Geral</span>
                         <span class="option-desc">Avaliação geral e acompanhamento de rotina.</span>
                     </button>
+                    
+                    <button type="button" class="option" data-value="Fisioterapia">
+                        <span class="check"><i class="fa-solid fa-check"></i></span>
+                        <span class="option-icon"><i class="fa-solid fa-person-walking"></i></span>
+                        <span class="option-title">Fisioterapia</span>
+                        <span class="option-desc">Reabilitação motora, alívio de dores articulares e mobilidade</span>
+                    </button>
+
                 </div>
             </section>
 
@@ -126,20 +134,19 @@
             
             <section class="panel" id="step-4" data-step="4" hidden>
                 <span class="badge">Passo 4 de 4</span>
-                <h2>Quando você prefere?</h2>
-                <p class="panel-sub">Selecione a data e o horário da consulta.</p>
+                <h2>Escolha o profissional e o horário</h2>
+                <p class="panel-sub">Selecione o médico especialista e o horário disponível na agenda dele.</p>
 
-                <div class="fields">
-                    <div class="field">
-                        <label for="data-consulta">Data</label>
-                        <input type="date" id="data-consulta">
-                    </div>
+               <div id="container-medico" class="options-medicos">
 
-                    <div class="field">
-                        <label for="hora-consulta">Horário</label>
-                        <input type="time" id="hora-consulta">
-                    </div>
+              </div>
+
+              <div id="container-horarios" class="secao-horairos">
+                <h3 class="titulo-horarios">Horários disponíveis:</h3>
+                <div class="options" id="horarios-travados">
+
                 </div>
+              </div>
             </section>
 
             <p class="error" id="erro" role="alert" hidden></p>

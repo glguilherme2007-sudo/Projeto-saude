@@ -408,7 +408,6 @@ main {
     color: #151f38;
 }
 
-/* ---------- Modal ---------- */
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -518,6 +517,118 @@ main {
 @keyframes modalUp {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
+}
+
+#equipe{
+    width: 100%;
+    background-color: #f0f0f1;
+    padding: 80px 4%;
+    text-align: center;
+    scroll-margin-top: 70px;
+}
+
+.eq-eyebrow{
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #00a2ff;
+    margin-bottom: 12px;
+}
+
+#equipe h3{
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #151f38;
+    margin-bottom: 16px;
+}
+
+.eq-sub{
+    max-width: 640px;
+    margin: 0 auto 70px;
+    color: #64748b;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+#eq-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.eq-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.eq-foto{
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    margin-bottom: 28px;
+    display: block;
+}
+
+#eq-grid img{
+    max-width: 100%;
+}
+
+.eq-area{
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #00a2ff;
+    margin-bottom: 14px;
+}
+
+.eq-area h4{
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #151f38;
+    margin-bottom: 6px;
+}
+
+.eq-reg{
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-bottom: 16px;
+}
+
+.eq-card p{
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 26px;
+    flex-grow: 1;
+    max-width: 340px;
+}
+
+
+.eq-btn{
+    display: block;
+    width: 100%;
+    padding: 0.95rem 1rem;
+    border: 2px solid #151f38;
+    border-radius: 12px;
+    background: transparent;
+    color: #151f38;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.eq-btn:hover {
+    background-color: #151f38;
+    color: #ffffff;
+    transform: translateY(-2px);
 }
 
 #planos{
@@ -698,6 +809,108 @@ plan-btn:hover{
     padding: 6px 18px;
     border-radius: 30px;
     white-space: nowrap;
+}
+
+#relato{
+    width: 100%;
+    background-color: #ffffff;
+    padding: 80px 4%;
+    text-align: center;
+    scroll-margin-top: 70px;
+}
+
+#relato h3{
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #151f38;
+    margin-bottom: 16px;
+}
+
+.rl-sub{
+    max-width: 640px;
+    margin: 0 auto 70px;
+    color: #64748b;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+#rl-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1250px;
+    margin: 0 auto;
+
+}
+
+.rl-card{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.rl-stars{
+    display: flex;
+    gap: 4px;
+    margin-bottom: 20px;
+    color: #facc15;
+    font-size: 1.1rem;
+}
+
+.rl-texto{
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #64748b;
+    line-height: 1.8;
+    margin-bottom: 28px;
+    flex-grow: 1;
+}
+
+.rl-autor{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.rl-avatar{
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #00a2ff;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.rl-avatar-escuro{
+    background-color: #151f38;
+}
+
+.rl-autor strong{
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #151f38;
+    margin-bottom: 2px;
+}
+
+.rl-autor small{
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.rl-eyebrow{
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #00a2ff;
+    margin-bottom: 12px;
 }
 
 
@@ -1042,8 +1255,3 @@ plan-btn:hover{
     margin: 0;
 }
 
-@media (max-width: 768px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-    }
-}

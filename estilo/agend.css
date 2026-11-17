@@ -22,6 +22,12 @@ body{
     min-height: 100vh;
 }
 
+.sb-nome{
+    align-items: flex-start;
+    padding-top: 5px;
+    margin-top: 10px;
+}
+
 button{font-family: inherit; cursor: pointer; }
 
 .topbar{
@@ -199,19 +205,28 @@ button{font-family: inherit; cursor: pointer; }
 
 .options{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+#step-2 .options{
+    grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
 }
 
 .option{
     position: relative;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: flex-start;
     text-align: left;
     background: #fff;
     border: 2px solid var(--border);
     border-radius: 18px;
-    padding: 32px 32px 30px;
-    flex-direction: column;
+    padding: 24px 16px; 
     transition: all 0.25s ease;
+    cursor: pointer;
 }
 
 .option:hover{
@@ -274,30 +289,27 @@ button{font-family: inherit; cursor: pointer; }
 
 .option.selected .check{display: grid;}
 
-.fields{
+.options-medico{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 24px;  
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
 }
 
-.field label{
+.secao-horarios{
+    display: none;
+    margin-top: 24px;
+}
+
+.secao-horarios.ativo{
     display: block;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 8px;
 }
 
-.field input{
-    width: 100%;
-    padding: 14px 16px;
-    font-family: inherit;
-    font-size: 15px;
-    color: var(--ink);
-    border: 2px solid var(--border);
-    border-radius: 14px;
-    background: #fff;
+.titulo-horarios{
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: var(--text);
 }
-
 
 .error{
     margin: 20px 0 0;
