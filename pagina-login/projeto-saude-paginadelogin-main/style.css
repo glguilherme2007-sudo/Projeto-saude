@@ -1,0 +1,234 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: #f2f5f7;
+  color: #1a1a1a;
+  font-family: Arial, sans-serif;
+}
+
+.barra-acessibilidade {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #14394f;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 60px);
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.login-box {
+  padding: 40px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.login-box h1 {
+  margin: 0 0 8px;
+  color: #14394f;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.subtitulo {
+  margin: 0 0 28px;
+  color: #444444;
+  text-align: center;
+}
+
+.campo {
+  margin-bottom: 18px;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 6px;
+  color: #14394f;
+  font-weight: bold;
+}
+
+.campo input {
+  min-height: 44px;
+}
+
+.campo input:focus {
+  border-color: #14394f;
+  box-shadow: 0 0 0 3px rgba(20, 57, 79, 0.2);
+}
+
+.campo input.campo-erro {
+  border-color: #b00020;
+}
+
+.mensagem-erro {
+  display: block;
+  margin-top: 5px;
+  color: #b00020;
+  font-size: 0.9rem;
+}
+
+.ajuda-cpf {
+  display: block;
+  margin-top: 5px;
+  color: #444444;
+  font-size: 0.9rem;
+}
+
+.mensagem-erro:empty {
+  display: none;
+}
+
+.btn-ver-senha {
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #14394f;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn-enviar,
+.btn-cadastro {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.btn-enviar {
+  border: 0;
+  background: #14394f;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.btn-enviar:hover {
+  background: #0b2231;
+}
+
+.btn-cadastro {
+  margin-top: 12px;
+  border: 1px solid #14394f;
+  color: #14394f;
+  text-decoration: none;
+}
+
+.btn-cadastro:hover {
+  background: #edf3f6;
+  text-decoration: underline;
+}
+
+.mensagem {
+  margin: 16px 0 0;
+  text-align: center;
+}
+
+.mensagem.erro {
+  color: #b00020;
+}
+
+.mensagem.sucesso {
+  color: #176b36;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #e09f3e;
+  outline-offset: 2px;
+}
+
+body.contraste-azul {
+  background: #020817;
+  color: #e8f2ff;
+}
+
+body.contraste-azul .barra-acessibilidade {
+  background: #000000;
+  border-bottom: 2px solid #1e90ff;
+}
+
+body.contraste-azul .login-box {
+  background: #071a2c;
+  box-shadow: 0 4px 14px rgba(30, 144, 255, 0.2);
+}
+
+body.contraste-azul .login-box h1,
+body.contraste-azul .campo label,
+body.contraste-azul .btn-ver-senha,
+body.contraste-azul .btn-cadastro {
+  color: #78bdff;
+}
+
+body.contraste-azul .subtitulo {
+  color: #e8f2ff;
+}
+
+body.contraste-azul .ajuda-cpf {
+  color: #b7c9dc;
+}
+
+body.contraste-azul .campo input {
+  border-color: #418bd1;
+  background: #020817;
+  color: #ffffff;
+}
+
+body.contraste-azul .campo input::placeholder {
+  color: #b7c9dc;
+}
+
+body.contraste-azul .campo input:focus {
+  border-color: #78bdff;
+  box-shadow: 0 0 0 3px rgba(120, 189, 255, 0.3);
+}
+
+body.contraste-azul .btn-enviar {
+  background: #145da0;
+  color: #ffffff;
+}
+
+body.contraste-azul .btn-enviar:hover {
+  background: #0d477d;
+}
+
+body.contraste-azul .btn-cadastro {
+  border-color: #418bd1;
+}
+
+body.contraste-azul .btn-cadastro:hover {
+  background: #0d2943;
+}
+
+body.contraste-azul .mensagem-erro,
+body.contraste-azul .mensagem.erro {
+  color: #ff9aab;
+}
+
+body.contraste-azul .mensagem.sucesso {
+  color: #7ee0a1;
+}
+
+@media (max-width: 480px) {
+  .barra-acessibilidade {
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .login-box {
+    padding: 28px;
+  }
+}

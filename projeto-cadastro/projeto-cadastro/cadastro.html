@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crie sua conta preenchendo o formulário de cadastro.">
+
+    <title>Formulário de Cadastro</title>
+
+    <link rel="stylesheet" href="cadastro.css">
+    
+</head>
+
+<body>
+
+        <!-- BARRA DE ACESSIBILIDADE -->
+    <nav class="acessibilidade" aria-label="Controles de acessibilidade">
+
+        <span>Acessibilidade:</span>
+
+        <button
+            type="button"
+            id="diminuirZoom"
+            aria-label="Diminuir o zoom da página"
+            title="Diminuir zoom"
+        >
+            A−
+        </button>
+
+        <button
+            type="button"
+            id="aumentarZoom"
+            aria-label="Aumentar o zoom da página"
+            title="Aumentar zoom"
+        >
+            A+
+        </button>
+
+        <button
+            type="button"
+            id="resetarZoom"
+            aria-label="Restaurar o zoom padrão"
+            title="Restaurar tamanho padrão"
+        >
+            Padrão
+        </button>
+
+        <span id="valorZoom" aria-live="polite">100%</span>
+
+    </nav>
+
+
+    <!-- Link para voltar à página inicial -->
+    <a href="index.html" class="voltar">Voltar</a>
+
+    <!-- Conteúdo principal -->
+    <main class="container">
+
+        <!-- Área da imagem / logo -->
+        <section class="form-img" aria-label="Identidade visual">
+            <img src="IMG/logo.png" alt="Logo da plataforma">
+        </section>
+
+        <!-- Área do formulário -->
+        <section class="form">
+            <form id="formulario-cadastro" action="#" method="post" novalidate>
+
+                <!-- Cabeçalho -->
+                <header class="form-header">
+                    <div class="title">
+                        <h1>Cadastre-se</h1>
+                    </div>
+
+                    <a href="../../pagina-login/projeto-saude-paginadelogin-main/login.html" class="login-button">
+                        Já tenho cadastro
+                    </a>
+                </header>
+
+                <!-- Campos pessoais -->
+                <div class="input-group">
+                    <div class="input-box">
+
+                        <div class="box">
+                            <label for="nome">Nome completo</label>
+                            <input
+                                type="text"
+                                id="nome"
+                                name="nome"
+                                placeholder="Digite seu nome completo"
+                                autocomplete="name"
+                                required
+                            >
+                        </div>
+
+                        <div class="box">
+                            <label for="nascimento">Data de nascimento</label>
+                            <input
+                                type="date"
+                                id="nascimento"
+                                name="nascimento"
+                                autocomplete="bday"
+                                required
+                            >
+                        </div>
+
+                        <div class="box">
+                            <label for="cpf">CPF</label>
+                            <input
+                                type="text"
+                                id="cpf"
+                                name="cpf"
+                                placeholder="000.000.000-00"
+                                maxlength="14"
+                                inputmode="numeric"
+                                autocomplete="off"
+                                aria-describedby="mensagem-cpf"
+                                required
+                            >
+                        </div>
+
+                        <div class="box">
+                            <label for="email">E-mail</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Digite seu e-mail"
+                                autocomplete="email"
+                                required
+                            >
+                        </div>
+
+                        <div class="box">
+                            <label for="telefone">Telefone celular</label>
+                            <input
+                                type="tel"
+                                id="telefone"
+                                name="telefone"
+                                placeholder="(00) 00000-0000"
+                                maxlength="15"
+                                inputmode="tel"
+                                autocomplete="tel"
+                                required
+                            >
+                        </div>
+
+                        <div class="box">
+                            <label for="telefone-fixo">Telefone fixo</label>
+                            <input
+                                type="tel"
+                                id="telefone-fixo"
+                                name="telefone-fixo"
+                                placeholder="(00) 0000-0000"
+                                maxlength="14"
+                                inputmode="tel"
+                                autocomplete="tel-national"
+                            >
+                        </div>
+
+                        <div class="box">
+                            <label for="cep">CEP</label>
+                            <input
+                                type="text"
+                                id="cep"
+                                name="cep"
+                                placeholder="00000-000"
+                                maxlength="9"
+                                inputmode="numeric"
+                                autocomplete="postal-code"
+                                required
+                            >
+                        </div>
+
+                        <div class="box">
+                            <label for="rua">Endereço</label>
+                            <input
+                                type="text"
+                                id="rua"
+                                name="rua"
+                                placeholder="Digite sua rua ou avenida"
+                                autocomplete="address-line1"
+                                required
+                            >
+                        </div>
+
+                        <div class="box">
+                            <label for="numero">Número</label>
+                            <input
+                                type="text"
+                                id="numero"
+                                name="numero"
+                                placeholder="Número do imóvel"
+                                inputmode="numeric"
+                                required
+                            >
+                        </div>
+
+                        <div class="box">
+                            <label for="complemento">Complemento (opcional)</label>
+                            <input
+                                type="text"
+                                id="complemento"
+                                name="complemento"
+                                placeholder="Apto, bloco, casa..."
+                                autocomplete="address-line2"
+                            >
+                        </div>
+
+                        <div class="box">
+                            <label for="bairro">Bairro</label>
+                            <input
+                                type="text"
+                                id="bairro"
+                                name="bairro"
+                                placeholder="Digite seu bairro"
+                                autocomplete="address-level3"
+                                required
+                            >
+                        </div>
+
+                        <div class="box">
+                            <label for="cidade">Cidade</label>
+                            <input
+                                type="text"
+                                id="cidade"
+                                name="cidade"
+                                placeholder="Digite sua cidade"
+                                autocomplete="address-level2"
+                                required
+                            >
+                        </div>
+
+                        <div class="box">
+                            <label for="senha">Senha</label>
+                            <input
+                                type="password"
+                                id="senha"
+                                name="senha"
+                                placeholder="Digite sua senha"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required
+                            >
+                            <button
+                                type="button"
+                                class="mostrar-senha"
+                                data-target="senha"
+                                aria-pressed="false"
+                            >
+                                Mostrar senha
+                            </button>
+                        </div>
+
+                        <div class="box">
+                            <label for="confirmesenha">Confirme sua senha</label>
+                            <input
+                                type="password"
+                                id="confirmesenha"
+                                name="confirmesenha"
+                                placeholder="Confirme sua senha"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required
+                            >
+            
+                           
+                            <button
+                                type="button"
+                                class="mostrar-senha"
+                                data-target="confirmesenha"
+                                aria-pressed="false"
+                            >
+                                Mostrar senha
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Opções de gênero -->
+                <fieldset class="genero-grupo">
+                    <legend>Gênero</legend>
+
+                    <div class="genero-input">
+                        <input
+                            type="radio"
+                            id="feminino"
+                            name="genero"
+                            value="feminino"
+                        >
+                        <label for="feminino">Feminino</label>
+                    </div>
+
+                    <div class="genero-input">
+                        <input
+                            type="radio"
+                            id="masculino"
+                            name="genero"
+                            value="masculino"
+                        >
+                        <label for="masculino">Masculino</label>
+                    </div>
+
+                    <div class="genero-input">
+                        <input
+                            type="radio"
+                            id="outros"
+                            name="genero"
+                            value="outros"
+                        >
+                        <label for="outros">Outros</label>
+                    </div>
+
+                    <div class="genero-input">
+                        <input
+                            type="radio"
+                            id="nao-informar"
+                            name="genero"
+                            value="nao-informar"
+                        >
+                        <label for="nao-informar">Prefiro não dizer</label>
+                    </div>
+                </fieldset>
+
+                <!-- Mensagens para o usuário -->
+                <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
+
+                <!-- Envio do formulário -->
+                <div class="continuar">
+                    <button type="submit" class="continuar-botao">
+                        Continuar
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p class="rodape">
+            &copy 2026 Idade+. Todos os direitos reservados.
+        </p>
+    </footer>
+
+    <script src="cadastro.js"></script>
+</body>
+</html>

@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* FUNDO DA PÁGINA */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 20px 20px;
+    flex-direction: column;
+
+    background: linear-gradient(
+        135deg,
+        #B9D4E8,
+        #DCEAF5,
+        #A9C9E0
+    );
+}
+
+/* LINK VOLTAR */
+.voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #164B78;
+    color: #FFFFFF;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.voltar:hover {
+    background-color: #286A9B;
+}
+
+/* CONTAINER PRINCIPAL */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    align-items: stretch;
+}
+
+/* IMAGEM / LOGO */
+.form-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background-color: #c4def0;
+}
+
+.form-img img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: contain;
+    
+}
+
+/* FORMULÁRIO */
+.form {
+    padding: 3rem;
+    background-color: #DCEAF5;
+    border-radius: 0 10px 10px 0;
+}
+
+.form form {
+    width: 100%;
+}
+
+/* CABEÇALHO */
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.form-header h1 {
+    position: relative;
+    padding-bottom: 10px;
+    color: #164B78;
+}
+
+.form-header h1::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 5rem;
+    height: 0.3rem;
+    border-radius: 10px;
+    background-color: #286A9B;
+}
+
+/* LINK DE LOGIN */
+.login-button {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    background-color: #164B78;
+    color: #FFFFFF;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.login-button:hover {
+    background-color: #286A9B;
+}
+
+/* CAMPOS DO FORMULÁRIO */
+.input-group {
+    padding: 1.5rem 0;
+}
+
+.input-box {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.box label,
+.genero-grupo legend {
+    color: #263746;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.input-box input {
+    width: 100%;
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 1px 1px 6px #0000001c;
+    font-size: 1rem;
+    min-height: 48px;
+}
+
+.input-box input:hover {
+    background-color: rgb(245, 248, 248);
+}
+
+.input-box input:focus-visible {
+    outline: 3px solid #286A9B;
+    outline-offset: 3px;
+}
+
+/* BOTÕES MOSTRAR / OCULTAR SENHA */
+.mostrar-senha {
+    align-self: flex-start;
+    padding: 4px 0;
+    border: none;
+    background: transparent;
+    color: #087da8;
+    font-size: 0.78rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.mostrar-senha:focus-visible {
+    outline: 2px solid #087da8;
+    outline-offset: 3px;
+}
+
+/* GÊNERO */
+.genero-grupo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+    border: none;
+}
+
+.genero-grupo legend {
+    margin-bottom: 10px;
+}
+
+.genero-input {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.genero-input label {
+    color: #000000c0;
+    font-size: 0.81rem;
+    font-weight: 600;
+}
+
+/* MENSAGENS */
+.mensagem {
+    min-height: 1.4em;
+    margin-top: 15px;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+/* BOTÃO CONTINUAR */
+.continuar {
+    margin-top: 10px;
+}
+
+.continuar-botao {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #164B78;
+    color: #FFFFFF;
+    font-size: 0.93rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.continuar-botao:hover {
+    background-color: #286A9B;
+}
+
+.continuar-botao:focus-visible,
+.login-button:focus-visible,
+.voltar:focus-visible {
+    outline: 2px solid #075b80;
+    outline-offset: 3px;
+}
+
+.rodape{
+    text-align: center;
+    padding: 20px 0; 
+    
+}
+
+
+
+/* =========================================
+   ACESSIBILIDADE - CONTROLE DE ZOOM
+========================================= */
+
+.acessibilidade {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 20px;
+    color: #000000;
+}
+
+.acessibilidade span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000;
+}
+
+.acessibilidade button {
+    min-width: 48px;
+    min-height: 44px;
+    padding: 8px 14px;
+    border: 2px solid #FFFFFF;
+    border-radius: 6px;
+    background-color: #286A9B;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.acessibilidade button:hover {
+    background-color: #FFFFFF;
+    color: #164B78;
+}
+
+.acessibilidade button:focus-visible {
+    outline: 3px solid #FFFFFF;
+    outline-offset: 3px;
+}
+
+#valorZoom {
+    min-width: 48px;
+    text-align: center;
+}
+
+
+
+
+
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .form-img {
+        padding: 20px;
+    }
+
+    .form-img img {
+        max-width: 180px;
+    }
+
+    .form {
+        padding: 2rem;
+        border-radius: 0 0 10px 10px;
+    }
+
+    .input-box {
+        grid-template-columns: 1fr;
+    }
+
+    .genero-grupo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .form {
+        padding: 1.25rem;
+    }
+
+    .form-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .genero-grupo {
+        grid-template-columns: 1fr;
+    }
+}

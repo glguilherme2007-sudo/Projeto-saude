@@ -9,34 +9,75 @@ const agendamento = {
     horario: null
 };
 
+const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+console.log(usuarioLogado);
+
 const dadosMedicos = {
     "Cardiologia": [
      {
         nome: "Dr. Carlos Eduardo",
         crm: "CRM/RJ 123456",
-        horarios: ["09:00 - Quinta-feira", "10:30 - Quinta-feira", "14:00 - Sexta-feira"]
+        horarios: ["08:30 - Segunda-feira","09:00 - Quinta-feira", "10:30 - Quinta-feira", "14:00 - Sexta-feira"]
      },  
      {
         nome: "Dra. Ana Beatriz",
         crm: "CRM/RJ 654321",
-        horarios: ["08:00 - Segunda-feira", "11:00 - Terça-feira", "15:30 - Quarta-feira"],
+        horarios: ["08:00 - Segunda-feira","11:00 - Segunda-feira", "11:00 - Terça-feira", "15:30 - Quarta-feira"],
      } 
   ],
   "Geriatria": [
     {
         nome: "Dr. Roberto Silva",
         crm: "CRM/RJ 987654",
-        horarios: ["08:30 - Segunda-feira", "10:00 - Quarta-feira", "13:30 - Sexta-feira"],
+        horarios: ["08:30 - Segunda-feira","10:30 - Segunda-feira", "10:00 - Quarta-feira", "13:30 - Sexta-feira"],
+    },
+    {
+        nome: "Dra. Helena Monteiro",
+        crm: "CRM/RJ 985643",
+        foto: "img/medicos/camila.avif",
+        horarios: ["08:30 - Segunda-feira", "10:00 - Terça-feira","13:30 - Quarta-feira", "14:30 - Sexta-feira"],
+    }
+  ],
+  "Clinico Geral": [
+     {
+        nome: "Dr. Roberto Silva",
+        crm: "CRM/RJ 987654",
+    
+        horarios: ["08:30 - Segunda-feira","10:30 - Segunda-feira", "10:00 - Quarta-feira", "13:30 - Sexta-feira"],
+    },
+    {
+        nome: "Dra. Helena Monteiro",
+        crm: "CRM/RJ 985643",
+        horarios: ["08:30 - Segunda-feira", "10:00 - Terça-feira","13:30 - Quarta-feira", "14:30 - Sexta-feira"],
     }
   ],
   "Fisioterapia": [
      {
         nome: "Dr. Lucas Martins",
         crm: "CREFITO 445566",
-        horarios: ["09:00 - Terça-feira", "11:00 - Quinta-feira", "16:00 - Sexta-feira"]
+        horarios: ["09:00 - Terça-feira", "11:00 - Quinta-feira","13:00 - Sexta-feira", "16:00 - Sexta-feira"]
+     },
+     {
+        nome: "Dr. Vinicius Jesus",
+        crm: "CREFITO 467667",
+        horarios: ["08:30 - Segunda-feira","09:00 - Terça-feira", "11:00 - Quarta-feira", "16:00 - Quinta-feira"]
      }   
   ]
 };
+
+function normalizar(texto) {
+    return(texto || '')
+       .normalize('NFD') 
+       .replace(/[\u0300-\u036f]/g, '')
+       .trim()
+       .toLowerCase();
+}
+
+function buscarMedico(especialidade) {
+    const chave = Object.keys(dadosMedicos)
+        .find(k => normalizar(k) === normalizar(especialidade));
+    return chave ? dadosMedicos[chave] : []; 
+}
 
 const stepper = document.getElementById('stepper');
 const btnVoltar = document.getElementById('btn-voltar');
@@ -45,7 +86,7 @@ const erro = document.getElementById('erro');
 
 const campoDoPasso = {1: 'paciente', 2: 'especialidade', 3: 'modo'};
 
-// Listener apenas para os passos 1, 2 e 3 (que são fixos no HTML)
+
 document.querySelectorAll('.panel:not(#step-4) .option').forEach(card => { 
     card.addEventListener('click', () => {
         const panel = card.closest('.panel');
@@ -100,7 +141,7 @@ function irParaPasso(n) {
 }
 
 function carregarMedicos() {
-    const containerMedicos = document.getElementById('container-medico'); // Ajustado para o ID do seu HTML
+    const containerMedicos = document.getElementById('container-medico'); 
     const containerHorarios = document.getElementById('container-horarios');
 
     containerMedicos.innerHTML = '';
@@ -109,7 +150,7 @@ function carregarMedicos() {
     agendamento.horario = null;
 
     const especialidadeEscolhida = agendamento.especialidade;
-    const medicos = dadosMedicos[especialidadeEscolhida] || [];
+    const medicos = buscarMedico(especialidadeEscolhida);
 
     if(medicos.length === 0){
         containerMedicos.innerHTML = '<p>Nenhum profissional encontrado para esta especialidade.</p>';
@@ -117,7 +158,7 @@ function carregarMedicos() {
     }
 
     medicos.forEach(medico => {
-        const card = document.createElement('button'); // Trocado para button para manter semântica igual aos outros
+        const card = document.createElement('button'); 
         card.type = 'button';
         card.classList.add('option');
         card.innerHTML = `
