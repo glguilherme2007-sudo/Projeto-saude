@@ -22,6 +22,22 @@ body{
     min-height: 100vh;
 }
 
+#user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar-bolinha{
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
 .sb-nome{
     align-items: flex-start;
     padding-top: 5px;

@@ -321,9 +321,7 @@ function salvarCadastro() {
     // 4. Já salva esse novo usuário como o "usuário logado" atual (auto-login)
     localStorage.setItem('usuarioLogado', JSON.stringify(dadosCadastro));
 
-    // 5. Redireciona direto para a tela de agendamento
-    // (Se o arquivo agendar.html estiver na pasta anterior, utilize '../agendar.html')
-    window.location.href = '/pagina-login/projeto-saude-paginadelogin-main/login.html';
+    window.location.href = '/pagina-login/login.html';
 }
 
 /* =========================================

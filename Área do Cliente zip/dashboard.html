@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Minhas Consultas</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header class="header">
+
+        <div class="ladoEsquerdo">
+
+            <div class="imagem1">
+                <img src="IMG/0-circle.svg" alt="Logo Idade+">
+            </div>
+
+            <div class="empresa">
+
+                <h2>Idade+</h2>
+
+                <p>Área do paciente</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="ladoDireito">
+
+            <div class="imagem2">
+
+                <img src="IMG/0-circle.svg" alt="Foto do paciente">
+
+            </div>
+
+            <div>
+                <p id="nomeHeader"></p>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+
+    <main class="main">
+
+
+        <!-- TÍTULO E AGENDAMENTO -->
+
+        <section class="cabecalhoPagina">
+
+            <div class="minhasConsultas">
+
+                <p>
+                    Olá, <strong id="nomeSaudacao"></strong>!
+                    Acompanhe seus atendimentos.
+                </p>
+
+                <h1>Minhas consultas</h1>
+
+            </div>
+
+
+            <div class="agendamento">
+
+                <a href="agendar.html">
+
+                    + Agendar Nova Consulta
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRÓXIMA CONSULTA -->
+
+        <section class="confirmarPresenca">
+
+            <div class="statusConsulta">
+
+                <p id="proximaconsulta">
+                    PRÓXIMA CONSULTA
+                </p>
+
+                <p id="aguardandoConfirmacao">
+                    Aguardando sua confirmação
+                </p>
+
+            </div>
+
+
+            <div class="especialidade">
+                <h2 id="proximaEspecialidade"></h2>
+            </div>
+
+            <div class="detalhesConsulta">
+
+                <p id="proximoMedico"></p>
+
+                <p id="proximaData"></p>
+
+                <p id="proximoLocal"></p>
+
+            </div>
+
+
+            <div class="botaoConsulta">
+
+                <button
+                    type="button"
+                    id="confirmarPresenca">
+                    Confirmar Presença
+                </button>
+
+                <button
+                    type="button"
+                    id="detalhesProxima">
+                    Ver Preparo e Detalhes
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ESTATÍSTICAS -->
+
+        <section class="verificacaoConsultas">
+
+            <div class="cardEstatistica">
+
+                <h2 id="totalAgendadas">0</h2>
+
+                <p>Agendadas</p>
+
+            </div>
+
+            <div class="cardEstatistica">
+
+                <h2 id="totalAguardando">0</h2>
+
+                <p>Aguardando confirmação</p>
+
+            </div>
+
+            <div class="cardEstatistica">
+
+                <h2 id="totalRealizadas">0</h2>
+
+                <p>Realizadas</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- NAVEGAÇÃO DAS CONSULTAS -->
+
+        <nav class="status" aria-label="Categorias de consultas">
+
+            <button type="button" class="aba ativa"
+                data-status="proximas">
+
+                Próximas (<span id="contadorProximas">0</span>)
+
+            </button>
+
+            <button type="button" class="aba"
+                data-status="realizadas">
+
+                Realizadas (<span id="contadorRealizadas">0</span>)
+
+            </button>
+
+            <button type="button" class="aba"
+                data-status="canceladas">
+
+                Canceladas (<span id="contadorCanceladas">0</span>)
+
+            </button>
+
+        </nav>
+
+
+        <!-- LISTA DE CONSULTAS -->
+
+        <section class="listaConsulta"
+                 id="listaConsulta"
+                 aria-label="Lista de consultas">
+
+            <!-- Os cartões serão inseridos pelo JavaScript -->
+
+        </section>
+
+
+        <!-- MODELO DOS CARTÕES -->
+
+        <template id="modeloConsulta">
+
+            <article class="cartaoConsulta">
+
+
+                <!-- CABEÇALHO DO CARTÃO -->
+
+                <header class="cabecalhoConsulta">
+
+                    <span class="statusTexto"></span>
+
+
+                    <p class="dataConsulta">
+
+                        <span data-field="data"></span>
+
+                        <span data-field="horario"></span>
+
+                    </p>
+
+                </header>
+
+
+                <!-- ESPECIALIDADE -->
+
+                <div class="tipoMedico">
+
+                    <h3 data-field="tipoMedico"></h3>
+
+                </div>
+
+
+                <!-- INFORMAÇÕES DO MÉDICO -->
+
+                <div class="detalheConsulta">
+
+                    <p data-field="medico"></p>
+
+                    <p data-field="local"></p>
+
+                </div>
+
+
+                <!-- BOTÕES DE AÇÃO -->
+
+                <div class="botoes">
+
+
+                    <div class="botoesPrincipais">
+
+                        <button type="button"
+                                class="botaoConfirmar"
+                                data-action="confirmar">
+
+                            Confirmar
+
+                        </button>
+
+
+                        <button type="button"
+                                class="botaoDetalhes"
+                                data-action="detalhes">
+
+                            Detalhes
+
+                        </button>
+
+
+                        <button type="button"
+                                class="botaoRemarcar"
+                                data-action="remarcar">
+
+                            Remarcar
+
+                        </button>
+
+                    </div>
+
+
+                    <button type="button"
+                            class="botaoCancelar"
+                            data-action="cancelar">
+
+                        Cancelar
+
+                    </button>
+
+                </div>
+
+
+            </article>
+
+        </template>
+
+
+    </main>
+
+    <dialog id="modalPersonalizado" class="modal">
+        <div class="conteudoModal">
+
+            <div class="iconeModal" id="iconeModal">!</div>
+
+            <h2 id="modalTitulo">Atenção</h2>
+
+            <p id="modalMensagem"></p>
+
+            <input
+                type="text"
+                id="modalCampo"
+                class="campoModal"
+                hidden
+            >
+
+            <div class="botoesModal">
+
+                <button
+                    type="button"
+                    id="modalCancelar"
+                    class="botaoModal botaoCancelar"
+                >
+                    Não
+                </button>
+
+                <button
+                    type="button"
+                    id="modalConfirmar"
+                    class="botaoModal botaoPrincipal"
+                >
+                    Entendi
+                </button>
+
+            </div>
+
+        </div>
+    </dialog>
+    
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

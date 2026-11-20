@@ -1,0 +1,534 @@
+
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #183452;
+}
+
+.main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+
+/* CABEÇALHO */
+
+.header {
+    background-color: white;
+    padding: 15px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ladoEsquerdo,
+.ladoDireito {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.imagem1 img,
+.imagem2 img {
+    width: 40px;
+    height: 40px;
+}
+
+.empresa p {
+    font-size: 14px;
+    color: #64748b;
+}
+
+
+/* TÍTULO E AGENDAMENTO */
+
+.cabecalhoPagina {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.minhasConsultas p {
+    margin-bottom: 10px;
+}
+
+.minhasConsultas h1 {
+    font-size: 28px;
+}
+
+.agendamento a {
+    display: inline-block;
+    background-color: #145286;
+    color: white;
+
+    padding: 13px 18px;
+    border-radius: 10px;
+
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* PRÓXIMA CONSULTA */
+
+.confirmarPresenca {
+    background-color: white;
+    border-left: 5px solid #145286;
+
+    border-radius: 12px;
+    padding: 22px;
+
+    margin-bottom: 25px;
+}
+
+.statusConsulta {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#proximaconsulta {
+    font-weight: bold;
+    color: #145286;
+}
+
+#aguardandoConfirmacao {
+    color: #b77900;
+    font-size: 14px;
+}
+
+.especialidade h2 {
+    margin: 15px 0;
+}
+
+.detalhesConsulta p {
+    margin-bottom: 10px;
+    color: #64748b;
+}
+
+.botaoConsulta {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.botaoConsulta button {
+    border: none;
+    padding: 12px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#confirmarPresenca {
+    background-color: #145286;
+    color: white;
+}
+
+#detalhesProxima {
+    background-color: #edf2f7;
+    color: #183452;
+}
+
+
+/* CARDS DE ESTATÍSTICAS */
+
+.verificacaoConsultas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    margin-bottom: 25px;
+}
+
+.cardEstatistica {
+    background-color: white;
+    border: 1px solid #dce3ed;
+    border-radius: 12px;
+
+    padding: 22px;
+    text-align: center;
+}
+
+.cardEstatistica h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.cardEstatistica p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+
+/* NAVEGAÇÃO */
+
+.status {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.aba {
+    background-color: white;
+    border: 1px solid #cbd5e1;
+
+    padding: 12px 20px;
+    border-radius: 10px;
+
+    color: #183452;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.aba.ativa {
+    background-color: #145286;
+    color: white;
+    border-color: #145286;
+}
+
+
+/* LISTA DE CONSULTAS */
+
+.listaConsulta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+
+/* CARD INDIVIDUAL */
+
+.cartaoConsulta {
+    background-color: white;
+    border: 1px solid #dce3ed;
+    border-left: 5px solid #145286;
+
+    border-radius: 12px;
+    padding: 22px;
+}
+
+
+/* CABEÇALHO DO CARD */
+
+.cabecalhoConsulta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.statusTexto {
+    background-color: #fff0bd;
+    color: #854500;
+
+    padding: 6px 12px;
+    border-radius: 20px;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.dataConsulta {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/* INFORMAÇÕES DA CONSULTA */
+
+.tipoMedico h3 {
+    margin: 15px 0 8px;
+    font-size: 20px;
+}
+
+.detalheConsulta p {
+    margin-bottom: 10px;
+    color: #64748b;
+}
+
+
+/* BOTÕES DO CARD */
+
+.botoes {
+    border-top: 1px solid #edf0f5;
+    padding-top: 12px;
+    margin-top: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.botoesPrincipais {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.botoes button {
+    border: none;
+    padding: 11px 14px;
+    border-radius: 9px;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botaoConfirmar {
+    background-color: #145286;
+    color: white;
+}
+
+.botaoDetalhes,
+.botaoRemarcar {
+    background-color: #edf2f7;
+    color: #183452;
+}
+
+.botaoCancelar {
+    background-color: #fff0f0;
+    color: #c00000;
+}
+
+/* CORES DOS CARDS CONFORME O STATUS */
+
+.cartaoConsulta.pendente {
+    border-left-color: #ff9800;
+}
+
+.cartaoConsulta.confirmada {
+    border-left-color: #009f70;
+}
+
+.cartaoConsulta.realizada {
+    border-left-color: #145286;
+}
+
+.cartaoConsulta.cancelada {
+    border-left-color: #dc2626;
+}
+
+
+/* CORES DAS ETIQUETAS */
+
+.statusTexto.pendente {
+    background-color: #fff0bd;
+    color: #854500;
+}
+
+.statusTexto.confirmada {
+    background-color: #d1fae5;
+    color: #006b4f;
+}
+
+.statusTexto.realizada {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.statusTexto.cancelada {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* MODAL CENTRALIZADO */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+    margin: auto;
+
+    width: 90%;
+    max-width: 420px;
+
+    max-height: 90vh;
+    overflow: auto;
+
+    padding: 0;
+    border: none;
+    border-radius: 16px;
+
+    background: transparent;
+}
+
+.modal::backdrop {
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(3px);
+}
+
+.conteudoModal {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
+}
+
+.iconeModal {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background-color: #e8f1ff;
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.conteudoModal h2 {
+    margin-bottom: 12px;
+    color: #222222;
+    font-size: 22px;
+}
+
+.conteudoModal p {
+    margin-bottom: 22px;
+    color: #555555;
+    line-height: 1.5;
+}
+
+.campoModal {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.campoModal:focus {
+    outline: 2px solid #2563eb;
+    border-color: #2563eb;
+}
+
+.botoesModal {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.botaoModal {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.botaoPrincipal {
+    background-color: #2563eb;
+    color: white;
+}
+
+.botaoPrincipal:hover {
+    background-color: #1d4ed8;
+}
+
+.botaoCancelar {
+    background-color: #eeeeee;
+    color: #333333;
+}
+
+.botaoCancelar:hover {
+    background-color: #dddddd;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+
+
+
+@media (max-width: 480px) {
+    .conteudoModal {
+        padding: 24px 18px;
+    }
+
+    .botoesModal {
+        flex-direction: column-reverse;
+    }
+
+    .botaoModal {
+        width: 100%;
+    }
+}
+
+
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 800px) {
+
+    .listaConsulta {
+        grid-template-columns: 1fr;
+    }
+
+    .verificacaoConsultas {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .header {
+        padding: 12px;
+    }
+
+    .cabecalhoPagina {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .statusConsulta {
+        flex-direction: column;
+    }
+
+    .botaoConsulta {
+        flex-direction: column;
+    }
+
+    .botaoConsulta button {
+        width: 100%;
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    .botoesPrincipais {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .botaoCancelar {
+        width: 100%;
+    }
+
+}

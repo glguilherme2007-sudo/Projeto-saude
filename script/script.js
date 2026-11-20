@@ -12,6 +12,32 @@ const agendamento = {
 const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
 console.log(usuarioLogado);
 
+const divUser =  document.getElementById('user');
+
+function pegarInicais(nomeCompleto){
+    if(!nomeCompleto || typeof nomeCompleto !== 'string') return 'U';
+
+    const partes = nomeCompleto.trim().split(/\s+/);
+
+    if(partes.length >=2){
+        const primeira = partes[0].charAt(0);
+        const ultima = partes[partes.length - 1].charAt(0);
+        return (primeira + ultima).toUpperCase();
+    }
+
+    return partes[0].slice(0, 2).toUpperCase();
+}
+
+if(usuarioLogado && divUser) {  
+    const inicial = usuarioLogado.nome ? usuarioLogado.nome.charAt(0). toUpperCase() : 'U';
+
+    divUser.innerHTML = `
+    <div class="avatar-bolinha">${inicial}</div>
+    <span class="nome-usuario">${usuarioLogado.nome}</span>
+    <button type"button" id="btnSair">Sair</button>
+  `;
+}
+
 const dadosMedicos = {
     "Cardiologia": [
      {
@@ -183,14 +209,14 @@ function carregarMedicos() {
 
 function carregarHorarios(horarios) {
     const containerHorarios = document.getElementById('container-horarios');
-    const listaHorarios = document.getElementById('horarios-travados'); // Ajustado para o ID do seu HTML
+    const listaHorarios = document.getElementById('horarios-travados'); 
     
     listaHorarios.innerHTML = '';
     containerHorarios.style.display = 'block';
     agendamento.horario = null;
 
     horarios.forEach(horario => {
-        const card = document.createElement('button'); // Trocado para button
+        const card = document.createElement('button'); 
         card.type = 'button';
         card.classList.add('option');
         card.innerHTML = `
@@ -239,8 +265,35 @@ function esconderErro() {
 }
 
 function finalizarAgendamento() {
-    console.log('Agendamento concluído!', agendamento);
-    alert('Consulta agendada com sucesso!');
+   const consultasSalvas = JSON.parse(localStorage.getItem("consultas")) || [];
+
+   const listaEspecialidade = buscarMedico(agendamento.especialidade);
+   const medicoObj = listaEspecialidade.find( m => m.nome === agendamento.medico);
+
+   const medicoFormatado = medicoObj
+    ? `${medicoObj.nome} • ${medicoObj.crm}`
+    : agendamento.medico;
+
+    const horaLimpa = (agendamento.horario || "").split("-")[0].trim();
+
+    const dataPadrao = "2026-11-24";
+
+    
+    
+    const novaConsulta = {
+        id: Date.now(),
+        especialidade: agendamento.especialidade,
+        medico: medicoFormatado,
+        data: dataPadrao,
+        local: agendamento.modo ? `Atendimento ${agendamento.modo}` : "Unidade Idade+",
+        status: "pendente"
+    };
+
+    consultasSalvas.push(novaConsulta);
+    localStorage.setItem("consultas", JSON.stringify(consultasSalvas));
+
+    alert("Consulta agendada com sucesso!")
+    window.location.href = "Área do Cliente zip/dashboard.html";
 }
 
 irParaPasso(1);

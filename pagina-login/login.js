@@ -4,10 +4,10 @@ const formulario = document.getElementById('formLogin');
 const mensagem = document.getElementById('mensagem');
 const botaoVerSenha = document.getElementById('btnVerSenha');
 
-function marcarErro(campo, idErro, mensagem) {
+function marcarErro(campo, idErro, textoErro) {
   campo.classList.add('campo-erro');
   campo.setAttribute('aria-invalid', 'true');
-  document.getElementById(idErro).textContent = mensagem;
+  document.getElementById(idErro).textContent = textoErro;
 }
 
 function limparErro(campo, idErro) {
@@ -16,38 +16,12 @@ function limparErro(campo, idErro) {
   document.getElementById(idErro).textContent = '';
 }
 
-function validarFormulario() {
-  limparErro(campoCpf, 'erroCpf');
-  limparErro(campoSenha, 'erroSenha');
-
-  let valido = true;
-  const cpf = campoCpf.value.replace(/\D/g, '');
-  const senha = campoSenha.value;
-
-  if (cpf === '') {
-    marcarErro(campoCpf, 'erroCpf', 'Preencha o CPF.');
-    valido = false;
-  } else if (cpf.length !== 11) {
-    marcarErro(campoCpf, 'erroCpf', 'O CPF deve ter 11 números.');
-    valido = false;
-  } else if (!cpfEhValido(cpf)) {
-    marcarErro(campoCpf, 'erroCpf', 'Digite um CPF válido.');
-    valido = false;
-  }
-
-  if (senha === '') {
-    marcarErro(campoSenha, 'erroSenha', 'Preencha a senha.');
-    valido = false;
-  } else if (!/^[A-Za-z]{8}$/.test(senha)) {
-    marcarErro(campoSenha, 'erroSenha', 'A senha tem exatamente 8 letras.');
-    valido = false;
-  }
-
-  return valido;
+function normalizarCpf(cpf){ 
+  return cpf.replace(/\D/g, '');
 }
 
 function formatarCpf(valor) {
-  const numeros = valor.replace(/\D/g, '').slice(0, 11);
+  const numeros = normalizarCpf(valor).slice(0, 11);
   let cpfFormatado = numeros;
 
   if (numeros.length > 3) {
@@ -71,20 +45,17 @@ function cpfEhValido(cpf) {
   }
 
   let soma = 0;
-
   for (let i = 0; i < 9; i++) {
     soma += Number(cpf[i]) * (10 - i);
   }
 
   let resto = (soma * 10) % 11;
   const primeiroDigito = resto === 10 ? 0 : resto;
-
   if (primeiroDigito !== Number(cpf[9])) {
     return false;
   }
 
   soma = 0;
-
   for (let i = 0; i < 10; i++) {
     soma += Number(cpf[i]) * (11 - i);
   }
@@ -95,15 +66,38 @@ function cpfEhValido(cpf) {
   return segundoDigito === Number(cpf[10]);
 }
 
-function normalizarCpf(cpf) {
-  return cpf.replace(/\D/g, '');
+function validarFormulario() {
+  limparErro(campoCpf, 'erroCpf');
+  limparErro(campoSenha, 'erroSenha');
+
+  let valido = true;
+  const cpfNumeros = normalizarCpf(campoCpf.value);
+  const senhaDigitada = campoSenha.value;
+
+  if (cpfNumeros === '') {
+    marcarErro(campoCpf, 'erroCpf', 'Preencha o CPF.');
+    valido = false;
+  } else if (cpfNumeros.length !== 11 || !cpfEhValido(cpfNumeros)) {
+    marcarErro(campoCpf, 'erroCpf', 'Digite um CPF válido.');
+    valido = false;
+  }
+
+  if (senhaDigitada === '') {
+    marcarErro(campoSenha, 'erroSenha', 'Preencha a senha.');
+    valido = false;
+  }
+
+  return valido;
 }
 
 function mostrarMensagem(texto, tipo) {
   mensagem.textContent = texto;
-  mensagem.className = 'mensagem ' + tipo;
+  mensagem.className = tipo ? 'mensagem ' + tipo : 'mensagem';
 }
 
+/* =========================================
+   ACESSIBILIDADE (FONTE E CONTRASTE)
+   ========================================= */
 let tamanhoFonte = 100;
 const botaoContraste = document.getElementById('btnContraste');
 
@@ -114,28 +108,29 @@ function carregarPreferencias() {
 
     if (fonteSalva !== null) {
       const fonteConvertida = Number(fonteSalva);
-
-      if (Number.isInteger(fonteConvertida) && fonteConvertida >= 80 &&
-          fonteConvertida <= 140 && fonteConvertida % 10 === 0) {
+      if (
+        Number.isInteger(fonteConvertida) &&
+        fonteConvertida >= 80 &&
+        fonteConvertida <= 140 &&
+        fonteConvertida % 10 === 0
+      ) {
         tamanhoFonte = fonteConvertida;
-      } else {
-        mostrarMensagem('O tamanho de fonte salvo é inválido. Usando o tamanho padrão.', 'erro');
       }
     }
 
     if (contrasteSalvo === 'true') {
       document.body.classList.add('contraste-azul');
-    } else if (contrasteSalvo !== null && contrasteSalvo !== 'false') {
-      mostrarMensagem('A preferência de contraste salva é inválida.', 'erro');
     }
 
     document.documentElement.style.fontSize = tamanhoFonte + '%';
-    botaoContraste.setAttribute(
-      'aria-pressed',
-      String(document.body.classList.contains('contraste-azul'))
-    );
+    if (botaoContraste) {
+      botaoContraste.setAttribute(
+        'aria-pressed',
+        String(document.body.classList.contains('contraste-azul'))
+      );
+    }
   } catch (erro) {
-    mostrarMensagem('Não foi possível carregar as preferências salvas neste navegador.', 'erro');
+    mostrarMensagem('Não foi possível carregar as preferências salvas.', 'erro');
   }
 }
 
@@ -147,12 +142,15 @@ function salvarPreferencias() {
       String(document.body.classList.contains('contraste-azul'))
     );
   } catch (erro) {
-    mostrarMensagem('Não foi possível salvar as preferências neste navegador.', 'erro');
+    mostrarMensagem('Não foi possível salvar as preferências.', 'erro');
   }
 }
 
 carregarPreferencias();
 
+/* =========================================
+   ENVIO E VALIDAÇÃO DO LOGIN
+   ========================================= */
 formulario.addEventListener('submit', function (evento) {
   evento.preventDefault();
   mostrarMensagem('', '');
@@ -162,57 +160,46 @@ formulario.addEventListener('submit', function (evento) {
     return;
   }
 
-  let cadastro;
+  let usuariosCadastrados = [];
 
   try {
-    const dadosSalvos = localStorage.getItem('usuarioCadastrado');
-
-    if (dadosSalvos === null) {
-      mostrarMensagem('Nenhum usuário cadastrado. Faça seu cadastro primeiro.', 'erro');
-      return;
-    }
-
-    cadastro = JSON.parse(dadosSalvos);
+    usuariosCadastrados = JSON.parse(localStorage.getItem('usuariosCadastrados')) || [];
   } catch (erro) {
-    mostrarMensagem('Não foi possível acessar os dados salvos neste navegador.', 'erro');
+    mostrarMensagem('Erro ao ler os usuários salvos no navegador.', 'erro');
     return;
   }
 
-  if (cadastro === null || typeof cadastro !== 'object' ||
-      typeof cadastro.cpf !== 'string' || typeof cadastro.senha !== 'string') {
-    mostrarMensagem('Os dados do usuário salvos são inválidos. Faça o cadastro novamente.', 'erro');
+  if (usuariosCadastrados.length === 0) {
+    mostrarMensagem('Nenhum usuário cadastrado. Faça seu cadastro primeiro.', 'erro');
     return;
   }
 
-  const cpf = normalizarCpf(campoCpf.value);
+  const cpfDigitadoNumeros = normalizarCpf(campoCpf.value);
+  const senhaDigitada = campoSenha.value;
 
-  if (normalizarCpf(cadastro.cpf) !== cpf || cadastro.senha !== campoSenha.value) {
+  const usuarioEncontrado = usuariosCadastrados.find(function (usuario) {
+    return (
+      normalizarCpf(usuario.cpf || '') === cpfDigitadoNumeros &&
+      usuario.senha === senhaDigitada
+    );
+  });
+
+  if (!usuarioEncontrado) {
     mostrarMensagem('CPF ou senha incorretos.', 'erro');
-    return;
-  }
-
-  const usuariosSalvos = JSON.parse(localStorage.getItem('chaveCadastro')) || [];
-
-  const usuarioEncontrado = usuariosSalvos.find(usuario =>
-    usuario.cpf === campoCpf.value
-
-  );
-
-  if (!usuarioEncontrado){
-    mostrarMensagem('CPF não encontrado ou dados incorretos.', 'erro');
     return;
   }
 
   try {
     localStorage.setItem('usuarioLogado', JSON.stringify(usuarioEncontrado));
-    window.location.href = 'agendar.html';
+    window.location.href = '../agendar.html';
   } catch (erro) {
-    mostrarMensagem('Não foi possível salvar seu acesso neste navegador.', 'erro');
-    return;
+    mostrarMensagem('Não foi possível iniciar sua sessão.', 'erro');
   }
-
 });
 
+/* =========================================
+   EVENTOS DOS CAMPOS E BOTÕES
+   ========================================= */
 campoCpf.addEventListener('input', function () {
   campoCpf.value = formatarCpf(campoCpf.value);
   limparErro(campoCpf, 'erroCpf');
