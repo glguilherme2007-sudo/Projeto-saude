@@ -560,6 +560,21 @@ atualizarInterface();
 /* =====================================
    13. MENU DO USUÁRIO (∨ / SAIR) E ACESSIBILIDADE
 ===================================== */
+function configurarBotaoSairDashboard() {
+    const btnSair = document.getElementById("btnSair");
+    if (!btnSair) return;
+
+    btnSair.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        localStorage.removeItem("usuarioLogado");
+
+        // Se o login ficar em outra pasta, ajuste para "../pagina-login/login.html" ou "../login.html"
+        window.location.replace("../pagina-login/login.html");
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const html = document.documentElement;
     const body = document.body;
@@ -567,7 +582,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Menu dropdown do usuário
     const btnMenuUsuario = document.getElementById("btnMenuUsuario");
     const dropdownUsuario = document.getElementById("dropdownUsuario");
-    const btnSair = document.getElementById("btnSair");
 
     if (btnMenuUsuario && dropdownUsuario) {
         btnMenuUsuario.addEventListener("click", (e) => {
@@ -586,12 +600,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    if (btnSair) {
-        btnSair.addEventListener("click", () => {
-            localStorage.removeItem("usuarioLogado");
-            window.location.href = "../login.html";
-        });
-    }
+    configurarBotaoSairDashboard();
 
     // Barra flutuante A+, A- e Dark Mode
     const btnAumentar = document.getElementById("btn-aumentar");
@@ -637,3 +646,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+if (document.readyState !== "loading") {
+    configurarBotaoSairDashboard();
+}
