@@ -492,3 +492,75 @@ nav#itens a.link-nav-agendar {
         gap: 24px 12px;
     }
 }
+
+@media (max-width: 768px) {
+
+    #prin,
+    .hero,
+    .hero-bg,
+    section#prin {
+        background-image: none !important;
+        background-color: #ffffff !important;
+    }
+
+    body.dark-mode #prin,
+    body.dark-mode .hero,
+    body.dark-mode section#prin {
+        background-image: none !important;
+        background-color: #0f172a !important;
+    }
+}
+
+    .page {
+        padding: 16px 12px 90px;
+        overflow-x: hidden;
+    }
+
+    .card {
+        padding: 20px 16px;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Stepper superior sem quebrar palavras no meio */
+    .stepper {
+        gap: 6px;
+        overflow-x: auto;
+        padding-bottom: 6px;
+    }
+
+    .step {
+        min-width: 0;
+        flex: 1 1 0;
+    }
+
+    .step-label {
+        font-size: 0.72rem;
+        line-height: 1.25;
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+        text-align: center;
+    }
+
+    /* Cartões sempre empilhados em 1 coluna no celular */
+    .options,
+    .options-medicos,
+    .panel .options {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        flex-direction: column !important;
+        flex-wrap: wrap !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+
+    .option,
+    .panel .option {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        flex: none !important;
+        box-sizing: border-box !important;
+    }
+}

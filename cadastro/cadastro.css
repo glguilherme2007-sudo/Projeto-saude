@@ -46,6 +46,101 @@ body {
     margin: auto;
     align-items: stretch;
 }
+body.modo-escuro {
+    background-color: #121820;
+    color: #E8EDF2;
+}
+
+body.modo-escuro .form {
+    background-color: #202D3A;
+}
+
+body.modo-escuro .form-header h1 {
+    color: #8CC8F0;
+}
+
+body.modo-escuro .form-header h1::after {
+    background-color: #4C9BCB;
+}
+
+body.modo-escuro .box label,
+body.modo-escuro .genero-grupo legend {
+    color: #E8EDF2;
+}
+
+body.modo-escuro .input-box input {
+    background-color: #303F4D;
+    color: #FFFFFF;
+    border-color: #526477;
+}
+
+body.modo-escuro .input-box input::placeholder {
+    color: #C0CBD5;
+}
+
+body.modo-escuro .input-box input:hover {
+    background-color: #3A4B5B;
+}
+
+body.modo-escuro .genero-input label {
+    color: #E8EDF2;
+}
+
+body.modo-escuro .mensagem {
+    color: #8FE0A5 !important;
+}
+
+body.modo-escuro .rodape {
+    color: #E8EDF2;
+}
+
+body.modo-escuro .acessibilidade {
+    color: #FFFFFF;
+}
+
+body.modo-escuro .acessibilidade span {
+    color: #FFFFFF;
+}
+
+body.modo-escuro .area-rolagem::-webkit-scrollbar-track {
+    background-color: #303F4D;
+}
+
+body.modo-escuro .area-rolagem::-webkit-scrollbar-thumb {
+    background-color: #4C9BCB;
+}
+
+body.modo-escuro .voltar,
+body.modo-escuro .login-button,
+body.modo-escuro .continuar-botao {
+    background-color: #286A9B;
+}
+
+body.modo-escuro .voltar:hover,
+body.modo-escuro .login-button:hover,
+body.modo-escuro .continuar-botao:hover {
+    background-color: #3989BC;
+}
+
+body.modo-escuro .mostrar-senha {
+    color: #73C9F0;
+}
+
+/* Botão de alternância do tema */
+
+#acessarTema {
+    cursor: pointer;
+}
+
+body.modo-escuro .acessibilidade button {
+    border-color: #526477;
+    background-color: #303F4D;
+    color: #FFFFFF;
+}
+
+body.modo-escuro .acessibilidade button:hover {
+    background-color: #4C9BCB;
+}
 
 /* IMAGEM */
 .form-img {

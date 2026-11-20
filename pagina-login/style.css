@@ -19,6 +19,10 @@ body {
   background: #14394f;
 }
 
+#btnVoltar {
+  margin-right: auto;
+}
+
 .login-container {
   display: flex;
   align-items: center;

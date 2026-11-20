@@ -1,8 +1,9 @@
 /* =========================================
-   1. SELECIONAR ELEMENTOS DO HTML
+1. SELECIONAR ELEMENTOS DO HTML
 ========================================= */
 
 const cpf = document.querySelector("#cpf");
+const nascimento = document.querySelector("#nascimento");
 const telefone = document.querySelector("#telefone");
 const telefoneFixo = document.querySelector("#telefone-fixo");
 const cep = document.querySelector("#cep");
@@ -15,7 +16,7 @@ const mensagem = document.querySelector("#mensagem");
 
 
 /* =========================================
-   2. MÁSCARA DE CPF
+2. MÁSCARA DE CPF
 ========================================= */
 
 cpf.addEventListener("input", function () {
@@ -49,7 +50,7 @@ cpf.addEventListener("input", function () {
 
 
 /* =========================================
-   3. MÁSCARA DE TELEFONE
+3. MÁSCARA DE TELEFONE
 ========================================= */
 
 telefone.addEventListener("input", function () {
@@ -86,7 +87,7 @@ telefone.addEventListener("input", function () {
 
 
 /* =========================================
-   4. MÁSCARA DE TELEFONE FIXO
+4. MÁSCARA DE TELEFONE FIXO
 ========================================= */
 
 telefoneFixo.addEventListener("input", function () {
@@ -108,7 +109,7 @@ telefoneFixo.addEventListener("input", function () {
 
 
 /* =========================================
-   5. MÁSCARA DE CEP
+5. MÁSCARA DE CEP
 ========================================= */
 
 cep.addEventListener("input", function () {
@@ -124,7 +125,7 @@ cep.addEventListener("input", function () {
 
 
 /* =========================================
-   6. FUNÇÃO PARA VALIDAR CPF
+6. FUNÇÃO PARA VALIDAR CPF
 ========================================= */
 
 function validarCPF(valor) {
@@ -180,7 +181,59 @@ function validarCPF(valor) {
 
 
 /* =========================================
-   7. CONFIRMAR SE AS SENHAS SÃO IGUAIS
+   VALIDAÇÃO DA DATA DE NASCIMENTO
+========================================= */
+
+// Obtém a data atual no horário local.
+function obterDataAtual() {
+    const hoje = new Date();
+
+    const ano = hoje.getFullYear();
+    const mes = String(hoje.getMonth() + 1).padStart(2, "0");
+    const dia = String(hoje.getDate()).padStart(2, "0");
+
+    return `${ano}-${mes}-${dia}`;
+}
+
+// Define os limites do campo.
+if (nascimento) {
+    nascimento.min = "1900-01-01";
+    nascimento.max = obterDataAtual();
+}
+
+// Valida a data digitada.
+function validarNascimento() {
+    if (!nascimento) return;
+
+    nascimento.setCustomValidity("");
+
+    if (nascimento.value === "") {
+        return;
+    }
+
+    const dataInformada = nascimento.value;
+    const dataMinima = "1900-01-01";
+    const dataMaxima = obterDataAtual();
+
+    if (
+        dataInformada < dataMinima ||
+        dataInformada > dataMaxima
+    ) {
+        nascimento.setCustomValidity(
+            "Informe uma data de nascimento entre 01/01/1900 e hoje."
+        );
+    }
+}
+
+// Valida quando o usuário altera a data.
+if (nascimento) {
+    nascimento.addEventListener("change", validarNascimento);
+    nascimento.addEventListener("input", validarNascimento);
+}
+
+
+/* =========================================
+7. CONFIRMAR SE AS SENHAS SÃO IGUAIS
 ========================================= */
 
 function validarSenha() {
@@ -203,7 +256,7 @@ confirmeSenha.addEventListener("input", validarSenha);
 
 
 /* =========================================
-   8. MOSTRAR E OCULTAR SENHA
+8. MOSTRAR E OCULTAR SENHA
 ========================================= */
 
 const botoesSenha = document.querySelectorAll(".mostrar-senha");
@@ -227,7 +280,7 @@ botoesSenha.forEach(function (botao) {
 
 
 /* =========================================
-   9. VALIDAR O FORMULÁRIO NO ENVIO
+9. VALIDAR O FORMULÁRIO NO ENVIO
 ========================================= */
 
 formulario.addEventListener("submit", function (evento) {
@@ -240,6 +293,9 @@ formulario.addEventListener("submit", function (evento) {
 
     // Confere se as senhas são iguais.
     validarSenha();
+
+    // Valida a data de nascimento.
+    validarNascimento();
 
     // Confere se o CPF passou na validação matemática.
     if (!validarCPF(cpf.value)) {
@@ -261,7 +317,7 @@ formulario.addEventListener("submit", function (evento) {
 
 
 /* =========================================
-   10. LIMPAR MENSAGEM QUANDO O USUÁRIO EDITAR
+10. LIMPAR MENSAGEM QUANDO O USUÁRIO EDITAR
 ========================================= */
 
 formulario.addEventListener("input", function () {
@@ -269,11 +325,8 @@ formulario.addEventListener("input", function () {
 });
 
 
-
-
-
 /* =========================================
-   11. LOCALSTORAGE - SALVAR VÁRIOS USUÁRIOS
+11. LOCALSTORAGE - SALVAR VÁRIOS USUÁRIOS
 ========================================= */
 
 // Chave que identifica a lista de usuários no navegador.
@@ -298,18 +351,14 @@ function salvarCadastro() {
         bairro: document.querySelector("#bairro").value,
         cidade: document.querySelector("#cidade").value,
         genero: generoSelecionado ? generoSelecionado.value : "",
-        
-        
+
         // Não armazenamos CPF, senha ou confirmação de senha.
-        cpf: document.querySelector("#cpf").value,    
+        cpf: document.querySelector("#cpf").value,
         senha: document.querySelector("#senha").value,
         confirmesenha: document.querySelector("#confirmesenha").value
-        
-
-        
     };
 
-  // 1. Recupera a lista existente ou cria um array vazio
+    // 1. Recupera a lista existente ou cria um array vazio
     const usuariosSalvos = JSON.parse(localStorage.getItem(chaveCadastro)) || [];
 
     // 2. Adiciona o novo usuário na lista
@@ -319,13 +368,14 @@ function salvarCadastro() {
     localStorage.setItem(chaveCadastro, JSON.stringify(usuariosSalvos));
 
     // 4. Já salva esse novo usuário como o "usuário logado" atual (auto-login)
-    localStorage.setItem('usuarioLogado', JSON.stringify(dadosCadastro));
+    localStorage.setItem("usuarioLogado", JSON.stringify(dadosCadastro));
 
-    window.location.href = '../pagina-login/login.html';        
+    window.location.href = "../pagina-login/login.html";
 }
 
+
 /* =========================================
-   12. ACESSIBILIDADE - CONTROLE DE ZOOM
+12. ACESSIBILIDADE - CONTROLE DE ZOOM
 ========================================= */
 
 // Seleciona os botões do HTML.
@@ -346,47 +396,82 @@ const zoomMaximo = 150;
 
 // Atualiza o zoom da página.
 function atualizarZoom() {
-
     document.documentElement.style.zoom = zoomAtual + "%";
-
     valorZoom.textContent = zoomAtual + "%";
-
 }
 
 
 // Aumentar o zoom.
 aumentarZoom.addEventListener("click", function () {
-
     if (zoomAtual < zoomMaximo) {
-
         zoomAtual += 10;
-
         atualizarZoom();
-
     }
-
 });
 
 
 // Diminuir o zoom.
 diminuirZoom.addEventListener("click", function () {
-
     if (zoomAtual > zoomMinimo) {
-
         zoomAtual -= 10;
-
         atualizarZoom();
-
     }
-
 });
 
 
 // Restaurar o tamanho original.
 resetarZoom.addEventListener("click", function () {
-
     zoomAtual = 100;
-
     atualizarZoom();
-
 });
+
+
+/* =========================================
+13. ACESSIBILIDADE - MODO ESCURO
+========================================= */
+
+const alternarTema = document.querySelector("#alternarTema");
+
+// Recupera o tema salvo no navegador.
+const temaSalvo = localStorage.getItem("temaCadastro");
+
+// Aplica o tema salvo ao carregar a página.
+if (temaSalvo === "escuro") {
+    document.body.classList.add("modo-escuro");
+}
+
+// Atualiza o botão de acordo com o tema atual.
+function atualizarBotaoTema() {
+    if (!alternarTema) return;
+
+    const escuro = document.body.classList.contains("modo-escuro");
+
+    alternarTema.textContent = escuro
+        ? "☀️ Modo claro"
+        : "🌙 Modo escuro";
+
+    alternarTema.setAttribute("aria-pressed", String(escuro));
+
+    alternarTema.setAttribute(
+        "aria-label",
+        escuro ? "Ativar modo claro" : "Ativar modo escuro"
+    );
+}
+
+atualizarBotaoTema();
+
+// Alterna entre os temas.
+if (alternarTema) {
+    alternarTema.addEventListener("click", function () {
+        document.body.classList.toggle("modo-escuro");
+
+        const escuro = document.body.classList.contains("modo-escuro");
+
+        localStorage.setItem(
+            "temaCadastro",
+            escuro ? "escuro" : "claro"
+        );
+
+        atualizarBotaoTema();
+    });
+}

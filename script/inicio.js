@@ -3,7 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const body = document.body;
     const header = document.querySelector("header");
 
-    
+    /* =====================================
+       1. ACESSIBILIDADE (FONTE E TEMA)
+    ===================================== */
     const btnAumentar = document.getElementById("btn-aumentar");
     const btnDiminuir = document.getElementById("btn-diminuir");
     const btnTema = document.getElementById("btn-tema");
@@ -47,10 +49,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    
+    /* =====================================
+       2. NAVEGAÇÃO PARA "VER MINHAS CONSULTAS"
+    ===================================== */
     const btnMinhasConsultas = document.getElementById("btn-minhas-consultas");
-    const PAGINA_CONSULTAS = "minhas-consultas.html"; 
-    const PAGINA_LOGIN = "login.html"; 
+    const ROTA_DASHBOARD_CONSULTAS = "Área do Cliente zip/dashboard.html";
+    const ROTA_LOGIN = "../pagina-login/login.html";
 
     function usuarioEstaLogado() {
         const sessaoRaw = localStorage.getItem("idadePlus_usuario") || localStorage.getItem("usuarioLogado");
@@ -64,25 +68,93 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function irParaMinhasConsultas() {
+        if (usuarioEstaLogado()) {
+            localStorage.removeItem("idadePlus_redirect");
+            window.location.href = ROTA_DASHBOARD_CONSULTAS;
+        } else {
+            localStorage.setItem("idadePlus_redirect", "consultas");
+            window.location.href = ROTA_LOGIN;
+        }
+    }
+
     if (btnMinhasConsultas) {
-        btnMinhasConsultas.addEventListener("click", () => {
-            if (usuarioEstaLogado()) {
-                window.location.href = "Área do Cliente zip/dashboard.html";
-            } else {
-                localStorage.setItem("idadePlus_redirect", PAGINA_CONSULTAS);
-                 window.location.href = '../pagina-login/login.html';  
+        btnMinhasConsultas.addEventListener("click", (e) => {
+            e.preventDefault();
+            irParaMinhasConsultas();
+        });
+    }
+
+    /* =====================================
+       3. MENU MOBILE (#burguer + nav#itens)
+    ===================================== */
+    const btnBurguer = document.getElementById("burguer");
+    const navItens = document.getElementById("itens");
+
+    function fecharMenuMobile() {
+        if (navItens) {
+            navItens.classList.remove("aberto", "ativo");
+        }
+        if (btnBurguer) {
+            btnBurguer.classList.remove("aberto", "ativo");
+            btnBurguer.setAttribute("aria-expanded", "false");
+        }
+    }
+
+    if (navItens && !document.getElementById("btn-minhas-consultas-menu")) {
+        const linkMinhasConsultasMenu = document.createElement("a");
+        linkMinhasConsultasMenu.href = "#";
+        linkMinhasConsultasMenu.id = "btn-minhas-consultas-menu";
+        linkMinhasConsultasMenu.className = "link-nav link-nav-consultas";
+        linkMinhasConsultasMenu.textContent = "Ver minhas consultas";
+
+        linkMinhasConsultasMenu.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            fecharMenuMobile();
+            irParaMinhasConsultas();
+        });
+
+        navItens.appendChild(linkMinhasConsultasMenu);
+    }
+
+    if (btnBurguer && navItens) {
+        btnBurguer.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const estaAberto = navItens.classList.toggle("aberto");
+            navItens.classList.toggle("ativo", estaAberto);
+            btnBurguer.classList.toggle("aberto", estaAberto);
+            btnBurguer.setAttribute("aria-expanded", String(estaAberto));
+        });
+
+        navItens.querySelectorAll("a").forEach((link) => {
+            if (link.id === "btn-minhas-consultas-menu") return;
+            link.addEventListener("click", () => {
+                fecharMenuMobile();
+            });
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!navItens.contains(e.target) && !btnBurguer.contains(e.target)) {
+                fecharMenuMobile();
             }
         });
     }
 
-   
+    /* =====================================
+       4. HEADER AO ROLAR A PÁGINA
+    ===================================== */
     window.addEventListener("scroll", () => {
         if (header) {
             header.classList.toggle("scrolled", window.scrollY > 40);
         }
     });
 
-    
+    /* =====================================
+       5. MODAL DE SERVIÇOS
+    ===================================== */
     const modal = document.getElementById("modal-servico");
     const modalX = document.getElementById("modal-x");
     const modalFechar = document.getElementById("modal-fechar");

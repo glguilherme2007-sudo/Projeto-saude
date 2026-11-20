@@ -4,6 +4,12 @@ const formulario = document.getElementById('formLogin');
 const mensagem = document.getElementById('mensagem');
 const botaoVerSenha = document.getElementById('btnVerSenha');
 
+const botaoVoltar = document.getElementById('btnVoltar');
+
+botaoVoltar.addEventListener('click', function () {
+  window.location.href = '../index.html';
+});
+
 function marcarErro(campo, idErro, textoErro) {
   campo.classList.add('campo-erro');
   campo.setAttribute('aria-invalid', 'true');
@@ -16,7 +22,7 @@ function limparErro(campo, idErro) {
   document.getElementById(idErro).textContent = '';
 }
 
-function normalizarCpf(cpf){ 
+function normalizarCpf(cpf) {
   return cpf.replace(/\D/g, '');
 }
 
@@ -191,7 +197,15 @@ formulario.addEventListener('submit', function (evento) {
 
   try {
     localStorage.setItem('usuarioLogado', JSON.stringify(usuarioEncontrado));
-    window.location.href = '../agendar.html';
+
+    const destinoRedirecionamento = localStorage.getItem('idadePlus_redirect');
+    localStorage.removeItem('idadePlus_redirect');
+
+    if (destinoRedirecionamento === 'consultas') {
+      window.location.href = '../Área do Cliente zip/dashboard.html';
+    } else {
+      window.location.href = '../agendar.html';
+    }
   } catch (erro) {
     mostrarMensagem('Não foi possível iniciar sua sessão.', 'erro');
   }
