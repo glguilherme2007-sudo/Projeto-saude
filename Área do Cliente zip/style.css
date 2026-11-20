@@ -1,34 +1,109 @@
-
-/* CONFIGURAÇÕES GERAIS */
-
-/* Garante que fundos claros continuem com texto escuro no dark-mode */
-body.dark-mode .cartao-proxima,
-body.dark-mode .card-resumo,
-body.dark-mode .aba:not(.ativa) {
-    background-color: #ffffff;
-    color: #151f38;
+/* === MODO ESCURO — MINHAS CONSULTAS === */
+body.dark-mode .header {
+    background-color: #0f172a;
+    border-bottom-color: #1e293b;
 }
 
-/* Se preferir que os cartões fiquem escuros junto com o tema */
-body.dark-mode .proxima-consulta,
-body.dark-mode .estatistica-card,
-body.dark-mode .resumo-card {
+body.dark-mode .logo-texto {
+    color: #f8fafc;
+}
+
+body.dark-mode .user-trigger,
+body.dark-mode .user-dropdown {
     background-color: #1e293b;
     color: #f8fafc;
+    border-color: #334155;
 }
 
-body.dark-mode .proxima-consulta h2,
-body.dark-mode .proxima-consulta h3,
-body.dark-mode .estatistica-card strong,
-body.dark-mode .estatistica-card .numero,
-body.dark-mode .resumo-card strong,
-body.dark-mode .resumo-card .numero {
+body.dark-mode .btn-sair {
     color: #f8fafc;
 }
 
-/* Evita que botões fiquem com texto claro em fundo claro */
-body.dark-mode button {
-    color: inherit;
+/* Card PRÓXIMA CONSULTA */
+body.dark-mode .confirmarPresenca {
+    background-color: #1e293b;
+    color: #e2e8f0;
+    border-color: #334155;
+}
+
+body.dark-mode .especialidade h2,
+body.dark-mode .detalhesConsulta p {
+    color: #f1f5f9;
+}
+
+body.dark-mode #confirmarPresenca,
+body.dark-mode #detalhesProxima {
+    background-color: #334155;
+    color: #f8fafc;
+    border-color: #475569;
+}
+
+/* Cards de estatísticas (Agendadas, Aguardando confirmação, Realizadas) */
+body.dark-mode .cardEstatistica {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .cardEstatistica h2 {
+    color: #f8fafc;
+}
+
+body.dark-mode .cardEstatistica p {
+    color: #cbd5e1;
+}
+
+/* Abas (Próximas, Realizadas, Canceladas) */
+body.dark-mode nav.status .aba {
+    background-color: #1e293b;
+    color: #e2e8f0;
+    border-color: #334155;
+}
+
+body.dark-mode nav.status .aba.ativa {
+    background-color: #0099ff;
+    color: #ffffff;
+    border-color: #0099ff;
+}
+
+/* Cartões da lista de consultas */
+body.dark-mode .cartaoConsulta {
+    background-color: #1e293b;
+    color: #e2e8f0;
+    border-color: #334155;
+}
+
+body.dark-mode .tipoMedico h3,
+body.dark-mode .detalheConsulta p,
+body.dark-mode .dataConsulta {
+    color: #f1f5f9;
+}
+
+/* Botões dentro de cada cartão de consulta */
+body.dark-mode .cartaoConsulta button,
+body.dark-mode .botaoConfirmar,
+body.dark-mode .botaoDetalhes,
+body.dark-mode .botaoRemarcar {
+    background-color: #334155;
+    color: #f8fafc;
+    border-color: #475569;
+}
+
+body.dark-mode .botaoCancelar {
+    background-color: rgba(239, 68, 68, 0.16);
+    color: #fca5a5;
+    border-color: rgba(239, 68, 68, 0.35);
+}
+
+/* Modal <dialog> */
+body.dark-mode .modal,
+body.dark-mode .conteudoModal {
+    background-color: #1e293b;
+    color: #f8fafc;
+    border-color: #334155;
+}
+
+body.dark-mode .conteudoModal p {
+    color: #cbd5e1;
 }
 
 html {

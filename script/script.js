@@ -303,26 +303,25 @@ function esconderErro() {
 }
 
 function finalizarAgendamento() {
-   const consultasSalvas = JSON.parse(localStorage.getItem("consultas")) || [];
+    const consultasSalvas = JSON.parse(localStorage.getItem("consultas")) || [];
 
-   const listaEspecialidade = buscarMedico(agendamento.especialidade);
-   const medicoObj = listaEspecialidade.find( m => m.nome === agendamento.medico);
+    const listaEspecialidade = buscarMedico(agendamento.especialidade);
+    const medicoObj = listaEspecialidade.find( m => m.nome === agendamento.medico);
 
-   const medicoFormatado = medicoObj
-    ? `${medicoObj.nome} • ${medicoObj.crm}`
-    : agendamento.medico;
+    const medicoFormatado = medicoObj
+        ? `${medicoObj.nome} • ${medicoObj.crm}`
+        : agendamento.medico;
 
     const horaLimpa = (agendamento.horario || "").split("-")[0].trim();
 
     const dataPadrao = "2026-11-24";
 
-    
-    
     const novaConsulta = {
         id: Date.now(),
         especialidade: agendamento.especialidade,
         medico: medicoFormatado,
         data: dataPadrao,
+        horario: horaLimpa,
         local: agendamento.modo ? `Atendimento ${agendamento.modo}` : "Unidade Idade+",
         status: "pendente"
     };
@@ -330,7 +329,7 @@ function finalizarAgendamento() {
     consultasSalvas.push(novaConsulta);
     localStorage.setItem("consultas", JSON.stringify(consultasSalvas));
 
-    alert("Consulta agendada com sucesso!")
+    alert("Consulta agendada com sucesso!");
     window.location.href = "Área do Cliente zip/dashboard.html";
 }
 

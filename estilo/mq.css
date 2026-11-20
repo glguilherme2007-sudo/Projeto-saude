@@ -1,70 +1,494 @@
 @charset "UTF-8";
 
-@media screen and (max-width: 600px) {
+/* =========================================================
+   mq.css - Idade+
+   Carregar DEPOIS do style.css (já está assim no seu HTML).
+   1) Acessibilidade (vale para todas as telas)
+   2) Media queries: 1100px, 1000px, 900px, 700px, 600px, 520px
+   ========================================================= */
 
-    header{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 2rem;
-        background-color: #007d8a;
-        position: relative;
-        z-index: 1000;
-    }
 
-    section#prin{
-    width: 100%;
-    min-height: calc(100vh - 70px);
-    display: flex;
-    justify-content: center;
+/* ---------- 1. ACESSIBILIDADE ---------- */
+
+:root {
+    --azul-acessivel: #0069b4;   /* fundo de botões com texto branco (contraste 5.7:1) */
+    --azul-texto: #0069b4;       /* azul para texto sobre fundo claro */
+    --cor-foco: #0050a0;
+    --texto-sub: #475569;        /* cinza mais escuro que o #64748b original */
+}
+
+body.dark-mode {
+    --azul-texto: #5cc0ff;
+    --cor-foco: #ffd54a;
+    --texto-sub: #cbd5e1;
+}
+
+/* Letra base maior (os botões A+ e A- continuam funcionando) */
+html {
+    font-size: 18px;
+}
+
+/* Foco visível para quem usa teclado */
+:focus-visible {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 3px;
+}
+
+.contato-form input:focus-visible,
+.contato-form textarea:focus-visible {
+    outline: 3px solid var(--cor-foco);
+    outline-offset: 2px;
+}
+
+/* Nenhum texto abaixo de 1rem (18px) */
+.bdg,
+.btnp,
+.btns,
+.btn-agendar,
+.btn-topo,
+.card-link,
+.cardif p,
+.contato-form label,
+.contato-links a,
+.eq-area,
+.eq-btn,
+.eq-card p,
+.eq-reg,
+.faq-item p,
+.plan-btn,
+.plan-desc,
+.plan-list li,
+.plan-price small,
+.rl-autor small,
+.rl-autor strong,
+.rl-texto,
+.stat-item span,
+nav#itens a.link-nav {
+    font-size: 1rem;
+}
+
+#hero p {
+    font-size: 1.1rem;
+}
+
+.plan-tag {
+    font-size: 0.8rem;
+}
+
+/* Botões e fundos azuis com contraste bom para texto branco */
+.btn-enviar,
+.plan-btn-azul,
+.modal-agendar,
+.rl-avatar,
+.card-badge,
+.plan-tag {
+    background-color: var(--azul-acessivel);
+}
+
+#stats {
+    background-color: var(--azul-acessivel);
+}
+
+/* Textos azuis sobre fundo claro (antes #00a2ff, contraste baixo) */
+.sbm-eyebrow,
+.plan-eyebrow,
+.eq-eyebrow,
+.rl-eyebrow,
+.contato-eyebrow,
+.eq-area,
+.card-link,
+.btn-topo,
+.modal-icone,
+.faq-item summary .material-symbols-outlined,
+.plan-list .material-symbols-outlined {
+    color: var(--azul-texto);
+}
+
+/* Plano "Mais recomendado" mantém ícones brancos no fundo escuro */
+.plan-destaque .plan-list .material-symbols-outlined {
+    color: #ffffff;
+}
+
+/* Item "não incluso" legível e sem depender só da cor */
+.plan-list li.off {
+    opacity: 1;
+    color: var(--texto-sub);
+    text-decoration: line-through;
+}
+
+.plan-list li.off .material-symbols-outlined {
+    color: var(--texto-sub);
+}
+
+/* Placeholder dos campos */
+.contato-form input::placeholder,
+.contato-form textarea::placeholder {
+    color: var(--texto-sub);
+}
+
+/* Botão fechar do modal: maior e com contraste */
+.modal-x {
+    top: 10px;
+    right: 10px;
+    width: 48px;
+    height: 48px;
     align-items: center;
-    padding: 20px 0;
-    background: url(../img/fundocell.jpg);
+    justify-content: center;
+    color: var(--texto-sub);
+}
+
+.modal-x:hover {
+    color: var(--azul-texto);
+}
+
+.modal-box {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* WhatsApp: verde com contraste */
+.link-whats {
+    color: #15803d;
+}
+
+body.dark-mode .link-whats {
+    color: #4ade80;
+}
+
+/* Botão do menu (hambúrguer) */
+#burguer {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--texto-nav);
+}
+
+header.scrolled #burguer {
+    color: #ffffff;
+}
+
+/* Link "Agendar" dentro do menu: só aparece no celular */
+nav#itens a.link-nav-agendar {
+    display: none;
+}
+
+/* Respeitar quem desativou animações no aparelho */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
     }
 
-    section#prin > div#hero{
-    width: 90%;
-    max-width: 400px;
-    margin: 0 auto ;
-    top: 0 ;
-    position: relative;
-    padding: 2rem 1.5rem;
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 
-    #hero a.btnp, #hero a.btns{
-        display: block;
-        width: 100%;
-        margin: 10px 0;
-        text-align: center;
-        box-sizing: border-box;
-    }
-
-    #burguer{
-        display: block;
-        cursor: pointer;
-    }
-
-    nav#itens{
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #ffffff;
-        border-radius: 0;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-        z-index: 999;
-    }
-
-    nav#itens a{
-        display: block;
-        padding: 12px 20px;
-        text-align: center;
-        border-bottom: 1px solid #eee;
-        border-radius: 0;
-        background-color: transparent;
-        text-decoration: none;
+    .reveal {
+        opacity: 1;
+        transform: none;
+        filter: none;
     }
 }
 
+
+/* ---------- 2. MEDIA QUERIES ---------- */
+
+/* ===== Notebook pequeno / tablet deitado: até 1100px ===== */
+@media (max-width: 1100px) {
+    #cardc {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #hero {
+        margin-left: 2rem;
+    }
+
+    .contato-container {
+        gap: 48px;
+    }
+}
+
+
+/* ===== Menu vira hambúrguer: até 1000px ===== */
+@media (max-width: 1000px) {
+    header {
+        padding: 0 1rem;
+    }
+
+    h1.logo-idade-wrap {
+        order: 1;
+    }
+
+    .header-action {
+        order: 2;
+        margin-left: auto;
+        margin-right: 0.5rem;
+    }
+
+    #burguer {
+        order: 3;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        font-size: 2rem;
+        border-radius: 0.5rem;
+    }
+
+    nav#itens {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+        background-color: #151f38;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+
+    nav#itens.aberto {
+        display: flex;
+    }
+
+    nav#itens a.link-nav {
+        color: #ffffff;
+        font-size: 1.15rem;
+        padding: 1.1rem 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    nav#itens a.link-nav:hover {
+        color: #7dd3fc;
+    }
+
+    #prin {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    #hero {
+        margin-left: 0;
+    }
+
+    /* Barra de acessibilidade desce para o canto de baixo */
+    .barra-acessibilidade {
+        top: auto;
+        bottom: 1rem;
+        right: 0.75rem;
+        transform: none;
+        flex-direction: row;
+        padding: 0.35rem 0.5rem;
+        gap: 0.35rem;
+    }
+
+    .footer {
+        padding-bottom: 6rem;
+    }
+
+    /* Planos em uma coluna */
+    #plan-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        gap: 44px;
+    }
+
+    .plan-list,
+    .plan-desc {
+        min-height: 0;
+    }
+}
+
+
+/* ===== Tablet em pé: até 900px ===== */
+@media (max-width: 900px) {
+    #prin {
+        min-height: 0;
+        padding-top: 100px;
+        padding-bottom: 3rem;
+    }
+
+    #stats {
+        height: auto;
+        padding: 1.75rem 4%;
+    }
+
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    #sbm,
+    #equipe,
+    #planos,
+    #relato,
+    #contato {
+        padding: 64px 5%;
+    }
+
+    #sbm {
+        min-height: 0;
+    }
+
+    .sbm-sub,
+    .eq-sub,
+    .plan-sub,
+    .rl-sub {
+        margin-bottom: 40px;
+    }
+
+    #eq-grid,
+    #rl-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        max-width: 520px;
+    }
+
+    .contato-container {
+        grid-template-columns: 1fr;
+        gap: 56px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-container .footer-col:first-child {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* ===== Celular grande: até 700px ===== */
+@media (max-width: 700px) {
+    #prin {
+        justify-content: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    #hero {
+        max-width: 100%;
+        padding: 1.75rem;
+    }
+
+    #hero h2 {
+        font-size: 1.9rem;
+    }
+
+    #sbm h3,
+    #equipe h3,
+    #planos h3,
+    #relato h3,
+    #contato h3 {
+        font-size: 1.7rem;
+    }
+
+    .stat-item strong {
+        font-size: 1.8rem;
+    }
+
+    .modal-box {
+        padding: 56px 20px 24px;
+    }
+
+    .modal-acoes {
+        flex-direction: column-reverse;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .modal-agendar {
+        text-align: center;
+    }
+}
+
+
+/* ===== Celular: até 600px ===== */
+@media (max-width: 600px) {
+    #cardc {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .card-img-top {
+        height: 210px;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btnp,
+    .btns {
+        text-align: center;
+        padding: 1rem 1.2rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .contato-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .faq-item {
+        padding: 18px 4px;
+    }
+
+    .faq-item p {
+        padding-right: 0;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .plan,
+    .plan-destaque {
+        padding: 28px 22px;
+    }
+}
+
+
+/* ===== Celular pequeno: até 520px ===== */
+@media (max-width: 520px) {
+    .logo-texto {
+        font-size: 1.35rem;
+    }
+
+    /* O botão do topo some e o "Agendar consulta" passa a ficar dentro do menu */
+    .header-action {
+        display: none;
+    }
+
+    #burguer {
+        margin-left: auto;
+    }
+
+    nav#itens a.link-nav-agendar {
+        display: block;
+        background-color: var(--azul-acessivel);
+        font-weight: 700;
+        text-align: center;
+        margin: 1rem 1.5rem 1.25rem;
+        border-radius: 10px;
+        border-bottom: none;
+    }
+
+    .stats-container {
+        gap: 24px 12px;
+    }
+}

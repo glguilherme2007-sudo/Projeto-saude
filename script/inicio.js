@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const body = document.body;
     const header = document.querySelector("header");
 
-    // --- CONTROLE DE FONTE (A+ / A-) E DARK MODE ---
+    
     const btnAumentar = document.getElementById("btn-aumentar");
     const btnDiminuir = document.getElementById("btn-diminuir");
     const btnTema = document.getElementById("btn-tema");
@@ -47,14 +47,42 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- SCROLL DO HEADER ---
+    
+    const btnMinhasConsultas = document.getElementById("btn-minhas-consultas");
+    const PAGINA_CONSULTAS = "minhas-consultas.html"; 
+    const PAGINA_LOGIN = "login.html"; 
+
+    function usuarioEstaLogado() {
+        const sessaoRaw = localStorage.getItem("idadePlus_usuario") || localStorage.getItem("usuarioLogado");
+        if (!sessaoRaw) return false;
+
+        try {
+            const sessao = JSON.parse(sessaoRaw);
+            return Boolean(sessao === true || sessao?.logado || sessao?.email || sessao?.cpf);
+        } catch {
+            return sessaoRaw === "true" || sessaoRaw.trim().length > 0;
+        }
+    }
+
+    if (btnMinhasConsultas) {
+        btnMinhasConsultas.addEventListener("click", () => {
+            if (usuarioEstaLogado()) {
+                window.location.href = "Área do Cliente zip/dashboard.html";
+            } else {
+                localStorage.setItem("idadePlus_redirect", PAGINA_CONSULTAS);
+                 window.location.href = '../pagina-login/login.html';  
+            }
+        });
+    }
+
+   
     window.addEventListener("scroll", () => {
         if (header) {
             header.classList.toggle("scrolled", window.scrollY > 40);
         }
     });
 
-    // --- MODAL DE SERVIÇOS ---
+    
     const modal = document.getElementById("modal-servico");
     const modalX = document.getElementById("modal-x");
     const modalFechar = document.getElementById("modal-fechar");
