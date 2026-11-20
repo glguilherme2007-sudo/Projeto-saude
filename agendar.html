@@ -17,15 +17,20 @@
 
     <header class="topbar">
         <div class="topbar-inner">
-            <a href="index.html" class="brand">
-                <span class="brand-logo">I+</span>
-                <span class="brand-text">
-                    <strong>Idade+</strong>
+            <a href="index.html" class="brand logo-idade" aria-label="Página inicial idade+">
+                <span class="logo-icone" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#ffffff"/>
+                        <path d="M6.5 11.5h2.2l1.3-2.5 2.2 5 1.5-2.5h3.8" stroke="#0099ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <span class="logo-texto">idade<span class="logo-mais">+</span></span>
+            </a>
                     
                 </span>
             </a>
 
-            <a href="contato.html" class="support">
+            <a href="index.html#contato" class="support">
                 <i class="fa-solid fa-headset"></i> Suporte
             </a>
             <div id="user">
@@ -168,6 +173,20 @@
 
         </section>
     </main>
+
+    <aside class="barra-acessibilidade" aria-label="Controles de acessibilidade">
+    <button type="button" id="btn-aumentar" title="Aumentar tamanho da fonte" aria-label="Aumentar tamanho da fonte">
+        A+
+    </button>
+    <button type="button" id="btn-diminuir" title="Diminuir tamanho da fonte" aria-label="Diminuir tamanho da fonte">
+        A-
+    </button>
+    <button type="button" id="btn-tema" title="Alternar modo escuro" aria-label="Alternar modo escuro">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18V4c4.41 0 8 3.59 8 8s-3.59 8-8 8z"/>
+        </svg>
+    </button>
+    </aside>
 
     <script src="script/script.js"></script>
 </body>

@@ -425,16 +425,23 @@ function atualizarProximaConsulta() {
    8. ATUALIZAR TODA A INTERFACE
 ===================================== */
 
-function atualizarUsuario(){
-        if(!usuarioLogado) return;
+function atualizarUsuario() {
+    if (!usuarioLogado) return;
 
-        if(nomeHeader){
-            nomeHeader.textContent = usuarioLogado.nome;
-        }
+    const avatarInicial = document.getElementById("avatarInicial");
+    if (avatarInicial) {
+        avatarInicial.textContent = usuarioLogado.nome
+            ? usuarioLogado.nome.charAt(0).toUpperCase()
+            : "U";
+    }
 
-        if(nomeSaudacao){
-            nomeSaudacao.textContent = usuarioLogado.nome;
-        }
+    if (nomeHeader) {
+        nomeHeader.textContent = usuarioLogado.nome;
+    }
+
+    if (nomeSaudacao) {
+        nomeSaudacao.textContent = usuarioLogado.nome;
+    }
 }
 
 function atualizarInterface(statusAtual = "proximas") {
@@ -858,4 +865,85 @@ document.getElementById("detalhesProxima").addEventListener("click", async funct
 ===================================== */
 
 atualizarInterface();
+
+/* =====================================
+   13. MENU DO USUÁRIO (∨ / SAIR) E ACESSIBILIDADE
+===================================== */
+document.addEventListener("DOMContentLoaded", () => {
+    const html = document.documentElement;
+    const body = document.body;
+
+    // Menu dropdown do usuário
+    const btnMenuUsuario = document.getElementById("btnMenuUsuario");
+    const dropdownUsuario = document.getElementById("dropdownUsuario");
+    const btnSair = document.getElementById("btnSair");
+
+    if (btnMenuUsuario && dropdownUsuario) {
+        btnMenuUsuario.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const aberto = dropdownUsuario.classList.toggle("aberto");
+            btnMenuUsuario.classList.toggle("aberto", aberto);
+            btnMenuUsuario.setAttribute("aria-expanded", String(aberto));
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!btnMenuUsuario.contains(e.target) && !dropdownUsuario.contains(e.target)) {
+                dropdownUsuario.classList.remove("aberto");
+                btnMenuUsuario.classList.remove("aberto");
+                btnMenuUsuario.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
+
+    if (btnSair) {
+        btnSair.addEventListener("click", () => {
+            localStorage.removeItem("usuarioLogado");
+            window.location.href = "../login.html";
+        });
+    }
+
+    // Barra flutuante A+, A- e Dark Mode
+    const btnAumentar = document.getElementById("btn-aumentar");
+    const btnDiminuir = document.getElementById("btn-diminuir");
+    const btnTema = document.getElementById("btn-tema");
+
+    const FONTE_PADRAO = 16;
+    const FONTE_MIN = 14;
+    const FONTE_MAX = 22;
+    const PASSO = 2;
+
+    let tamanhoAtual = parseInt(localStorage.getItem("idadePlus_fonte"), 10) || FONTE_PADRAO;
+    html.style.fontSize = `${tamanhoAtual}px`;
+
+    if (localStorage.getItem("idadePlus_tema") === "dark") {
+        body.classList.add("dark-mode");
+    }
+
+    if (btnAumentar) {
+        btnAumentar.addEventListener("click", () => {
+            if (tamanhoAtual < FONTE_MAX) {
+                tamanhoAtual += PASSO;
+                html.style.fontSize = `${tamanhoAtual}px`;
+                localStorage.setItem("idadePlus_fonte", tamanhoAtual);
+            }
+        });
+    }
+
+    if (btnDiminuir) {
+        btnDiminuir.addEventListener("click", () => {
+            if (tamanhoAtual > FONTE_MIN) {
+                tamanhoAtual -= PASSO;
+                html.style.fontSize = `${tamanhoAtual}px`;
+                localStorage.setItem("idadePlus_fonte", tamanhoAtual);
+            }
+        });
+    }
+
+    if (btnTema) {
+        btnTema.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            localStorage.setItem("idadePlus_tema", body.classList.contains("dark-mode") ? "dark" : "light");
+        });
+    }
+});
 

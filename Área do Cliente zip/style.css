@@ -1,6 +1,209 @@
 
 /* CONFIGURAÇÕES GERAIS */
 
+/* Garante que fundos claros continuem com texto escuro no dark-mode */
+body.dark-mode .cartao-proxima,
+body.dark-mode .card-resumo,
+body.dark-mode .aba:not(.ativa) {
+    background-color: #ffffff;
+    color: #151f38;
+}
+
+/* Se preferir que os cartões fiquem escuros junto com o tema */
+body.dark-mode .proxima-consulta,
+body.dark-mode .estatistica-card,
+body.dark-mode .resumo-card {
+    background-color: #1e293b;
+    color: #f8fafc;
+}
+
+body.dark-mode .proxima-consulta h2,
+body.dark-mode .proxima-consulta h3,
+body.dark-mode .estatistica-card strong,
+body.dark-mode .estatistica-card .numero,
+body.dark-mode .resumo-card strong,
+body.dark-mode .resumo-card .numero {
+    color: #f8fafc;
+}
+
+/* Evita que botões fiquem com texto claro em fundo claro */
+body.dark-mode button {
+    color: inherit;
+}
+
+html {
+    font-size: 16px;
+    transition: font-size 0.2s ease;
+}
+
+/* --- MENU DO USUÁRIO COM SETA (∨) --- */
+.user-menu-wrapper {
+    position: relative;
+}
+
+.user-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.user-trigger:hover {
+    background-color: rgba(20, 57, 79, 0.08);
+}
+
+.avatar-bolinha {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #14394F;
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.nome-usuario {
+    white-space: nowrap;
+}
+
+.user-seta {
+    font-size: 0.75rem;
+    opacity: 0.75;
+    transition: transform 0.2s ease;
+}
+
+.user-trigger.aberto .user-seta {
+    transform: rotate(180deg);
+}
+
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 145px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 6px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.14);
+    z-index: 1200;
+}
+
+.user-dropdown.aberto {
+    display: block;
+}
+
+.btn-sair {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 12px;
+    color: #b91c1c;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.15s ease;
+}
+
+.btn-sair:hover {
+    background-color: #fef2f2;
+}
+
+/* --- BARRA FLUTUANTE A+ / A- / DARK MODE --- */
+.barra-acessibilidade {
+    position: fixed;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #ffffff;
+    border-radius: 1.15rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
+    padding: 0.6rem 0.35rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+    z-index: 1100;
+}
+
+.barra-acessibilidade button {
+    background: transparent;
+    border: none;
+    color: #3b495e;
+    font-weight: 700;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s, transform 0.15s;
+}
+
+#btn-aumentar {
+    font-size: 1.15rem;
+}
+
+#btn-diminuir {
+    font-size: 0.9rem;
+}
+
+.barra-acessibilidade button:hover {
+    background-color: rgba(0, 153, 255, 0.14);
+    color: #0099ff;
+}
+
+.barra-acessibilidade button:active {
+    transform: scale(0.94);
+}
+
+/* --- DARK MODE NO DASHBOARD --- */
+body.dark-mode {
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+
+body.dark-mode .header,
+body.dark-mode .cartaoConsulta,
+body.dark-mode .barra-acessibilidade,
+body.dark-mode .user-dropdown,
+body.dark-mode dialog {
+    background-color: #1e293b;
+    color: #f8fafc;
+    border-color: #334155;
+}
+
+body.dark-mode .barra-acessibilidade button {
+    color: #e2e8f0;
+}
+
+body.dark-mode .user-trigger:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .btn-sair:hover {
+    background-color: rgba(185, 28, 28, 0.2);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +214,58 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f5f7fa;
     color: #183452;
+}
+
+:root {
+    --texto-titulo: #151f38;
+    --azul-marca: #0099ff;
+}
+
+body.dark-mode {
+    --texto-titulo: #f8fafc;
+}
+
+h1.logo-idade-wrap {
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-idade {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
+}
+
+.logo-icone {
+    width: 2.35rem;
+    height: 2.35rem;
+    background-color: var(--azul-marca);
+    border-radius: 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.logo-texto {
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--texto-titulo);
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+header.scrolled .logo-texto {
+    color: #ffffff;
+}
+
+.logo-mais {
+    color: var(--azul-marca);
+    margin-left: 1px;
 }
 
 .main {

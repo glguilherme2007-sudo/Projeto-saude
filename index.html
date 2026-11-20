@@ -15,408 +15,400 @@
 
 <body onresize="mudoutamanho()">
     <header class="reveal delay-1">
-        <h1><img src="img/gemini-svg.svg" alt=""></h1>
+        <h1 class="logo-idade-wrap">
+            <a href="#prin" class="logo-idade" aria-label="Página inicial idade+">
+                <span class="logo-icone" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#ffffff"/>
+                        <path d="M6.5 11.5h2.2l1.3-2.5 2.2 5 1.5-2.5h3.8" stroke="#0099ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <span class="logo-texto">idade<span class="logo-mais">+</span></span>
+            </a>
+        </h1>
 
-       <i id="burguer" class="material-symbols-outlined" onclick="clickmenu()">menu</i> 
+        <i id="burguer" class="material-symbols-outlined" onclick="clickmenu()">menu</i>
 
         <nav id="itens">
-            <a href="#prin"class="link-nav" >Inicio</a>
-            <a href="#sbm" class="link-nav" >Serviços</a>
-            <a href="#equipe" class="link-nav" >Especialistas</a>
+            <a href="#prin" class="link-nav">Inicio</a>
+            <a href="#sbm" class="link-nav">Serviços</a>
+            <a href="#equipe" class="link-nav">Especialistas</a>
             <a href="#planos" class="link-nav">Planos</a>
             <a href="#contato" class="link-nav">Contato</a>
         </nav>
 
         <div class="header-action">
             <a href="pagina-login/login.html" class="btn-agendar">
-            <span class="material-symbols-outlined">calendar_month</span> Agendar Consulta
-        </a>
+                <span class="material-symbols-outlined">calendar_month</span> Agendar Consulta
+            </a>
         </div>
-
     </header>
-      
+
     <main>
-     <section id="prin" id="topo">
-        <div id="imagem"></div>    
+        <section id="prin">
+            <div id="imagem"></div>
 
-      <div id="hero" class="reveal delay-2">
-        <span class="bdg"><i class="material-symbols-outlined">stethoscope</i>Cuidado e Maturidade </span>
-        <h2>Sua saude em primeiro lugar</h2>
-        <p>Agende sua consulta de forma rápida, humanizada e prática para garantir mais vitalidade e longevidade</p>
+            <div id="hero" class="reveal delay-2">
+                <span class="bdg"><i class="material-symbols-outlined">stethoscope</i>Cuidado e Maturidade</span>
+                <h2>Sua saude em primeiro lugar</h2>
+                <p>Agende sua consulta de forma rápida, humanizada e prática para garantir mais vitalidade e longevidade</p>
 
-        <div class="hero-btns">
-            <a href="pagina-login/login.html" class="btnp">Agendar sua consulta</a>
-            <a href="#sbm" class="btns">Saiba mais </a>
-        </div>
-        
-      </div>
-    </section>
-
-    <section id="stats" class="reveal delay-3">
-        <div class="stats-container">
-
-            <div class="stat-item">
-                <strong>+15 mil</strong>
-                <span>Atendimentos Realizados</span>
-            </div>
-
-            <div class="stat-item">
-                <strong>99%</strong>
-                <span>Satisfação dos Pacientes</span>
-            </div>
-
-            <div class="stat-item">
-                <strong>24h</strong>
-                <span>Suporte Medico de Emergencia</span>
-            </div>
-
-            <div class="stat-item">
-                <strong>100%</strong>
-                <span>Foco na Terceira Idade</span>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="sbm">
-        <span class="sbm-eyebrow">Especialidades & Atendimento</span>
-        <h3>Cuidados Especializados para Cada Necessidade</h3>
-        <p class="sbm-sub">Nossa estrutura é preparada para oferecer acompanhamento humanizado, seguro e focado na longevidade com qualidade de vida.</p>
-
-    <div id="cardc">
-
-        <div class="card" tabindex="0" role="button"
-             data-icone="accessibility_new"
-             data-titulo="Prevenção de Quedas & Mobilidade"
-             data-texto="Programa completo focado no fortalecimento muscular, equilíbrio dinâmico e revisão dos ambientes da residência para eliminar riscos de tropeço. Inclui plano de exercícios individualizado.">
-            <div class="card-img-top">
-                <img src="img/quedas-em-idosos-como-prevenir-scaled.webp" alt="">
-                <div class="card-badge">
-                    <span class="material-symbols-outlined">accessibility_new</span>
+                <div class="hero-btns">
+                    <a href="pagina-login/login.html" class="btnp">Agendar sua consulta</a>
+                    <a href="#sbm" class="btns">Saiba mais</a>
                 </div>
             </div>
-            <div class="cardif">
-                <h4>Prevenção de Quedas & Mobilidade</h4>
-                <p>Avaliação postural, fortalecimento muscular e orientação para adaptação da casa a fim de evitar acidentes domésticos e preservar autonomia.</p>
-                <span class="card-link">Saiba mais ›</span>
-            </div>
-        </div>
+        </section>
 
-        <div class="card" tabindex="0" role="button"
-             data-icone="orthopedics"
-             data-titulo="Osteoporose & Osteopenia"
-             data-texto="Tratamento integrativo com endocrinologistas e ortopedistas. Acompanhamento com densitometria óssea periódica, suplementação orientada e fisioterapia preventiva.">
-            <div class="card-img-top">
-                <img src="img/images.jpg" alt="">
-                <div class="card-badge">
-                    <span class="material-symbols-outlined">orthopedics</span>
+        <section id="stats" class="reveal delay-3">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <strong>+15 mil</strong>
+                    <span>Atendimentos Realizados</span>
+                </div>
+                <div class="stat-item">
+                    <strong>99%</strong>
+                    <span>Satisfação dos Pacientes</span>
+                </div>
+                <div class="stat-item">
+                    <strong>24h</strong>
+                    <span>Suporte Medico de Emergencia</span>
+                </div>
+                <div class="stat-item">
+                    <strong>100%</strong>
+                    <span>Foco na Terceira Idade</span>
                 </div>
             </div>
-            <div class="cardif">
-                <h4>Osteoporose & Osteopenia</h4>
-                <p>Diagnóstico precoce, acompanhamento de densidade óssea e tratamentos específicos para redução do risco de fraturas em idosos.</p>
-                <span class="card-link">Saiba mais ›</span>
-            </div>
-        </div>
+        </section>
 
-        <div class="card" tabindex="0" role="button"
-             data-icone="medical_services"
-             data-titulo="Check-up Geriátrico Preventivo"
-             data-texto="Avaliação global do idoso realizada por equipe multidisciplinar. Inclui exames laboratoriais, avaliação cardiológica, ajuste de medicação e diretrizes de hábitos saudáveis.">
-            <div class="card-img-top">
-                <img src="img/fVmmvelZp20oLOmFK2XVLVkYp6KlCbiUjg9aUPn1.jpeg" alt="">
-                <div class="card-badge">
-                    <span class="material-symbols-outlined">medical_services</span>
-                </div>
-            </div>
-            <div class="cardif">
-                <h4>Check-up Geriátrico</h4>
-                <p>Exames periódicos e acompanhamento global focado no controle de hipertensão, diabetes, coração e saúde metabólica geral.</p>
-                <span class="card-link">Saiba mais ›</span>
-            </div>
-        </div>
+        <section id="sbm">
+            <span class="sbm-eyebrow">Especialidades & Atendimento</span>
+            <h3>Cuidados Especializados para Cada Necessidade</h3>
+            <p class="sbm-sub">Nossa estrutura é preparada para oferecer acompanhamento humanizado, seguro e focado na longevidade com qualidade de vida.</p>
 
-        <div class="card" tabindex="0" role="button"
-             data-icone="psychology"
-             data-titulo="Estímulo Cognitivo & Memória"
-             data-texto="Sessões individuais ou em pequenos grupos com neuropsicólogos. Utiliza dinâmicas de estimulação cerebral, jogos cognitivos e estratégias para fortalecer a memória do dia a dia.">
-            <div class="card-img-top">
-                <img src="img/estimulacaocognitiva-alzheimer-1024x683-1024x683.webp" alt="">
-                <div class="card-badge">
-                    <span class="material-symbols-outlined">psychology</span>
-                </div>
-            </div>
-            <div class="cardif">
-                <h4>Estímulo Cognitivo & Memória</h4>
-                <p>Exercícios lúdicos e acompanhamento neurológico preventivo para preservação de memória, raciocínio e prevenção do declínio cognitivo.</p>
-                <span class="card-link">Saiba mais ›</span>
-            </div>
-        </div>
-
-    </div>
-</section>   
-<section id="equipe">
-    <span class="eq-eyebrow">Equipe multidisciplinar</span>
-    <h3>Conheça Nossos Especialistas</h3>
-    <p class="eq-sub">Profissionais experientes e dedicados ao atendimento acolhedor no Rio de Janeiro, em consultório ou no conforto do seu lar.</p>
-
-    <div id="eq-grid">
-        <article class="eq-card">
-             <img class="eq-foto" src="img/roberto.avif" alt="Dr. Roberto Vasconcelos">
-            <span class="eq-area">Geriatria &amp; Clínica Médica</span>
-            <h4>Dr Roberto Vasconcelos</h4>
-            <span class="eq-reg">CRM-RJ 52.84910-2</span>
-            <p>Mais de 18 anos de expeiência em longevidade ativa, controle de doenças crônicas e acompanhamento domiciliar humanizado.</p>
-            <a href="agendar.html" class="eq-btn">Agendar com Dr. Roberto</a>
-        </article>
-
-        <article class="eq-card">
-            <img class="eq-foto" src="img/helena.avif" alt="">
-            <span class="eq-area">Fisioterapia &amp; Reabilitação</span>
-            <h4>Dra. Helena Monteiro</h4>
-            <span class="eq-reg">CREFITO-2 142890-F</span>
-            <p>Especialista em prevenção de quedas, equilíbrio postural, fortalecimento muscular e recuperação pós-operatória na terceira idade.</p>
-            <a href="agendar.html" class="eq-btn">Agendar com Dra. Helena</a>
-        </article>
-
-        <article class="eq-card">
-            <img class="eq-foto" src="img/camila.avif" alt="">
-            <span class="eq-area">Neuropsicologia &amp; Memória</span>
-            <h4>Dra. Camila Rezende</h4>
-            <span class="eq-reg">CRP 05/49812</span>
-            <p>Focada em estimulação cognitiva preventiva, avaliação neuropsicológica e suporte emocional integrado aos pacientes e familiares.</p>
-            <a href="agendar.html" class="eq-btn">Agendar com Dra. Camila Rezende</a>
-        </article>
-    </div>
-</section>
-
-    <section id="planos">
-        <span class="plan-eyebrow">Assinaturas & Coberturas</span>
-        <h3>Planos Pensados para a Sua tranquilidade</h3>
-        <p class="plan-sub">Escolha a cobertura ideal para você ou para os seus pais. Sem carência e sem burocracia.</p>
-
-        <div id="plan-grid">
-            <div class="plan">
-                <h4>Plano Básico Vital</h4>
-                <p class="plan-desc">Ideal para acompanhamento de rotina preventivo.</p>
-                <div class="plan-price">R$ 149<small>/mês</small></div>
-
-                <ul class="plan-list">
-                    <li><span class="material-symbols-outlined">check</span>1 Consulta geriátrica presencial/mês</li>
-                    <li><span class="material-symbols-outlined">check</span>Central de atendimento em horário comercial</li>
-                    <li><span class="material-symbols-outlined">check</span>Desconto em exames laboratoriais parceiros</li>
-                    <li class="off"><span class="material-symbols-outlined">check</span>Atendimento em domicílio</li>
-                </ul>
-
-                <a href="#" class="plan-btn">Selecionar Plano</a>
-            </div>
-
-            <div class="plan plan-destaque">
-            <span class="plan-tag">Mais recomendado</span>
-            <h4>Plano Cuidados+</h4>
-            <p class="plan-desc">Proteção completa e suporte de saúde contínuo.</p>
-            <div class="plan-price">R$ 289 <small>/mês</small></div>
-
-            <ul class="plan-list">
-                <li><span class="material-symbols-outlined">check</span>2 Consultas presenciais ou online/mês</li>
-                <li><span class="material-symbols-outlined">check</span>Telemedicina 24 horas por dia (Médico na tela)</li>
-                <li><span class="material-symbols-outlined">check</span>Check-up laboratorial completo anual</li>
-                <li><span class="material-symbols-outlined">check</span>Monitoramento de medicamentos via App</li>
-            </ul>
-
-            <a href="#" class="plan-btn plan-btn-azul">Quero este Plano</a>
-        </div>
-            <div class="plan">
-                <h4>Plano Família Total</h4>
-                <p class="plan-desc">Atendimento domiciliar vip e equipe multidisciplinar.</p>
-            <div class="plan-price">R$ 499 <small>/mês</small></div>
-
-            <ul class="plan-list">
-                <li><span class="material-symbols-outlined">check</span>Consultas ilimitadas presenciais/online</li>
-                <li><span class="material-symbols-outlined">check</span>Visita médica domiciliar mensal inclusa</li>
-                <li><span class="material-symbols-outlined">check</span>Fisioterapia e Nutrição geriátrica</li>
-                <li><span class="material-symbols-outlined">check</span>Gerente de saúde dedicado para a família</li>
-            </ul>
-
-            <a href="#" class="plan-btn">Selecionar Plano</a>
-        </div>
-            </div>
-        </div>
-    </section>
-<section id="relato">
-    <span class="rl-eyebrow">Histórias Reais</span>
-    <h3>Quem Confia no Cuidado Idade+</h3>
-    <p class="rl-sub">Veja o relato de pacientes e familiares que transformaram sua rotina de saúde conosco.</p>
-
-    <div id="rl-grid">
-
-        <article class="rl-card">
-            <div class="rl-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="rl-texto">"Consegui agendar o check-up completo do meu pai em menos de 2 minutos. O médico foi super paciente, explicou cada exame com calma e ajustou a medicação dele."</p>
-            <div class="rl-autor">
-                <span class="rl-avatar">MC</span>
-                <div>
-                    <strong>Mariana Costa</strong>
-                    <small>Filha de paciente • Tijuca, RJ</small>
-                </div>
-            </div>
-        </article>
-
-        <article class="rl-card">
-            <div class="rl-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="rl-texto">"Depois que comecei a fisioterapia de prevenção de quedas pela Idade+, recuperei minha segurança para caminhar na praia e subir escadas sem medo."</p>
-            <div class="rl-autor">
-                <span class="rl-avatar rl-avatar-escuro">AS</span>
-                <div>
-                    <strong>Sr. Antônio Silva, 74 anos</strong>
-                    <small>Paciente Plano Cuidados+ • Copacabana, RJ</small>
-                </div>
-            </div>
-        </article>
-
-        <article class="rl-card">
-            <div class="rl-stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <p class="rl-texto">"A telemedicina 24h já nos salvou em um domingo à noite quando minha mãe teve um pico de pressão. Atendimento imediato e muito humano."</p>
-            <div class="rl-autor">
-                <span class="rl-avatar">RL</span>
-                <div>
-                    <strong>Ricardo Lima</strong>
-                    <small>Familiar • Barra da Tijuca, RJ</small>
-                </div>
-            </div>
-        </article>
-
-    </div>
-</section>
-
-
-    <section id="contato">
-    <div class="contato-container">
-
-        <div class="faq">
-            <span class="contato-eyebrow">Central de Suporte</span>
-            <h3>Perguntas Frequentes</h3>
-            <p class="contato-sub">Tire suas dúvidas mais comuns sobre o atendimento geriátrico e funcionamento dos nossos serviços.</p>
-
-            <details class="faq-item" closed>
-                <summary>Como funciona a consulta agendada para idosos?
-                    <span class="material-symbols-outlined">expand_less</span>
-                </summary>
-                <p>Nossas consultas têm duração estendida (mínimo de 50 minutos) para permitir escuta atenta, avaliação minuciosa dos remédios em uso e acolhimento dos familiares.</p>
-            </details>
-
-            <details class="faq-item" closed>
-                <summary>Vocês atendem em domicílio?
-                    <span class="material-symbols-outlined">expand_less</span>
-                </summary>
-                <p>Sim! Para pacientes com dificuldade de locomoção, disponibilizamos visitas médicas e fisioterapêuticas no conforto do lar através do Plano Família ou agendamento avulso.</p>
-            </details>
-
-            <details class="faq-item" closed>
-                <summary>Aceitam convênios ou planos de saúde?
-                    <span class="material-symbols-outlined">expand_less</span>
-                </summary>
-                <p>Trabalhamos no modelo particular com emissão de nota fiscal para reembolso integral ou parcial junto ao seu convênio médico.</p>
-            </details>
-
-            <details class="faq-item" closed>
-                <summary>Como solicitar auxílio de suporte imediato?
-                    <span class="material-symbols-outlined">expand_less</span>
-                </summary>
-                <p>Assinantes têm acesso ao suporte 24h pelo telefone ou pelo WhatsApp, com orientação médica imediata e encaminhamento quando necessário.</p>
-            </details>
-        </div>
-
-        
-        <div class="contato-form">
-            <h3>Fale Conosco</h3>
-            <p class="contato-sub">Preencha os campos abaixo e entraremos em contato rapidamente.</p>
-
-            <form action="#" method="post">
-                <label for="nome">Nome Completo</label>
-                <input type="text" id="nome" name="nome" placeholder="Ex: Maria Silva" required>
-
-                <div class="form-row">
-                    <div>
-                        <label for="tel">Telefone / WhatsApp</label>
-                        <input type="tel" id="tel" name="tel" placeholder="(21) 99999-8888" required>
+            <div id="cardc">
+                <div class="card" tabindex="0" role="button"
+                     data-icone="accessibility_new"
+                     data-titulo="Prevenção de Quedas & Mobilidade"
+                     data-texto="Programa completo focado no fortalecimento muscular, equilíbrio dinâmico e revisão dos ambientes da residência para eliminar riscos de tropeço. Inclui plano de exercícios individualizado.">
+                    <div class="card-img-top">
+                        <img src="img/quedas-em-idosos-como-prevenir-scaled.webp" alt="">
+                        <div class="card-badge">
+                            <span class="material-symbols-outlined">accessibility_new</span>
+                        </div>
                     </div>
-                    <div>
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="nome@exemplo.com">
+                    <div class="cardif">
+                        <h4>Prevenção de Quedas & Mobilidade</h4>
+                        <p>Avaliação postural, fortalecimento muscular e orientação para adaptação da casa a fim de evitar acidentes domésticos e preservar autonomia.</p>
+                        <span class="card-link">Saiba mais ›</span>
                     </div>
                 </div>
 
-                <label for="msg">Como podemos ajudar?</label>
-                <textarea id="msg" name="msg" rows="4" placeholder="Descreva brevemente o que precisa..."></textarea>
+                <div class="card" tabindex="0" role="button"
+                     data-icone="orthopedics"
+                     data-titulo="Osteoporose & Osteopenia"
+                     data-texto="Tratamento integrativo com endocrinologistas e ortopedistas. Acompanhamento com densitometria óssea periódica, suplementação orientada e fisioterapia preventiva.">
+                    <div class="card-img-top">
+                        <img src="img/images.jpg" alt="">
+                        <div class="card-badge">
+                            <span class="material-symbols-outlined">orthopedics</span>
+                        </div>
+                    </div>
+                    <div class="cardif">
+                        <h4>Osteoporose & Osteopenia</h4>
+                        <p>Diagnóstico precoce, acompanhamento de densidade óssea e tratamentos específicos para redução do risco de fraturas em idosos.</p>
+                        <span class="card-link">Saiba mais ›</span>
+                    </div>
+                </div>
 
-                <button type="submit" class="btn-enviar">
-                    <span class="material-symbols-outlined">send</span> Enviar Mensagem
-                </button>
-            </form>
+                <div class="card" tabindex="0" role="button"
+                     data-icone="medical_services"
+                     data-titulo="Check-up Geriátrico Preventivo"
+                     data-texto="Avaliação global do idoso realizada por equipe multidisciplinar. Inclui exames laboratoriais, avaliação cardiológica, ajuste de medicação e diretrizes de hábitos saudáveis.">
+                    <div class="card-img-top">
+                        <img src="img/fVmmvelZp20oLOmFK2XVLVkYp6KlCbiUjg9aUPn1.jpeg" alt="">
+                        <div class="card-badge">
+                            <span class="material-symbols-outlined">medical_services</span>
+                        </div>
+                    </div>
+                    <div class="cardif">
+                        <h4>Check-up Geriátrico</h4>
+                        <p>Exames periódicos e acompanhamento global focado no controle de hipertensão, diabetes, coração e saúde metabólica geral.</p>
+                        <span class="card-link">Saiba mais ›</span>
+                    </div>
+                </div>
 
-            <div class="contato-links">
-                <a href="https://wa.me/5511999998888" target="_blank" class="link-whats">
-                    <i class="fab fa-whatsapp"></i> Falar no WhatsApp
-                </a>
-                <a href="tel:08001234567" class="link-tel">
-                    <span class="material-symbols-outlined">call</span> Ligar: 0800 123 4567
-                </a>
+                <div class="card" tabindex="0" role="button"
+                     data-icone="psychology"
+                     data-titulo="Estímulo Cognitivo & Memória"
+                     data-texto="Sessões individuais ou em pequenos grupos com neuropsicólogos. Utiliza dinâmicas de estimulação cerebral, jogos cognitivos e estratégias para fortalecer a memória do dia a dia.">
+                    <div class="card-img-top">
+                        <img src="img/estimulacaocognitiva-alzheimer-1024x683-1024x683.webp" alt="">
+                        <div class="card-badge">
+                            <span class="material-symbols-outlined">psychology</span>
+                        </div>
+                    </div>
+                    <div class="cardif">
+                        <h4>Estímulo Cognitivo & Memória</h4>
+                        <p>Exercícios lúdicos e acompanhamento neurológico preventivo para preservação de memória, raciocínio e prevenção do declínio cognitivo.</p>
+                        <span class="card-link">Saiba mais ›</span>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
 
-    </div>
-</section>
+        <section id="equipe">
+            <span class="eq-eyebrow">Equipe multidisciplinar</span>
+            <h3>Conheça Nossos Especialistas</h3>
+            <p class="eq-sub">Profissionais experientes e dedicados ao atendimento acolhedor no Rio de Janeiro, em consultório ou no conforto do seu lar.</p>
 
-  </main>
+            <div id="eq-grid">
+                <article class="eq-card">
+                    <img class="eq-foto" src="img/roberto.avif" alt="Dr. Roberto Vasconcelos">
+                    <span class="eq-area">Geriatria &amp; Clínica Médica</span>
+                    <h4>Dr Roberto Vasconcelos</h4>
+                    <span class="eq-reg">CRM-RJ 52.84910-2</span>
+                    <p>Mais de 18 anos de expeiência em longevidade ativa, controle de doenças crônicas e acompanhamento domiciliar humanizado.</p>
+                    <a href="agendar.html" class="eq-btn">Agendar com Dr. Roberto</a>
+                </article>
 
+                <article class="eq-card">
+                    <img class="eq-foto" src="img/helena.avif" alt="">
+                    <span class="eq-area">Fisioterapia &amp; Reabilitação</span>
+                    <h4>Dra. Helena Monteiro</h4>
+                    <span class="eq-reg">CREFITO-2 142890-F</span>
+                    <p>Especialista em prevenção de quedas, equilíbrio postural, fortalecimento muscular e recuperação pós-operatória na terceira idade.</p>
+                    <a href="agendar.html" class="eq-btn">Agendar com Dra. Helena</a>
+                </article>
+
+                <article class="eq-card">
+                    <img class="eq-foto" src="img/camila.avif" alt="">
+                    <span class="eq-area">Neuropsicologia &amp; Memória</span>
+                    <h4>Dra. Camila Rezende</h4>
+                    <span class="eq-reg">CRP 05/49812</span>
+                    <p>Focada em estimulação cognitiva preventiva, avaliação neuropsicológica e suporte emocional integrado aos pacientes e familiares.</p>
+                    <a href="agendar.html" class="eq-btn">Agendar com Dra. Camila Rezende</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="planos">
+            <span class="plan-eyebrow">Assinaturas & Coberturas</span>
+            <h3>Planos Pensados para a Sua tranquilidade</h3>
+            <p class="plan-sub">Escolha a cobertura ideal para você ou para os seus pais. Sem carência e sem burocracia.</p>
+
+            <div id="plan-grid">
+                <div class="plan">
+                    <h4>Plano Básico Vital</h4>
+                    <p class="plan-desc">Ideal para acompanhamento de rotina preventivo.</p>
+                    <div class="plan-price">R$ 149<small>/mês</small></div>
+
+                    <ul class="plan-list">
+                        <li><span class="material-symbols-outlined">check</span>1 Consulta geriátrica presencial/mês</li>
+                        <li><span class="material-symbols-outlined">check</span>Central de atendimento em horário comercial</li>
+                        <li><span class="material-symbols-outlined">check</span>Desconto em exames laboratoriais parceiros</li>
+                        <li class="off"><span class="material-symbols-outlined">check</span>Atendimento em domicílio</li>
+                    </ul>
+
+                    <a href="#" class="plan-btn">Selecionar Plano</a>
+                </div>
+
+                <div class="plan plan-destaque">
+                    <span class="plan-tag">Mais recomendado</span>
+                    <h4>Plano Cuidados+</h4>
+                    <p class="plan-desc">Proteção completa e suporte de saúde contínuo.</p>
+                    <div class="plan-price">R$ 289 <small>/mês</small></div>
+
+                    <ul class="plan-list">
+                        <li><span class="material-symbols-outlined">check</span>2 Consultas presenciais ou online/mês</li>
+                        <li><span class="material-symbols-outlined">check</span>Telemedicina 24 horas por dia (Médico na tela)</li>
+                        <li><span class="material-symbols-outlined">check</span>Check-up laboratorial completo anual</li>
+                        <li><span class="material-symbols-outlined">check</span>Monitoramento de medicamentos via App</li>
+                    </ul>
+
+                    <a href="#" class="plan-btn plan-btn-azul">Quero este Plano</a>
+                </div>
+
+                <div class="plan">
+                    <h4>Plano Família Total</h4>
+                    <p class="plan-desc">Atendimento domiciliar vip e equipe multidisciplinar.</p>
+                    <div class="plan-price">R$ 499 <small>/mês</small></div>
+
+                    <ul class="plan-list">
+                        <li><span class="material-symbols-outlined">check</span>Consultas ilimitadas presenciais/online</li>
+                        <li><span class="material-symbols-outlined">check</span>Visita médica domiciliar mensal inclusa</li>
+                        <li><span class="material-symbols-outlined">check</span>Fisioterapia e Nutrição geriátrica</li>
+                        <li><span class="material-symbols-outlined">check</span>Gerente de saúde dedicado para a família</li>
+                    </ul>
+
+                    <a href="#" class="plan-btn">Selecionar Plano</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="relato">
+            <span class="rl-eyebrow">Histórias Reais</span>
+            <h3>Quem Confia no Cuidado Idade+</h3>
+            <p class="rl-sub">Veja o relato de pacientes e familiares que transformaram sua rotina de saúde conosco.</p>
+
+            <div id="rl-grid">
+                <article class="rl-card">
+                    <div class="rl-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="rl-texto">"Consegui agendar o check-up completo do meu pai em menos de 2 minutos. O médico foi super paciente, explicou cada exame com calma e ajustou a medicação dele."</p>
+                    <div class="rl-autor">
+                        <span class="rl-avatar">MC</span>
+                        <div>
+                            <strong>Mariana Costa</strong>
+                            <small>Filha de paciente • Tijuca, RJ</small>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="rl-card">
+                    <div class="rl-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="rl-texto">"Depois que comecei a fisioterapia de prevenção de quedas pela Idade+, recuperei minha segurança para caminhar na praia e subir escadas sem medo."</p>
+                    <div class="rl-autor">
+                        <span class="rl-avatar rl-avatar-escuro">AS</span>
+                        <div>
+                            <strong>Sr. Antônio Silva, 74 anos</strong>
+                            <small>Paciente Plano Cuidados+ • Copacabana, RJ</small>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="rl-card">
+                    <div class="rl-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="rl-texto">"A telemedicina 24h já nos salvou em um domingo à noite quando minha mãe teve um pico de pressão. Atendimento imediato e muito humano."</p>
+                    <div class="rl-autor">
+                        <span class="rl-avatar">RL</span>
+                        <div>
+                            <strong>Ricardo Lima</strong>
+                            <small>Familiar • Barra da Tijuca, RJ</small>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="contato">
+            <div class="contato-container">
+                <div class="faq">
+                    <span class="contato-eyebrow">Central de Suporte</span>
+                    <h3>Perguntas Frequentes</h3>
+                    <p class="contato-sub">Tire suas dúvidas mais comuns sobre o atendimento geriátrico e funcionamento dos nossos serviços.</p>
+
+                    <details class="faq-item">
+                        <summary>Como funciona a consulta agendada para idosos?
+                            <span class="material-symbols-outlined">expand_less</span>
+                        </summary>
+                        <p>Nossas consultas têm duração estendida (mínimo de 50 minutos) para permitir escuta atenta, avaliação minuciosa dos remédios em uso e acolhimento dos familiares.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Vocês atendem em domicílio?
+                            <span class="material-symbols-outlined">expand_less</span>
+                        </summary>
+                        <p>Sim! Para pacientes com dificuldade de locomoção, disponibilizamos visitas médicas e fisioterapêuticas no conforto do lar através do Plano Família ou agendamento avulso.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Aceitam convênios ou planos de saúde?
+                            <span class="material-symbols-outlined">expand_less</span>
+                        </summary>
+                        <p>Trabalhamos no modelo particular com emissão de nota fiscal para reembolso integral ou parcial junto ao seu convênio médico.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Como solicitar auxílio de suporte imediato?
+                            <span class="material-symbols-outlined">expand_less</span>
+                        </summary>
+                        <p>Assinantes têm acesso ao suporte 24h pelo telefone ou pelo WhatsApp, com orientação médica imediata e encaminhamento quando necessário.</p>
+                    </details>
+                </div>
+
+                <div class="contato-form">
+                    <h3>Fale Conosco</h3>
+                    <p class="contato-sub">Preencha os campos abaixo e entraremos em contato rapidamente.</p>
+
+                    <form action="#" method="post">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" placeholder="Ex: Maria Silva" required>
+
+                        <div class="form-row">
+                            <div>
+                                <label for="tel">Telefone / WhatsApp</label>
+                                <input type="tel" id="tel" name="tel" placeholder="(21) 99999-8888" required>
+                            </div>
+                            <div>
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" placeholder="nome@exemplo.com">
+                            </div>
+                        </div>
+
+                        <label for="msg">Como podemos ajudar?</label>
+                        <textarea id="msg" name="msg" rows="4" placeholder="Descreva brevemente o que precisa..."></textarea>
+
+                        <button type="submit" class="btn-enviar">
+                            <span class="material-symbols-outlined">send</span> Enviar Mensagem
+                        </button>
+                    </form>
+
+                    <div class="contato-links">
+                        <a href="https://wa.me/5511999998888" target="_blank" class="link-whats">
+                            <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+                        </a>
+                        <a href="tel:08001234567" class="link-tel">
+                            <span class="material-symbols-outlined">call</span> Ligar: 0800 123 4567
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <div class="voltar-topo">
         <a href="#prin" class="btn-topo">↑ Voltar ao topo</a>
     </div>
 
-     <footer class="footer">
-    <div class="footer-container">
-
-        <div class="footer-col">
-            <div class="footer-logo">
-                <span class="footer-logo-icon"><i class="fas fa-heart-pulse"></i></span>
-                <h2 class="ft">idade+</h2>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <span class="footer-logo-icon"><i class="fas fa-heart-pulse"></i></span>
+                    <h2 class="ft">idade+</h2>
+                </div>
+                <p>Compromisso com a saúde, dignidade e vitalidade dos idosos. Atendimento especializado presencial e online.</p>
             </div>
-            <p>Compromisso com a saúde, dignidade e vitalidade dos idosos. Atendimento especializado presencial e online.</p>
+
+            <div class="footer-col">
+                <h3 class="ft">Links Rápidos</h3>
+                <ul>
+                    <li><a href="#prin">Início</a></li>
+                    <li><a href="#sbm">Serviços e Especialidades</a></li>
+                    <li><a href="#contato">Contato &amp; Suporte</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="ft">Contato &amp; Suporte</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-phone"></i> 0800 123 4567</li>
+                    <li><i class="fab fa-whatsapp"></i> (11) 99999-8888</li>
+                    <li><i class="fas fa-envelope"></i> contato@idadeplus.com.br</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="footer-col">
-            <h3 class="ft">Links Rápidos</h3>
-            <ul>
-                <li><a href="#prin">Início</a></li>
-                <li><a href="#sbm">Serviços e Especialidades</a></li>
-                <li><a href="#contato">Contato &amp; Suporte</a></li>
-            </ul>
+        <div class="footer-bottom">
+            <p>&copy; 2026 idade+ Saúde e Geriatria. Todos os direitos reservados.</p>
         </div>
-
-        <div class="footer-col">
-            <h3 class="ft">Contato &amp; Suporte</h3>
-            <ul class="footer-contact">
-                <li><i class="fas fa-phone"></i> 0800 123 4567</li>
-                <li><i class="fab fa-whatsapp"></i> (11) 99999-8888</li>
-                <li><i class="fas fa-envelope"></i> contato@idadeplus.com.br</li>
-            </ul>
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
-        <p>&copy; 2026 idade+ Saúde e Geriatria. Todos os direitos reservados.</p>
-    </div>
-</footer>   
-
+    </footer>
 
     <div class="modal-overlay" id="modal-servico">
         <div class="modal-box">
@@ -435,9 +427,20 @@
         </div>
     </div>
 
-<script src="script/inicio.js"></script>
+    <aside class="barra-acessibilidade" aria-label="Controles de acessibilidade">
+        <button type="button" id="btn-aumentar" title="Aumentar tamanho da fonte" aria-label="Aumentar tamanho da fonte">
+            A+
+        </button>
+        <button type="button" id="btn-diminuir" title="Diminuir tamanho da fonte" aria-label="Diminuir tamanho da fonte">
+            A-
+        </button>
+        <button type="button" id="btn-tema" title="Alternar modo escuro" aria-label="Alternar modo escuro">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18V4c4.41 0 8 3.59 8 8s-3.59 8-8 8z"/>
+            </svg>
+        </button>
+    </aside>
 
+    <script src="script/inicio.js"></script>
 </body>
 </html>
-    
-   

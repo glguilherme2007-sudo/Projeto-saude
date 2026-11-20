@@ -28,14 +28,52 @@ function pegarInicais(nomeCompleto){
     return partes[0].slice(0, 2).toUpperCase();
 }
 
-if(usuarioLogado && divUser) {  
-    const inicial = usuarioLogado.nome ? usuarioLogado.nome.charAt(0). toUpperCase() : 'U';
+if (usuarioLogado && divUser) {
+    const inicial = usuarioLogado.nome ? usuarioLogado.nome.charAt(0).toUpperCase() : 'U';
 
     divUser.innerHTML = `
-    <div class="avatar-bolinha">${inicial}</div>
-    <span class="nome-usuario">${usuarioLogado.nome}</span>
-    <button type"button" id="btnSair">Sair</button>
-  `;
+        <div class="user-menu-wrapper">
+            <button type="button" class="user-trigger" id="btnMenuUsuario" aria-expanded="false" aria-label="Abrir menu do usuário">
+                <span class="avatar-bolinha">${inicial}</span>
+                <span class="nome-usuario">${usuarioLogado.nome}</span>
+                <i class="fa-solid fa-chevron-down user-seta" aria-hidden="true"></i>
+            </button>
+            <div class="user-dropdown" id="dropdownUsuario">
+                <button type="button" id="btnSair" class="btn-sair">
+                    <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                    Sair
+                </button>
+            </div>
+        </div>
+    `;
+
+    const btnMenuUsuario = document.getElementById("btnMenuUsuario");
+    const dropdownUsuario = document.getElementById("dropdownUsuario");
+    const btnSair = document.getElementById("btnSair");
+
+    btnMenuUsuario.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const aberto = dropdownUsuario.classList.toggle("aberto");
+        btnMenuUsuario.classList.toggle("aberto", aberto);
+        btnMenuUsuario.setAttribute("aria-expanded", String(aberto));
+    });
+
+    // Fecha o menu se clicar fora
+    document.addEventListener("click", (e) => {
+        if (!divUser.contains(e.target)) {
+            dropdownUsuario.classList.remove("aberto");
+            btnMenuUsuario.classList.remove("aberto");
+            btnMenuUsuario.setAttribute("aria-expanded", "false");
+        }
+    });
+
+    // Ação do botão Sair
+    if (btnSair) {
+        btnSair.addEventListener("click", () => {
+            localStorage.removeItem("usuarioLogado");
+            window.location.href = "pagina-login/login.html";
+        });
+    }
 }
 
 const dadosMedicos = {
@@ -296,4 +334,51 @@ function finalizarAgendamento() {
     window.location.href = "Área do Cliente zip/dashboard.html";
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    const html = document.documentElement;
+    const body = document.body;
+
+    const btnAumentar = document.getElementById("btn-aumentar");
+    const btnDiminuir = document.getElementById("btn-diminuir");
+    const btnTema = document.getElementById("btn-tema");
+
+    const FONTE_PADRAO = 16;
+    const FONTE_MIN = 14;
+    const FONTE_MAX = 22;
+    const PASSO = 2;
+
+    let tamanhoAtual = parseInt(localStorage.getItem("idadePlus_fonte"), 10) || FONTE_PADRAO;
+    html.style.fontSize = `${tamanhoAtual}px`;
+
+    if (localStorage.getItem("idadePlus_tema") === "dark") {
+        body.classList.add("dark-mode");
+    }
+
+    if (btnAumentar) {
+        btnAumentar.addEventListener("click", () => {
+            if (tamanhoAtual < FONTE_MAX) {
+                tamanhoAtual += PASSO;
+                html.style.fontSize = `${tamanhoAtual}px`;
+                localStorage.setItem("idadePlus_fonte", tamanhoAtual);
+            }
+        });
+    }
+
+    if (btnDiminuir) {
+        btnDiminuir.addEventListener("click", () => {
+            if (tamanhoAtual > FONTE_MIN) {
+                tamanhoAtual -= PASSO;
+                html.style.fontSize = `${tamanhoAtual}px`;
+                localStorage.setItem("idadePlus_fonte", tamanhoAtual);
+            }
+        });
+    }
+
+    if (btnTema) {
+        btnTema.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            localStorage.setItem("idadePlus_tema", body.classList.contains("dark-mode") ? "dark" : "light");
+        });
+    }
+});
 irParaPasso(1);

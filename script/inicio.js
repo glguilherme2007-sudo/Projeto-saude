@@ -1,70 +1,95 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const html = document.documentElement;
+    const body = document.body;
+    const header = document.querySelector("header");
 
-const menu = document.getElementById('itens');
+    // --- CONTROLE DE FONTE (A+ / A-) E DARK MODE ---
+    const btnAumentar = document.getElementById("btn-aumentar");
+    const btnDiminuir = document.getElementById("btn-diminuir");
+    const btnTema = document.getElementById("btn-tema");
 
-function mudoutamanho() {
-    if (window.innerWidth >= 768) {
-        menu.style.display = 'flex';
-    } else {
-        menu.style.display = 'none';
+    const FONTE_PADRAO = 16;
+    const FONTE_MIN = 14;
+    const FONTE_MAX = 22;
+    const PASSO = 2;
+
+    let tamanhoAtual = parseInt(localStorage.getItem("idadePlus_fonte"), 10) || FONTE_PADRAO;
+    html.style.fontSize = `${tamanhoAtual}px`;
+
+    if (localStorage.getItem("idadePlus_tema") === "dark") {
+        body.classList.add("dark-mode");
     }
-}
 
-function clickmenu() {
-    if (menu.style.display === 'block') {
-        menu.style.display = 'none';
-    } else {
-        menu.style.display = 'block';
+    if (btnAumentar) {
+        btnAumentar.addEventListener("click", () => {
+            if (tamanhoAtual < FONTE_MAX) {
+                tamanhoAtual += PASSO;
+                html.style.fontSize = `${tamanhoAtual}px`;
+                localStorage.setItem("idadePlus_fonte", tamanhoAtual);
+            }
+        });
     }
-}
 
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-
-    if (window.scrollY > 40) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
+    if (btnDiminuir) {
+        btnDiminuir.addEventListener("click", () => {
+            if (tamanhoAtual > FONTE_MIN) {
+                tamanhoAtual -= PASSO;
+                html.style.fontSize = `${tamanhoAtual}px`;
+                localStorage.setItem("idadePlus_fonte", tamanhoAtual);
+            }
+        });
     }
-});
 
-const modal = document.getElementById('modal-servico');
-const mIcone = document.getElementById('modal-icone');
-const mTitulo = document.getElementById('modal-titulo');
-const mTexto = document.getElementById('modal-texto');
+    if (btnTema) {
+        btnTema.addEventListener("click", () => {
+            body.classList.toggle("dark-mode");
+            localStorage.setItem("idadePlus_tema", body.classList.contains("dark-mode") ? "dark" : "light");
+        });
+    }
 
-function abrirModal(card) {
-    mIcone.textContent = card.dataset.icone;
-    mTitulo.textContent = card.dataset.titulo;
-    mTexto.textContent = card.dataset.texto;
-    modal.classList.add('ativo');
-    document.body.style.overflow = 'hidden';
-}
-
-function fecharModal() {
-    modal.classList.remove('ativo');
-    document.body.style.overflow = '';
-}
-
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => abrirModal(card));
-    card.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            abrirModal(card);
+    // --- SCROLL DO HEADER ---
+    window.addEventListener("scroll", () => {
+        if (header) {
+            header.classList.toggle("scrolled", window.scrollY > 40);
         }
     });
+
+    // --- MODAL DE SERVIÇOS ---
+    const modal = document.getElementById("modal-servico");
+    const modalX = document.getElementById("modal-x");
+    const modalFechar = document.getElementById("modal-fechar");
+    const modalIcone = document.getElementById("modal-icone");
+    const modalTitulo = document.getElementById("modal-titulo");
+    const modalTexto = document.getElementById("modal-texto");
+
+    function abrirModal(card) {
+        if (!modal) return;
+        modalIcone.textContent = card.dataset.icone || "medical_services";
+        modalTitulo.textContent = card.dataset.titulo || "";
+        modalTexto.textContent = card.dataset.texto || "";
+        modal.classList.add("ativo");
+    }
+
+    function fecharModal() {
+        if (!modal) return;
+        modal.classList.remove("ativo");
+    }
+
+    document.querySelectorAll("#cardc .card").forEach((card) => {
+        card.addEventListener("click", () => abrirModal(card));
+        card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                abrirModal(card);
+            }
+        });
+    });
+
+    if (modalX) modalX.addEventListener("click", fecharModal);
+    if (modalFechar) modalFechar.addEventListener("click", fecharModal);
+    if (modal) {
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) fecharModal();
+        });
+    }
 });
-
-document.getElementById('modal-x').addEventListener('click', fecharModal);
-document.getElementById('modal-fechar').addEventListener('click', fecharModal);
-
-modal.addEventListener('click', e => {
-    if (e.target === modal) fecharModal();
-});
-
-document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') fecharModal();
-});
-
-
-
