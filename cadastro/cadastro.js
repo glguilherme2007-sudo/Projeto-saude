@@ -321,7 +321,7 @@ function salvarCadastro() {
     // 4. Já salva esse novo usuário como o "usuário logado" atual (auto-login)
     localStorage.setItem('usuarioLogado', JSON.stringify(dadosCadastro));
 
-    window.location.href = '/pagina-login/login.html';
+    window.location.href = '../pagina-login/login.html';        
 }
 
 /* =========================================
