@@ -4,62 +4,6 @@ if (!usuarioLogado) {
     window.location.href = "../login.html";
 }
 
-const consultasIniciais = [
-    {
-        id: 1,
-        especialidade: "Cardiologia",
-        medico: "Dr. Carlos Mendes • CRM 12345",
-        data: "2026-11-18",
-        horario: "14:30",
-        local: "Unidade Centro — Sala 204",
-        status: "pendente"
-    },
-    {
-        id: 2,
-        especialidade: "Oftalmologia",
-        medico: "Dra. Helena Costa • CRM 67890",
-        data: "2026-11-25",
-        horario: "09:00",
-        local: "Clínica Boa Vista — 1º Andar",
-        status: "confirmada"
-    },
-    {
-        id: 3,
-        especialidade: "Dermatologia",
-        medico: "Dr. Paulo Mendes • CRM 45678",
-        data: "2026-12-02",
-        horario: "10:00",
-        local: "Unidade Centro — Sala 105",
-        status: "confirmada"
-    },
-    {
-        id: 4,
-        especialidade: "Clínica Geral",
-        medico: "Dra. Ana Souza • CRM 34567",
-        data: "2026-11-10",
-        horario: "08:30",
-        local: "Clínica Central",
-        status: "realizada"
-    },
-    {
-        id: 5,
-        especialidade: "Nutrição",
-        medico: "Dra. Maria Lima • CRN 12345",
-        data: "2026-11-05",
-        horario: "11:00",
-        local: "Unidade Norte",
-        status: "realizada"
-    },
-    {
-        id: 6,
-        especialidade: "Ortopedia",
-        medico: "Dr. João Silva • CRM 98765",
-        data: "2026-11-20",
-        horario: "15:00",
-        local: "Clínica Boa Vista",
-        status: "cancelada"
-    }
-];
 
 // Verifica se já existem consultas salvas
 let consultas = JSON.parse(localStorage.getItem("consultas"));
