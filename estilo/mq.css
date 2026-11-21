@@ -493,8 +493,33 @@ nav#itens a.link-nav-agendar {
     }
 }
 
-@media (max-width: 768px) {
+/* ===== Layout do agendamento em tela grande (acima de 768px) ===== */
+@media (min-width: 769px) {
+    .options,
+    .options-medicos,
+    .panel .options {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        width: 100%;
+    }
 
+    .option,
+    .panel .option {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* Ajuste do badge "Passo X de 4" no modo escuro */
+body.dark-mode .step-badge,
+body.dark-mode .badge-passo {
+    background-color: #1e3a5f;
+    color: #93c5fd;
+}
+
+/* ===== Ajustes no celular (até 768px) ===== */
+@media (max-width: 768px) {
     #prin,
     .hero,
     .hero-bg,
@@ -509,7 +534,6 @@ nav#itens a.link-nav-agendar {
         background-image: none !important;
         background-color: #0f172a !important;
     }
-}
 
     .page {
         padding: 16px 12px 90px;
@@ -549,8 +573,6 @@ nav#itens a.link-nav-agendar {
     .panel .options {
         display: grid !important;
         grid-template-columns: minmax(0, 1fr) !important;
-        flex-direction: column !important;
-        flex-wrap: wrap !important;
         gap: 12px !important;
         width: 100% !important;
     }
@@ -560,7 +582,6 @@ nav#itens a.link-nav-agendar {
         width: 100% !important;
         min-width: 0 !important;
         max-width: 100% !important;
-        flex: none !important;
         box-sizing: border-box !important;
     }
 }
