@@ -329,7 +329,7 @@ function finalizarAgendamento() {
     consultasSalvas.push(novaConsulta);
     localStorage.setItem("consultas", JSON.stringify(consultasSalvas));
 
-    alert("Consulta agendada com sucesso!");
+    
     window.location.href = "Área do Cliente zip/dashboard.html";
 }
 
