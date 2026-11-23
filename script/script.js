@@ -1,5 +1,5 @@
-const TOTAL_STEPS = 4
-let currentStep = 1
+const TOTAL_STEPS = 4;
+let currentStep = 1;
 
 const agendamento = {
     paciente: null,
@@ -9,17 +9,17 @@ const agendamento = {
     horario: null
 };
 
-const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
 console.log(usuarioLogado);
 
-const divUser =  document.getElementById('user');
+const divUser = document.getElementById("user");
 
-function pegarInicais(nomeCompleto){
-    if(!nomeCompleto || typeof nomeCompleto !== 'string') return 'U';
+function pegarInicais(nomeCompleto) {
+    if (!nomeCompleto || typeof nomeCompleto !== "string") return "U";
 
     const partes = nomeCompleto.trim().split(/\s+/);
 
-    if(partes.length >=2){
+    if (partes.length >= 2) {
         const primeira = partes[0].charAt(0);
         const ultima = partes[partes.length - 1].charAt(0);
         return (primeira + ultima).toUpperCase();
@@ -29,7 +29,7 @@ function pegarInicais(nomeCompleto){
 }
 
 if (usuarioLogado && divUser) {
-    const inicial = usuarioLogado.nome ? usuarioLogado.nome.charAt(0).toUpperCase() : 'U';
+    const inicial = usuarioLogado.nome ? usuarioLogado.nome.charAt(0).toUpperCase() : "U";
 
     divUser.innerHTML = `
         <div class="user-menu-wrapper">
@@ -78,111 +78,109 @@ if (usuarioLogado && divUser) {
 
 const dadosMedicos = {
     "Cardiologia": [
-     {
-        nome: "Dr. Carlos Eduardo",
-        crm: "CRM/RJ 123456",
-        horarios: ["08:30 - Segunda-feira","09:00 - Quinta-feira", "10:30 - Quinta-feira", "14:00 - Sexta-feira"]
-     },  
-     {
-        nome: "Dra. Ana Beatriz",
-        crm: "CRM/RJ 654321",
-        horarios: ["08:00 - Segunda-feira","11:00 - Segunda-feira", "11:00 - Terça-feira", "15:30 - Quarta-feira"],
-     } 
-  ],
-  "Geriatria": [
-    {
-        nome: "Dr. Roberto Silva",
-        crm: "CRM/RJ 987654",
-        horarios: ["08:30 - Segunda-feira","10:30 - Segunda-feira", "10:00 - Quarta-feira", "13:30 - Sexta-feira"],
-    },
-    {
-        nome: "Dra. Helena Monteiro",
-        crm: "CRM/RJ 985643",
-        foto: "img/medicos/camila.avif",
-        horarios: ["08:30 - Segunda-feira", "10:00 - Terça-feira","13:30 - Quarta-feira", "14:30 - Sexta-feira"],
-    }
-  ],
-  "Clinico Geral": [
-     {
-        nome: "Dr. Roberto Silva",
-        crm: "CRM/RJ 987654",
-    
-        horarios: ["08:30 - Segunda-feira","10:30 - Segunda-feira", "10:00 - Quarta-feira", "13:30 - Sexta-feira"],
-    },
-    {
-        nome: "Dra. Helena Monteiro",
-        crm: "CRM/RJ 985643",
-        horarios: ["08:30 - Segunda-feira", "10:00 - Terça-feira","13:30 - Quarta-feira", "14:30 - Sexta-feira"],
-    }
-  ],
-  "Fisioterapia": [
-     {
-        nome: "Dr. Lucas Martins",
-        crm: "CREFITO 445566",
-        horarios: ["09:00 - Terça-feira", "11:00 - Quinta-feira","13:00 - Sexta-feira", "16:00 - Sexta-feira"]
-     },
-     {
-        nome: "Dr. Vinicius Jesus",
-        crm: "CREFITO 467667",
-        horarios: ["08:30 - Segunda-feira","09:00 - Terça-feira", "11:00 - Quarta-feira", "16:00 - Quinta-feira"]
-     }   
-  ]
+        {
+            nome: "Dr. Carlos Eduardo",
+            crm: "CRM/RJ 123456",
+            horarios: ["08:30 - Segunda-feira", "09:00 - Quinta-feira", "10:30 - Quinta-feira", "14:00 - Sexta-feira"]
+        },
+        {
+            nome: "Dra. Ana Beatriz",
+            crm: "CRM/RJ 654321",
+            horarios: ["08:00 - Segunda-feira", "11:00 - Segunda-feira", "11:00 - Terça-feira", "15:30 - Quarta-feira"]
+        }
+    ],
+    "Geriatria": [
+        {
+            nome: "Dr. Roberto Silva",
+            crm: "CRM/RJ 987654",
+            horarios: ["08:30 - Segunda-feira", "10:30 - Segunda-feira", "10:00 - Quarta-feira", "13:30 - Sexta-feira"]
+        },
+        {
+            nome: "Dra. Helena Monteiro",
+            crm: "CRM/RJ 985643",
+            foto: "img/medicos/camila.avif",
+            horarios: ["08:30 - Segunda-feira", "10:00 - Terça-feira", "13:30 - Quarta-feira", "14:30 - Sexta-feira"]
+        }
+    ],
+    "Clinico Geral": [
+        {
+            nome: "Dr. Roberto Silva",
+            crm: "CRM/RJ 987654",
+            horarios: ["08:30 - Segunda-feira", "10:30 - Segunda-feira", "10:00 - Quarta-feira", "13:30 - Sexta-feira"]
+        },
+        {
+            nome: "Dra. Helena Monteiro",
+            crm: "CRM/RJ 985643",
+            horarios: ["08:30 - Segunda-feira", "10:00 - Terça-feira", "13:30 - Quarta-feira", "14:30 - Sexta-feira"]
+        }
+    ],
+    "Fisioterapia": [
+        {
+            nome: "Dr. Lucas Martins",
+            crm: "CREFITO 445566",
+            horarios: ["09:00 - Terça-feira", "11:00 - Quinta-feira", "13:00 - Sexta-feira", "16:00 - Sexta-feira"]
+        },
+        {
+            nome: "Dr. Vinicius Jesus",
+            crm: "CREFITO 467667",
+            horarios: ["08:30 - Segunda-feira", "09:00 - Terça-feira", "11:00 - Quarta-feira", "16:00 - Quinta-feira"]
+        }
+    ]
 };
 
 function normalizar(texto) {
-    return(texto || '')
-       .normalize('NFD') 
-       .replace(/[\u0300-\u036f]/g, '')
-       .trim()
-       .toLowerCase();
+    return (texto || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim()
+        .toLowerCase();
 }
 
 function buscarMedico(especialidade) {
     const chave = Object.keys(dadosMedicos)
-        .find(k => normalizar(k) === normalizar(especialidade));
-    return chave ? dadosMedicos[chave] : []; 
+        .find((k) => normalizar(k) === normalizar(especialidade));
+    return chave ? dadosMedicos[chave] : [];
 }
 
-const stepper = document.getElementById('stepper');
-const btnVoltar = document.getElementById('btn-voltar');
-const btnAvancar = document.getElementById('btn-avancar');
-const erro = document.getElementById('erro');
+const stepper = document.getElementById("stepper");
+const btnVoltar = document.getElementById("btn-voltar");
+const btnAvancar = document.getElementById("btn-avancar");
+const erro = document.getElementById("erro");
 
-const campoDoPasso = {1: 'paciente', 2: 'especialidade', 3: 'modo'};
+const campoDoPasso = { 1: "paciente", 2: "especialidade", 3: "modo" };
 
-
-document.querySelectorAll('.panel:not(#step-4) .option').forEach(card => { 
-    card.addEventListener('click', () => {
-        const panel = card.closest('.panel');
+document.querySelectorAll(".panel:not(#step-4) .option").forEach((card) => {
+    card.addEventListener("click", () => {
+        const panel = card.closest(".panel");
         const passo = Number(panel.dataset.step);
-        
-        panel.querySelectorAll('.option').forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected');
+
+        panel.querySelectorAll(".option").forEach((c) => c.classList.remove("selected"));
+        card.classList.add("selected");
 
         agendamento[campoDoPasso[passo]] = card.dataset.value;
         esconderErro();
-   });
+    });
 });
 
-btnAvancar.addEventListener('click', () => {
-    if(!validarPasso(currentStep)) return;
+btnAvancar.addEventListener("click", () => {
+    if (!validarPasso(currentStep)) return;
 
-    if(currentStep < TOTAL_STEPS) {
+    if (currentStep < TOTAL_STEPS) {
         irParaPasso(currentStep + 1);
     } else {
         finalizarAgendamento();
     }
 });
 
-btnVoltar.addEventListener('click', () => {
-    if(currentStep > 1) irParaPasso(currentStep - 1);
+btnVoltar.addEventListener("click", () => {
+    if (currentStep > 1) irParaPasso(currentStep - 1);
 });
 
 function irParaPasso(n) {
     currentStep = n;
     esconderErro();
 
-    document.querySelectorAll('.panel').forEach(p => {
+    document.querySelectorAll(".panel").forEach((p) => {
         p.hidden = Number(p.dataset.step) !== n;
     });
 
@@ -190,12 +188,12 @@ function irParaPasso(n) {
         carregarMedicos();
     }
 
-    stepper.style.setProperty('--progress', ((n - 1) * 25 + 12.5) + '%');
-    stepper.querySelectorAll('.step').forEach(s => {
+    stepper.style.setProperty("--progress", ((n - 1) * 25 + 12.5) + "%");
+    stepper.querySelectorAll(".step").forEach((s) => {
         const num = Number(s.dataset.step);
-        s.classList.toggle('active', num === n);
-        s.classList.toggle('done', num < n);
-        s.querySelector('.step-circle').innerHTML = num < n ? '<i class="fa-solid fa-check"></i>' : num;
+        s.classList.toggle("active", num === n);
+        s.classList.toggle("done", num < n);
+        s.querySelector(".step-circle").innerHTML = num < n ? '<i class="fa-solid fa-check"></i>' : num;
     });
 
     btnVoltar.disabled = n === 1;
@@ -205,26 +203,26 @@ function irParaPasso(n) {
 }
 
 function carregarMedicos() {
-    const containerMedicos = document.getElementById('container-medico'); 
-    const containerHorarios = document.getElementById('container-horarios');
+    const containerMedicos = document.getElementById("container-medico");
+    const containerHorarios = document.getElementById("container-horarios");
 
-    containerMedicos.innerHTML = '';
-    containerHorarios.style.display = 'none';
+    containerMedicos.innerHTML = "";
+    containerHorarios.style.display = "none";
     agendamento.medico = null;
     agendamento.horario = null;
 
     const especialidadeEscolhida = agendamento.especialidade;
     const medicos = buscarMedico(especialidadeEscolhida);
 
-    if(medicos.length === 0){
-        containerMedicos.innerHTML = '<p>Nenhum profissional encontrado para esta especialidade.</p>';
+    if (medicos.length === 0) {
+        containerMedicos.innerHTML = "<p>Nenhum profissional encontrado para esta especialidade.</p>";
         return;
     }
 
-    medicos.forEach(medico => {
-        const card = document.createElement('button'); 
-        card.type = 'button';
-        card.classList.add('option');
+    medicos.forEach((medico) => {
+        const card = document.createElement("button");
+        card.type = "button";
+        card.classList.add("option");
         card.innerHTML = `
             <span class="check"><i class="fa-solid fa-check"></i></span>
             <span class="option-icon"><i class="fa-solid fa-user-doctor"></i></span>
@@ -232,40 +230,40 @@ function carregarMedicos() {
             <span class="option-desc">${medico.crm}</span>
         `;
 
-        card.addEventListener('click', () => {
-            containerMedicos.querySelectorAll('.option').forEach(c => c.classList.remove('selected'));
-            card.classList.add('selected');
+        card.addEventListener("click", () => {
+            containerMedicos.querySelectorAll(".option").forEach((c) => c.classList.remove("selected"));
+            card.classList.add("selected");
             agendamento.medico = medico.nome;
-            
+
             carregarHorarios(medico.horarios);
             esconderErro();
         });
-        
+
         containerMedicos.appendChild(card);
     });
 }
 
 function carregarHorarios(horarios) {
-    const containerHorarios = document.getElementById('container-horarios');
-    const listaHorarios = document.getElementById('horarios-travados'); 
-    
-    listaHorarios.innerHTML = '';
-    containerHorarios.style.display = 'block';
+    const containerHorarios = document.getElementById("container-horarios");
+    const listaHorarios = document.getElementById("horarios-travados");
+
+    listaHorarios.innerHTML = "";
+    containerHorarios.style.display = "block";
     agendamento.horario = null;
 
-    horarios.forEach(horario => {
-        const card = document.createElement('button'); 
-        card.type = 'button';
-        card.classList.add('option');
+    horarios.forEach((horario) => {
+        const card = document.createElement("button");
+        card.type = "button";
+        card.classList.add("option");
         card.innerHTML = `
             <span class="check"><i class="fa-solid fa-check"></i></span>
             <span class="option-icon"><i class="fa-regular fa-clock"></i></span>
             <span class="option-title">${horario}</span>
         `;
 
-        card.addEventListener('click', () => {
-            listaHorarios.querySelectorAll('.option').forEach(c => c.classList.remove('selected'));
-            card.classList.add('selected');
+        card.addEventListener("click", () => {
+            listaHorarios.querySelectorAll(".option").forEach((c) => c.classList.remove("selected"));
+            card.classList.add("selected");
             agendamento.horario = horario;
             esconderErro();
         });
@@ -276,22 +274,22 @@ function carregarHorarios(horarios) {
 
 function validarPasso(n) {
     if (n <= 3 && !agendamento[campoDoPasso[n]]) {
-        mostrarErro('Selecione uma opção pra continuar.');
+        mostrarErro("Selecione uma opção para continuar.");
         return false;
     }
 
     if (n === 4) {
         if (!agendamento.medico) {
-            mostrarErro('Por favor, selecione um profissional.');
+            mostrarErro("Por favor, selecione um profissional.");
             return false;
         }
         if (!agendamento.horario) {
-            mostrarErro('Por favor, selecione um horário travado.');
+            mostrarErro("Por favor, selecione um horário disponível.");
             return false;
         }
     }
     return true;
-} 
+}
 
 function mostrarErro(msg) {
     erro.textContent = msg;
@@ -306,7 +304,7 @@ function finalizarAgendamento() {
     const consultasSalvas = JSON.parse(localStorage.getItem("consultas")) || [];
 
     const listaEspecialidade = buscarMedico(agendamento.especialidade);
-    const medicoObj = listaEspecialidade.find( m => m.nome === agendamento.medico);
+    const medicoObj = listaEspecialidade.find((m) => m.nome === agendamento.medico);
 
     const medicoFormatado = medicoObj
         ? `${medicoObj.nome} • ${medicoObj.crm}`
@@ -329,7 +327,6 @@ function finalizarAgendamento() {
     consultasSalvas.push(novaConsulta);
     localStorage.setItem("consultas", JSON.stringify(consultasSalvas));
 
-    
     window.location.href = "Área do Cliente zip/dashboard.html";
 }
 
@@ -341,43 +338,70 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnDiminuir = document.getElementById("btn-diminuir");
     const btnTema = document.getElementById("btn-tema");
 
-    const FONTE_PADRAO = 16;
+    const FONTE_PADRAO = 18;
     const FONTE_MIN = 14;
-    const FONTE_MAX = 22;
+    const FONTE_MAX = 26;
     const PASSO = 2;
 
     let tamanhoAtual = parseInt(localStorage.getItem("idadePlus_fonte"), 10) || FONTE_PADRAO;
-    html.style.fontSize = `${tamanhoAtual}px`;
+
+    function aplicarFonte(px) {
+        tamanhoAtual = Math.min(FONTE_MAX, Math.max(FONTE_MIN, px));
+        html.style.setProperty("font-size", `${tamanhoAtual}px`, "important");
+        body.style.setProperty("font-size", `${tamanhoAtual}px`, "important");
+
+        const fator = tamanhoAtual / FONTE_PADRAO;
+        document.querySelectorAll("h1, h2, h3, h4, p, label, span, button, a").forEach((el) => {
+            if (
+                el.closest(".barra-acessibilidade") ||
+                el.classList.contains("material-symbols-outlined") ||
+                el.classList.contains("fa-solid") ||
+                el.classList.contains("fa-regular")
+            ) {
+                return;
+            }
+            if (!el.dataset.baseFontSize) {
+                const computed = parseFloat(window.getComputedStyle(el).fontSize);
+                if (!Number.isNaN(computed) && computed > 0) {
+                    el.dataset.baseFontSize = String(computed);
+                }
+            }
+            if (el.dataset.baseFontSize) {
+                const base = parseFloat(el.dataset.baseFontSize);
+                el.style.fontSize = `${(base * fator).toFixed(2)}px`;
+            }
+        });
+
+        localStorage.setItem("idadePlus_fonte", String(tamanhoAtual));
+    }
+
+    aplicarFonte(tamanhoAtual);
 
     if (localStorage.getItem("idadePlus_tema") === "dark") {
         body.classList.add("dark-mode");
     }
 
     if (btnAumentar) {
-        btnAumentar.addEventListener("click", () => {
-            if (tamanhoAtual < FONTE_MAX) {
-                tamanhoAtual += PASSO;
-                html.style.fontSize = `${tamanhoAtual}px`;
-                localStorage.setItem("idadePlus_fonte", tamanhoAtual);
-            }
+        btnAumentar.addEventListener("click", (e) => {
+            e.preventDefault();
+            aplicarFonte(tamanhoAtual + PASSO);
         });
     }
 
     if (btnDiminuir) {
-        btnDiminuir.addEventListener("click", () => {
-            if (tamanhoAtual > FONTE_MIN) {
-                tamanhoAtual -= PASSO;
-                html.style.fontSize = `${tamanhoAtual}px`;
-                localStorage.setItem("idadePlus_fonte", tamanhoAtual);
-            }
+        btnDiminuir.addEventListener("click", (e) => {
+            e.preventDefault();
+            aplicarFonte(tamanhoAtual - PASSO);
         });
     }
 
     if (btnTema) {
-        btnTema.addEventListener("click", () => {
+        btnTema.addEventListener("click", (e) => {
+            e.preventDefault();
             body.classList.toggle("dark-mode");
             localStorage.setItem("idadePlus_tema", body.classList.contains("dark-mode") ? "dark" : "light");
         });
     }
 });
+
 irParaPasso(1);

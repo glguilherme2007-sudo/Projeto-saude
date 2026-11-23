@@ -85,7 +85,7 @@
         const body = document.body;
         const header = document.querySelector("header");
 
-       
+      
         const btnAumentar = document.getElementById("btn-aumentar");
         const btnDiminuir = document.getElementById("btn-diminuir");
         const btnTema = document.getElementById("btn-tema");
@@ -129,10 +129,12 @@
             });
         }
 
-        
+       
         const btnMinhasConsultas = document.getElementById("btn-minhas-consultas");
+        const btnAgendarHero = document.querySelector(".hero-btns .btnp, a.btnp");
         const ROTA_DASHBOARD_CONSULTAS = "Área do Cliente zip/dashboard.html";
-        const ROTA_LOGIN = "../pagina-login/login.html";
+        const ROTA_AGENDAR = "agendar.html";
+        const ROTA_LOGIN = "pagina-login/login.html";
 
         function usuarioEstaLogado() {
             const sessaoRaw = localStorage.getItem("idadePlus_usuario") || localStorage.getItem("usuarioLogado");
@@ -156,6 +158,16 @@
             }
         }
 
+        function irParaAgendarConsulta() {
+            if (usuarioEstaLogado()) {
+                localStorage.removeItem("idadePlus_redirect");
+                window.location.href = ROTA_AGENDAR;
+            } else {
+                localStorage.setItem("idadePlus_redirect", "agendar");
+                window.location.href = ROTA_LOGIN;
+            }
+        }
+
         window.__idadePlusIrParaConsultas = irParaMinhasConsultas;
 
         if (btnMinhasConsultas) {
@@ -165,7 +177,14 @@
             });
         }
 
-       
+        if (btnAgendarHero) {
+            btnAgendarHero.addEventListener("click", (e) => {
+                e.preventDefault();
+                irParaAgendarConsulta();
+            });
+        }
+
+        
         const { btnBurguer, navItens } = obterElementosMenu();
         atualizarVisibilidadeConsultaMobile(irParaMinhasConsultas);
 
@@ -188,13 +207,14 @@
             }
         });
 
+        
         window.addEventListener("scroll", () => {
             if (header) {
                 header.classList.toggle("scrolled", window.scrollY > 40);
             }
         });
 
-       
+        
         const modal = document.getElementById("modal-servico");
         const modalX = document.getElementById("modal-x");
         const modalFechar = document.getElementById("modal-fechar");
